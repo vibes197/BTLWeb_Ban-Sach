@@ -11,7 +11,6 @@
 
 <body>
     <div id="container">
-        <!-- HEADER -->
         <div id="header">
             <ul id="nav">
                 <img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="AyaBook">
@@ -23,13 +22,12 @@
                 <li><a href="#footer">Liên hệ với chúng tôi</a></li>
                 <li class="push-right"><a href="#"><img class="shop" src="./assets/img/trangchu/Fav.png" alt=""></a>
                 </li>
-                <li><a href="#"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt=""></a></li>
+                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt=""></a></li>
                 <button><a href="thanhtoan.html">Thanh toán</a></button>
-                <li><a href="#">Đăng Nhập</a></li>
+                <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
             </ul>
         </div>
 
-        <!-- BREADCRUMB -->
         <div class="breadcrumb" id="breadcrumb">
             <a href="index.html">Trang chủ</a>
             <span>›</span>
@@ -38,7 +36,6 @@
             <span id="bc-title">Chi tiết sách</span>
         </div>
 
-        <!-- MAIN DETAIL -->
         <div id="chitiet-main">
             <div class="chitiet-cover">
                 <img id="detail-img" src="" alt="Bìa sách">
@@ -59,7 +56,6 @@
                 </div>
 
                 <ul class="chitiet-meta" id="detail-meta">
-                    <!-- filled by JS -->
                 </ul>
 
                 <button class="btn-buy" id="btn-buy" onclick="handleBuy()">ĐẶT HÀNG NGAY</button>
@@ -67,39 +63,32 @@
             </div>
         </div>
 
-        <!-- DESCRIPTION -->
         <div id="chitiet-desc">
             <h2>MÔ TẢ</h2>
             <p id="detail-desc">Đang tải mô tả...</p>
         </div>
 
-        <!-- REVIEWS -->
         <div id="chitiet-reviews">
             <h2>ĐÁNH GIÁ</h2>
             <div class="review-list" id="review-list">
-                <!-- filled by JS -->
             </div>
         </div>
 
-        <!-- SÁCH CÙNG THỂ LOẠI -->
         <div class="related-section" id="section-cung-the-loai">
             <h2>SÁCH CÙNG THỂ LOẠI</h2>
             <div class="book-grid" id="grid-cung-the-loai"></div>
         </div>
 
-        <!-- SẢN PHẨM ĐÃ XEM -->
         <div class="related-section" id="section-da-xem" style="background:#B5DCE8;">
             <h2>SẢN PHẨM ĐÃ XEM</h2>
             <div class="book-grid" id="grid-da-xem"></div>
         </div>
 
-        <!-- SẢN PHẨM CÙNG BỘ -->
         <div class="related-section" id="section-cung-bo">
             <h2>SẢN PHẨM CÙNG BỘ</h2>
             <div class="book-grid" id="grid-cung-bo"></div>
         </div>
 
-        <!-- FOOTER -->
         <div id="footer">
             <div class="footer-container">
                 <div class="footer-column">
@@ -472,12 +461,11 @@
             { name: "Lê Minh C", stars: 5, text: "Đúng như mô tả, còn tặng thêm bookmark xinh. Mua lần hai rồi vẫn mê!" }
         ];
 
-        // ===================================================
-        //  UTILITIES
-        // ===================================================
+
         function getParam(key) {
             return new URLSearchParams(window.location.search).get(key);
         }
+
 
         function getBook(id) {
             return books.find(b => b.id === id) || books[0];
@@ -513,8 +501,10 @@
         }
 
         // ===================================================
-        //  RECENTLY VIEWED (localStorage)
+        //  RECENTLY VIEWED - LƯU RECORD LỊCH SỬ VÀO LOCAL STORAGE
         // ===================================================
+
+        // 6. Hàm saveViewed(id): Ghi nhớ ID cuốn sách người dùng Vừa Click Xem vào bộ Cookie nhớ 
         function saveViewed(id) {
             let viewed = JSON.parse(localStorage.getItem('ayaViewed') || '[]');
             viewed = [id, ...viewed.filter(v => v !== id)].slice(0, 8);
@@ -526,31 +516,24 @@
             return viewed.filter(v => v !== currentId).slice(0, 4);
         }
 
-        // ===================================================
-        //  RENDER PAGE
-        // ===================================================
         function renderPage() {
             const id = getParam('id') || 'akutami';
             const book = getBook(id);
 
             saveViewed(id);
 
-            // Breadcrumb
             document.getElementById('bc-category').textContent = book.category;
             document.getElementById('bc-title').textContent = book.title;
             document.title = book.title + ' - AyaBook';
 
-            // Cover & title
             document.getElementById('detail-img').src = book.img;
             document.getElementById('detail-img').alt = book.title;
             document.getElementById('detail-title').textContent = book.title;
 
-            // Stars
             document.getElementById('detail-stars').textContent = renderStars(book.rating) + ' ' + book.rating;
             document.getElementById('detail-rating').textContent = book.ratingCount + ' đánh giá';
             document.getElementById('detail-sold').textContent = 'Đã Bán ' + book.sold.toLocaleString('vi-VN');
 
-            // Price
             document.getElementById('detail-price').textContent = book.price;
             const origEl = document.getElementById('detail-original');
             const badgeEl = document.getElementById('detail-badge');
@@ -560,7 +543,6 @@
                 badgeEl.style.display = 'inline';
             }
 
-            // Meta
             const metaEl = document.getElementById('detail-meta');
             const metaItems = [
                 { label: 'Mã sách:', value: '2027/' + (100 + books.indexOf(book)) },
@@ -575,10 +557,8 @@
                 `<li><span>${m.label}</span>${m.value}</li>`
             ).join('');
 
-            // Description
             document.getElementById('detail-desc').textContent = book.desc;
 
-            // Reviews
             document.getElementById('review-list').innerHTML = sampleReviews.map(rv => `
             <div class="review-item">
                 <div class="review-avatar">${rv.name.charAt(0)}</div>
@@ -590,11 +570,9 @@
             </div>
         `).join('');
 
-            // Cùng thể loại
             const cungTheLoaiBooks = book.cungTheLoai.map(getBook).filter(Boolean);
             document.getElementById('grid-cung-the-loai').innerHTML = cungTheLoaiBooks.map(bookCard).join('');
 
-            // Đã xem (from localStorage)
             const viewedIds = getViewed(id);
             const viewedBooks = viewedIds.length > 0
                 ? viewedIds.map(getBook).filter(Boolean)
@@ -607,22 +585,20 @@
                 daXemSection.style.display = 'none';
             }
 
-            // Cùng bộ
             const cungBoBooks = book.cungBo.map(getBook).filter(Boolean);
             document.getElementById('grid-cung-bo').innerHTML = cungBoBooks.map(bookCard).join('');
         }
 
-        // ===================================================
-        //  CART
-        // ===================================================
         function getCurrentBook() {
             const id = getParam('id') || 'akutami';
             return getBook(id);
         }
 
         function handleAddCart() {
+            if (!requireLogin()) return;
             const book = getCurrentBook();
             let cart = JSON.parse(localStorage.getItem('ayaCart') || '[]');
+
             const existing = cart.find(i => i.id === book.id);
             if (existing) {
                 existing.qty = (existing.qty || 1) + 1;
@@ -640,25 +616,31 @@
         }
 
         function handleBuy() {
+            if (!requireLogin()) return;
             const book = getCurrentBook();
-            // Save to order page data (ayaDonHang) with qty 1
-            const orderItem = {
-                id: book.id,
-                name: book.title,
-                img: book.img,
-                price: book.price,
-                originalPrice: book.originalPrice || book.price,
-                qty: 1
-            };
-            localStorage.setItem('ayaDonHang', JSON.stringify([orderItem]));
+            let cart = JSON.parse(localStorage.getItem('ayaCart') || '[]');
+
+            const existing = cart.find(i => i.id === book.id);
+            if (existing) {
+                existing.qty = (existing.qty || 1) + 1;
+            } else {
+                cart.push({
+                    id: book.id,
+                    name: book.title,
+                    img: book.img,
+                    price: book.price,
+                    originalPrice: book.originalPrice || book.price,
+                    qty: 1
+                });
+            }
+            localStorage.setItem('ayaCart', JSON.stringify(cart));
+
             window.location.href = 'donhang.html';
         }
 
-        // ===================================================
-        //  INIT
-        // ===================================================
         renderPage();
     </script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

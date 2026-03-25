@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: url(../img/trangchu/anh_nen.png) no-repeat center;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.form-box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h2 {
+    color: #00a8cc;
+}
+
+
+.input-box {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #333;
+    background: transparent;
+    outline: none;
+}
+
+.input-box label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -10px;
+    font-size: 12px;
+    color: #00a8cc;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+a {
+    color: #00a8cc;
+    font-size: 12px;
+}
+
+
+.checkbox {
+    font-size: 12px;
+    text-align: left;
+}

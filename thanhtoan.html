@@ -13,7 +13,6 @@
 <body>
     <div id="container">
 
-        <!-- Header -->
         <div id="header">
             <ul id="nav">
                 <img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="AyaBook Logo">
@@ -28,21 +27,18 @@
                 <li><a href="#footer">Liên hệ với chúng tôi</a></li>
                 <li class="push-right"><a href="#"><img class="shop" src="./assets/img/trangchu/Fav.png"
                             alt="Yêu thích"></a></li>
-                <li><a href="giohang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png"
+                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png"
                             alt="Giỏ hàng"></a></li>
                 <button><a href="#footer">Liên hệ</a></button>
-                <li><a href="#">Đăng xuất</a></li>
+                <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
             </ul>
         </div>
         <hr>
 
-        <!-- Main content -->
         <div id="thanhtoan-main">
 
-            <!-- Left column: Payment methods + Recipient info -->
             <div class="tt-left">
 
-                <!-- Payment methods -->
                 <section class="tt-section">
                     <h2 class="tt-section-title">CHỌN PHƯƠNG THỨC THANH TOÁN</h2>
 
@@ -81,7 +77,6 @@
                     </div>
                 </section>
 
-                <!-- Recipient info -->
                 <section class="tt-section">
                     <h2 class="tt-section-title">THÔNG TIN NGƯỜI NHẬN</h2>
                     <div class="tt-divider"></div>
@@ -90,7 +85,7 @@
                         <label class="form-label">Họ và tên</label>
                         <div class="input-wrapper">
                             <span class="input-icon"><i class="ti-user"></i></span>
-                            <input type="text" class="form-input" placeholder="Nguyễn Mạnh Cường" id="full-name">
+                            <input type="text" class="form-input" placeholder="Full Name" id="full-name">
                         </div>
                     </div>
 
@@ -99,14 +94,14 @@
                             <label class="form-label">Số điện thoại</label>
                             <div class="input-wrapper">
                                 <span class="input-icon"><i class="ti-mobile"></i></span>
-                                <input type="tel" class="form-input" placeholder="0345945627" id="phone">
+                                <input type="tel" class="form-input" placeholder="0123456789" id="phone">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Email</label>
                             <div class="input-wrapper">
                                 <span class="input-icon"><i class="ti-email"></i></span>
-                                <input type="email" class="form-input" placeholder="cuongng@gmail.com" id="email">
+                                <input type="email" class="form-input" placeholder="username@gmail.com" id="email">
                             </div>
                         </div>
                     </div>
@@ -167,7 +162,6 @@
                 </section>
             </div>
 
-            <!-- Right column: Order summary -->
             <div class="tt-right">
                 <section class="tt-order-summary">
                     <h2 class="tt-order-title">THÔNG TIN ĐƠN HÀNG</h2>
@@ -210,7 +204,6 @@
 
         </div>
 
-        <!-- Footer -->
         <div id="footer">
             <div class="footer-container">
                 <div class="footer-column">
@@ -249,9 +242,7 @@
     </div>
 
     <script>
-        // Calculate totals from order/cart in localStorage
         function loadOrderSummary() {
-            // Priority: ayaDonHang (from chitiet "Đặt hàng") → ayaCart (from giỏ hàng)
             const items = JSON.parse(localStorage.getItem('ayaDonHang') || '[]');
             const cart = items.length > 0 ? items
                 : JSON.parse(localStorage.getItem('ayaCart') || '[]');
@@ -260,6 +251,7 @@
 
             let subtotal = 0;
             let originalTotal = 0;
+
             cart.forEach(item => {
                 const price = parseInt(String(item.price || '0').replace(/[^0-9]/g, ''), 10) || 0;
                 const original = parseInt(String(item.originalPrice || item.price || '0').replace(/[^0-9]/g, ''), 10) || price;
@@ -278,12 +270,19 @@
             document.getElementById('total').textContent = fmt(total);
         }
 
+        // Kiểm tra đăng nhập khi vào trang thanh toán
+        if (localStorage.getItem('loggedIn') !== 'true') {
+            alert('Bạn cần đăng nhập để thanh toán!');
+            window.location.href = 'dangNhap.html';
+        }
+
         loadOrderSummary();
 
         document.getElementById('btn-dathang') && document.getElementById('btn-dathang').addEventListener('click', function () {
             alert('Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại AyaBook.');
         });
     </script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
