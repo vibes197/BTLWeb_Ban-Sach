@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - AyaBook</title>
+    <link rel="stylesheet" href="./assets/css/trangchu.css">
+    <link rel="stylesheet" href="./assets/css/thanhtoan.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+</head>
+
+<body>
+    <div id="container">
+
+        <!-- Header -->
+        <div id="header">
+            <ul id="nav">
+                <img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="AyaBook Logo">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li>
+                    <a href="#">
+                        FAQ &amp; Hỏi đáp
+                        <i class="ti-angle-down"></i>
+                    </a>
+                </li>
+                <li><a href="#">Về chúng tôi</a></li>
+                <li><a href="#footer">Liên hệ với chúng tôi</a></li>
+                <li class="push-right"><a href="#"><img class="shop" src="./assets/img/trangchu/Fav.png"
+                            alt="Yêu thích"></a></li>
+                <li><a href="giohang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png"
+                            alt="Giỏ hàng"></a></li>
+                <button><a href="#footer">Liên hệ</a></button>
+                <li><a href="#">Đăng xuất</a></li>
+            </ul>
+        </div>
+        <hr>
+
+        <!-- Main content -->
+        <div id="thanhtoan-main">
+
+            <!-- Left column: Payment methods + Recipient info -->
+            <div class="tt-left">
+
+                <!-- Payment methods -->
+                <section class="tt-section">
+                    <h2 class="tt-section-title">CHỌN PHƯƠNG THỨC THANH TOÁN</h2>
+
+                    <div class="payment-option payment-option--disabled">
+                        <span class="payment-label">Tài khoản ngân hàng</span>
+                        <i class="ti-angle-right"></i>
+                    </div>
+
+                    <div class="payment-option payment-option--dark">
+                        <div class="payment-left">
+                            <span class="payment-label">Ví điện tử Momo</span>
+                        </div>
+                        <div class="payment-right">
+                            <img src="./assets/fonts/themify-icons/SVG/momo.jpeg" alt="Momo" class="payment-logo">
+                            <i class="ti-angle-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="payment-option payment-option--dark">
+                        <div class="payment-left">
+                            <span class="payment-label">Ví Zalo Pay</span>
+                        </div>
+                        <div class="payment-right">
+                            <img src="./assets/fonts/themify-icons/SVG/Zalopay.jpeg" alt="ZaloPay" class="payment-logo">
+                            <i class="ti-angle-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="payment-option payment-option--dark">
+                        <div class="payment-left">
+                            <span class="payment-label">Thanh toán tiền mặt</span>
+                        </div>
+                        <div class="payment-right">
+                            <i class="ti-angle-right"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recipient info -->
+                <section class="tt-section">
+                    <h2 class="tt-section-title">THÔNG TIN NGƯỜI NHẬN</h2>
+                    <div class="tt-divider"></div>
+
+                    <div class="form-group">
+                        <label class="form-label">Họ và tên</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon"><i class="ti-user"></i></span>
+                            <input type="text" class="form-input" placeholder="Nguyễn Mạnh Cường" id="full-name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Số điện thoại</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon"><i class="ti-mobile"></i></span>
+                                <input type="tel" class="form-input" placeholder="0345945627" id="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon"><i class="ti-email"></i></span>
+                                <input type="email" class="form-input" placeholder="cuongng@gmail.com" id="email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Chọn Tỉnh/TP</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon"><i class="ti-location-pin"></i></span>
+                                <select class="form-input form-select" id="province">
+                                    <option value="">Hà Nội</option>
+                                    <option value="hcm">Hồ Chí Minh</option>
+                                    <option value="dn">Đà Nẵng</option>
+                                    <option value="hp">Hải Phòng</option>
+                                    <option value="ct">Cần Thơ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Chọn Quận/Huyện</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon"><i class="ti-location-pin"></i></span>
+                                <select class="form-input form-select" id="district">
+                                    <option value="">Quận Cầu Giấy</option>
+                                    <option value="hk">Quận Hoàng Kiếm</option>
+                                    <option value="bd">Quận Ba Đình</option>
+                                    <option value="dd">Quận Đống Đa</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Chọn Phường/Xã</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon"><i class="ti-location-pin"></i></span>
+                            <select class="form-input form-select" id="ward">
+                                <option value="">Chọn Phường/Xã</option>
+                                <option value="dlcl">Dịch Vọng Hậu</option>
+                                <option value="dv">Dịch Vọng</option>
+                                <option value="ym">Yên Mỹ</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Địa chỉ</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon"><i class="ti-map-alt"></i></span>
+                            <input type="text" class="form-input" placeholder="Chọn Phường/Xã" id="address">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Ghi chú</label>
+                        <textarea class="form-textarea" placeholder="Nhập nội dung" id="note"></textarea>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right column: Order summary -->
+            <div class="tt-right">
+                <section class="tt-order-summary">
+                    <h2 class="tt-order-title">THÔNG TIN ĐƠN HÀNG</h2>
+
+                    <div class="order-row">
+                        <span class="order-label">Tạm tính:</span>
+                        <span class="order-value order-value--red" id="subtotal">27,000đ</span>
+                    </div>
+
+                    <div class="order-row">
+                        <span class="order-label">Giảm giá:</span>
+                        <span class="order-value" id="discount">0đ</span>
+                    </div>
+
+                    <div class="order-row">
+                        <span class="order-label">Phí ship:</span>
+                        <span class="order-value order-value--red" id="shipping">20,000đ</span>
+                    </div>
+
+                    <div class="order-notice">
+                        <p>Phí ship tính theo đơn và không giới hạn số lượng sách</p>
+                    </div>
+
+                    <div class="order-divider"></div>
+
+                    <div class="order-row order-row--total">
+                        <span class="order-label">Thành tiền:</span>
+                        <span class="order-value order-value--red" id="total">27,000đ</span>
+                    </div>
+
+                    <p class="order-terms">
+                        Bằng việc nhấn thanh toán, bạng đồng ý với
+                        <a href="#" class="order-terms-link">Các điều khoản khách hàng</a>
+                        của nhà xuất bản Aya Book
+                    </p>
+
+                    <button class="btn-dathang" id="btn-dathang">Đặt hàng</button>
+                </section>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div id="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>DỊCH VỤ</h3>
+                    <ul>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Hệ thống nhà sách</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>HỖ TRỢ</h3>
+                    <ul>
+                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="#">Chính sách khách hàng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>KẾT NỐI MẠNG XÃ HỘI</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-youtube"></i></a>
+                        <a href="#"><i class="ti-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Calculate totals from order/cart in localStorage
+        function loadOrderSummary() {
+            // Priority: ayaDonHang (from chitiet "Đặt hàng") → ayaCart (from giỏ hàng)
+            const items = JSON.parse(localStorage.getItem('ayaDonHang') || '[]');
+            const cart  = items.length > 0 ? items
+                        : JSON.parse(localStorage.getItem('ayaCart') || '[]');
+
+            const SHIPPING = 20000;
+
+            let subtotal = 0;
+            let originalTotal = 0;
+            cart.forEach(item => {
+                const price    = parseInt(String(item.price || '0').replace(/[^0-9]/g, ''), 10) || 0;
+                const original = parseInt(String(item.originalPrice || item.price || '0').replace(/[^0-9]/g, ''), 10) || price;
+                const qty      = item.qty || item.quantity || 1;
+                subtotal      += price * qty;
+                originalTotal += original * qty;
+            });
+
+            const discount = originalTotal - subtotal;
+            const total    = subtotal + SHIPPING;
+
+            const fmt = n => n.toLocaleString('vi-VN') + 'đ';
+
+            document.getElementById('subtotal').textContent = fmt(subtotal);
+            document.getElementById('discount').textContent = discount > 0 ? fmt(discount) : '0đ';
+            document.getElementById('total').textContent    = fmt(total);
+        }
+
+        loadOrderSummary();
+
+        document.getElementById('btn-dathang') && document.getElementById('btn-dathang').addEventListener('click', function () {
+            alert('Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại AyaBook.');
+        });
+    </script>
+</body>
+
+</html>
