@@ -283,9 +283,12 @@
                 alert('Giỏ hàng của bạn đang trống!');
                 return;
             }
-            alert('Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại AyaBook.');
+            
+            // Lấy tổng tiền để truyền sang trang thành công
+            const totalAmount = document.getElementById('total').textContent;
+            
             localStorage.removeItem('ayaCart'); // Xóa giỏ hàng sau khi đặt thành công
-            window.location.href = 'index.html'; // Trở về trang chủ
+            window.location.href = 'thanhcong.html?total=' + encodeURIComponent(totalAmount); 
         });
     </script>
     <script src="./js/script.js"></script>
