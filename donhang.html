@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Hàng - AyaBook</title>
+    <link rel="stylesheet" href="./assets/css/donhang.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+</head>
+
+<body>
+    <div id="container">
+        <!-- HEADER -->
+        <div id="header">
+            <ul id="nav">
+                <a href="index.html"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="AyaBook"></a>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li>
+                    <a href="#">FAQ &amp; Hỏi đáp <i class="ti-angle-down"></i></a>
+                </li>
+                <li><a href="#">Về chúng tôi</a></li>
+                <li><a href="#footer">Liên hệ với chúng tôi</a></li>
+                <li class="push-right"><a href="#"><img class="shop" src="./assets/img/trangchu/Fav.png" alt=""></a>
+                </li>
+                <li><a href="#"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt=""></a></li>
+                <button><a href="thanhtoan.html">Thanh toán</a></button>
+                <li><a href="#">Đăng Nhập</a></li>
+            </ul>
+        </div>
+
+        <!-- BREADCRUMB -->
+        <div class="breadcrumb">
+            <a href="index.html">Trang chủ</a>
+            <span>›</span>
+            <a href="#">Đơn hàng</a>
+        </div>
+
+        <!-- MAIN -->
+        <div id="donhang-main">
+
+            <!-- LEFT: product list -->
+            <div id="donhang-left">
+                <div id="item-list">
+                    <!-- filled by JS -->
+                </div>
+            </div>
+
+            <!-- RIGHT: order summary -->
+            <div id="donhang-right">
+                <h2>THÔNG TIN ĐƠN HÀNG</h2>
+                <div class="summary-row">
+                    <span>Tạm tính:</span>
+                    <span id="sum-subtotal" class="sum-val">0đ</span>
+                </div>
+                <div class="summary-row">
+                    <span>Giảm giá:</span>
+                    <span id="sum-discount" class="sum-val">0đ</span>
+                </div>
+                <hr>
+                <div class="summary-row total-row">
+                    <span>Thành tiền:</span>
+                    <span id="sum-total" class="sum-val">0đ</span>
+                </div>
+                <button id="btn-checkout" onclick="window.location.href='thanhtoan.html'">Tiến hành thanh toán</button>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>DỊCH VỤ</h3>
+                    <ul>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Hệ thống nhà sách</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>HỖ TRỢ</h3>
+                    <ul>
+                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="#">Chính sách khách hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>KẾT NỐI MẠNG XÃ HỘI</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-youtube"></i></a>
+                        <a href="#"><i class="ti-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ── Helpers ──────────────────────────────────────────
+        function parsePrice(str) {
+            // "21,000đ" → 21000
+            return parseInt((str || '0').replace(/[^\d]/g, ''), 10) || 0;
+        }
+        function formatPrice(n) {
+            return n.toLocaleString('vi-VN') + 'đ';
+        }
+
+        // ── State ─────────────────────────────────────────────
+        // donhangItems: [{ id, name, img, price, originalPrice, qty }]
+        let donhangItems = JSON.parse(localStorage.getItem('ayaDonHang') || '[]');
+
+        // ── Render ────────────────────────────────────────────
+        function renderItems() {
+            const list = document.getElementById('item-list');
+            if (donhangItems.length === 0) {
+                list.innerHTML = '<p class="empty-msg">Không có sản phẩm nào trong đơn hàng.</p>';
+                updateSummary();
+                return;
+            }
+            list.innerHTML = donhangItems.map((item, idx) => `
+            <div class="order-item" data-idx="${idx}">
+                <img src="${item.img}" alt="${item.name}" class="item-img">
+                <div class="item-info">
+                    <div class="item-header">
+                        <span class="item-name">${item.name}</span>
+                        <button class="btn-delete" onclick="removeItem(${idx})" title="Xóa">🗑</button>
+                    </div>
+                    <div class="item-price-display">${item.price}</div>
+                    <div class="item-qty-row">
+                        <span class="qty-label">Số lượng</span>
+                        <button class="qty-btn" onclick="changeQty(${idx}, -1)">−</button>
+                        <span class="qty-val">${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${idx}, +1)">+</button>
+                    </div>
+                    <div class="item-total">Thành tiền: <span class="sum-val">${formatPrice(parsePrice(item.price) * item.qty)}</span></div>
+                </div>
+            </div>`).join('');
+            updateSummary();
+        }
+
+        function updateSummary() {
+            let subtotal = donhangItems.reduce((s, i) => s + parsePrice(i.price) * i.qty, 0);
+            let original = donhangItems.reduce((s, i) => s + parsePrice(i.originalPrice || i.price) * i.qty, 0);
+            let discount = original - subtotal;
+            document.getElementById('sum-subtotal').textContent = formatPrice(subtotal);
+            document.getElementById('sum-discount').textContent = discount > 0 ? formatPrice(discount) : '0đ';
+            document.getElementById('sum-total').textContent = formatPrice(subtotal);
+        }
+
+        function changeQty(idx, delta) {
+            donhangItems[idx].qty = Math.max(1, (donhangItems[idx].qty || 1) + delta);
+            localStorage.setItem('ayaDonHang', JSON.stringify(donhangItems));
+            renderItems();
+        }
+
+        function removeItem(idx) {
+            donhangItems.splice(idx, 1);
+            localStorage.setItem('ayaDonHang', JSON.stringify(donhangItems));
+            renderItems();
+        }
+
+        // ── Init ──────────────────────────────────────────────
+        renderItems();
+    </script>
+</body>
+
+</html>
