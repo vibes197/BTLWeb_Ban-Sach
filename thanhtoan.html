@@ -253,29 +253,29 @@
         function loadOrderSummary() {
             // Priority: ayaDonHang (from chitiet "Đặt hàng") → ayaCart (from giỏ hàng)
             const items = JSON.parse(localStorage.getItem('ayaDonHang') || '[]');
-            const cart  = items.length > 0 ? items
-                        : JSON.parse(localStorage.getItem('ayaCart') || '[]');
+            const cart = items.length > 0 ? items
+                : JSON.parse(localStorage.getItem('ayaCart') || '[]');
 
             const SHIPPING = 20000;
 
             let subtotal = 0;
             let originalTotal = 0;
             cart.forEach(item => {
-                const price    = parseInt(String(item.price || '0').replace(/[^0-9]/g, ''), 10) || 0;
+                const price = parseInt(String(item.price || '0').replace(/[^0-9]/g, ''), 10) || 0;
                 const original = parseInt(String(item.originalPrice || item.price || '0').replace(/[^0-9]/g, ''), 10) || price;
-                const qty      = item.qty || item.quantity || 1;
-                subtotal      += price * qty;
+                const qty = item.qty || item.quantity || 1;
+                subtotal += price * qty;
                 originalTotal += original * qty;
             });
 
             const discount = originalTotal - subtotal;
-            const total    = subtotal + SHIPPING;
+            const total = subtotal + SHIPPING;
 
             const fmt = n => n.toLocaleString('vi-VN') + 'đ';
 
             document.getElementById('subtotal').textContent = fmt(subtotal);
             document.getElementById('discount').textContent = discount > 0 ? fmt(discount) : '0đ';
-            document.getElementById('total').textContent    = fmt(total);
+            document.getElementById('total').textContent = fmt(total);
         }
 
         loadOrderSummary();
