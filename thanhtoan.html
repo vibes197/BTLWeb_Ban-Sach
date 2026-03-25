@@ -243,9 +243,7 @@
 
     <script>
         function loadOrderSummary() {
-            const items = JSON.parse(localStorage.getItem('ayaDonHang') || '[]');
-            const cart = items.length > 0 ? items
-                : JSON.parse(localStorage.getItem('ayaCart') || '[]');
+            const cart = JSON.parse(localStorage.getItem('ayaCart') || '[]');
 
             const SHIPPING = 20000;
 
@@ -261,12 +259,13 @@
             });
 
             const discount = originalTotal - subtotal;
-            const total = subtotal + SHIPPING;
+            const total = subtotal > 0 ? subtotal + SHIPPING : 0; // Không tính phí ship nếu giỏ hàng rỗng
 
             const fmt = n => n.toLocaleString('vi-VN') + 'đ';
 
             document.getElementById('subtotal').textContent = fmt(subtotal);
             document.getElementById('discount').textContent = discount > 0 ? fmt(discount) : '0đ';
+            document.getElementById('shipping').textContent = subtotal > 0 ? fmt(SHIPPING) : '0đ';
             document.getElementById('total').textContent = fmt(total);
         }
 
@@ -274,12 +273,19 @@
         if (localStorage.getItem('loggedIn') !== 'true') {
             alert('Bạn cần đăng nhập để thanh toán!');
             window.location.href = 'dangNhap.html';
+        } else {
+            loadOrderSummary();
         }
 
-        loadOrderSummary();
-
         document.getElementById('btn-dathang') && document.getElementById('btn-dathang').addEventListener('click', function () {
+            const cart = JSON.parse(localStorage.getItem('ayaCart') || '[]');
+            if (cart.length === 0) {
+                alert('Giỏ hàng của bạn đang trống!');
+                return;
+            }
             alert('Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại AyaBook.');
+            localStorage.removeItem('ayaCart'); // Xóa giỏ hàng sau khi đặt thành công
+            window.location.href = 'index.html'; // Trở về trang chủ
         });
     </script>
     <script src="./js/script.js"></script>
