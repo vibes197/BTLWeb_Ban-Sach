@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,28 +7,49 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background-color: #B5DCE8;
+    padding-top: 90px;
+    /* Bù đắp cho khoảng không của header fixed */
+}
+
 #container {
-    min-width: 1440px;
-    width: 100%;
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: #B5DCE8;
 }
 
 /* header */
 
 #header {
-    width: 100%;
+    width: 100vw;
     height: 90px;
     background-color: #B5DCE8;
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    left: 0;
+    z-index: 10000;
     margin: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm transition để lướt mượt */
+}
+
+/* Hiệu ứng khi lướt trang web xuống (Header sẽ nhích nhẹ lên trên) */
+#header.header-scrolled {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Tăng nhẹ bóng đổ để nổi hơn khi lướt */
+}
+
+.header-inner {
+    width: 90%;
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
     display: flex;
-    justify-content: flex-start;
-    /* Hiển thị logo và nav cạnh nhau */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
     gap: 40px;
-    /* Thêm khoảng cách nếu cần */
 }
 
 #nav {
@@ -87,19 +110,77 @@
 
 .logo {
     padding: 8px 12px;
-    background-color: white;
+    background-color: transparent;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+
     transition: all 0.3s ease;
+}
+
+.logo-text {
+    font-size: 38px;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a1a;
+    text-decoration: none;
+    letter-spacing: -1px;
+    transition: transform 0.3s ease;
+}
+
+.logo-text:hover {
+    transform: translateY(-2px);
 }
 
 .mobile-menu-btn {
     display: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 6px 12px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 26px;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background-color: #f5f5f5;
+    border-color: #ccc;
 }
 
 .logo:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.btn-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #FFB7B7;
+    color: #fff !important;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    white-space: nowrap; /* Ép chữ nằm trên 1 hàng ngang, không cho xuống dòng */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #ff9999;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
 }
 
 #nav li:last-child {
@@ -121,7 +202,6 @@
 /* sidebar */
 
 #sidebar {
-    min-width: 1440px;
     width: 100%;
     height: 120px;
     background-color: #B5DCE8;
@@ -182,9 +262,9 @@
 .subnav li button {
     width: 198px;
     height: 74px;
-    background-color: #8BF3FA;
+    background-color: transparent;
     border-radius: 8px;
-    border: 8px solid transparent;
+    border: none;
 }
 
 .subnav li button a {
@@ -325,7 +405,6 @@
 }
 
 #content {
-    min-width: 1440px;
     width: 100%;
     background-color: #B5DCE8;
 }
@@ -365,7 +444,8 @@
 
 .book-item img {
     width: 100%;
-    height: auto;
+    height: 280px;
+    object-fit: cover;
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -397,14 +477,16 @@
 }
 
 .manga-collection .manga-header {
-    min-width: 100%;
     width: 100%;
-    height: auto;
-    padding-top: 50%;
-    padding: 20px;
-    background: url(../img/trangchu/manga-header.png) top center/100% no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/trangchu/manga-header.png) center center/cover no-repeat;
     margin-bottom: 30px;
     border-radius: 4px;
+    padding: 60px 20px;
+    /* Thu hẹp lại bằng padding thay vì fix cứng chiều cao */
 }
 
 
@@ -431,19 +513,21 @@
 }
 
 .skills-collection .skills-header {
-    min-width: 100%;
     width: 100%;
-    height: 100%;
-    padding: 120px;
-    background: url(../img/trangchu/skills-header.png) top center/100% no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/trangchu/skills-header.png) center center/cover no-repeat;
     margin-bottom: 30px;
     border-radius: 4px;
+    padding: 60px 20px;
+    /* Thu hẹp lại bằng padding thay vì fix cứng chiều cao */
 }
 
 /* footer */
 
 #footer {
-    min-width: 1440px;
     width: 100%;
     height: auto;
     background-color: #B5DCE8;
@@ -453,7 +537,6 @@
 }
 
 .footer-container {
-    min-width: 1440px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -491,12 +574,16 @@
 
 .social-icons {
     display: flex;
+    justify-content: center;
     gap: 15px;
 }
 
 .social-icons a {
     font-size: 24px;
     color: #333;
+    text-decoration: none;
+    /* Removed the ugly underline */
+    display: inline-block;
     transition: transform 0.3s;
 }
 
@@ -509,24 +596,7 @@
    RESPONSIVE DESIGN CHO TRANG CHỦ & LAYOUT CHUNG
    ========================================= */
 
-/* Dành cho Desktop nhỏ, Tablet ngang (max-width: 1440px) */
-@media screen and (max-width: 1440px) {
-
-    #container,
-    #header,
-    #sidebar,
-    #content,
-    #footer,
-    .footer-container {
-        min-width: 100%;
-        width: 100%;
-    }
-
-    .search-container {
-        width: 100%;
-        max-width: 450px;
-    }
-}
+/* Bỏ qua giới hạn cố định 1440px để giao diện 70% hoạt động mượt mà trên mọi màn hình máy tính */
 
 /* Dành cho màn hình nhỏ hơn (max-width: 1100px) */
 @media screen and (max-width: 1100px) {
@@ -558,20 +628,49 @@
 
 /* Dành cho Tablet dọc và Mobile chuẩn (max-width: 850px) */
 @media screen and (max-width: 850px) {
+    body {
+        padding-top: 70px;
+        /* Thu gọn khoảng trống header trên mobile */
+    }
+
+    #container {
+        width: 100%;
+        box-shadow: none;
+    }
+
     #header {
         height: 70px;
-        padding: 0 20px;
-        position: relative;
-        /* Bỏ sticky nếu bị chiếm màn hình */
+    }
+
+    .header-inner {
+        width: 100%;
+        padding: 0 15px;
+        gap: 5px; /* Giảm gap nhỏ lại để nhường không gian cho logo và nút */
         justify-content: space-between;
-        /* Trả Menu Hamburger về góc phải */
+    }
+
+    .logo-text {
+        font-size: 26px; /* Thu nhỏ logo trên mobile */
+        letter-spacing: -0.5px;
+    }
+
+    .btn-login {
+        padding: 8px 15px; /* Thu nhỏ nút Sign In trên mobile */
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .header-right {
+        gap: 8px; /* Khoảng cách giữa nút Sign In và Hamburger icon */
     }
 
     .mobile-menu-btn {
-        display: block;
-        font-size: 28px;
-        cursor: pointer;
-        color: #333;
+        padding: 5px 10px;
+        font-size: 22px;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
     }
 
     #nav {
@@ -609,6 +708,10 @@
 
     /* Reset lại margin bị âm trên desktop làm lỗi form */
     #nav button {
+        margin-left: 0;
+    }
+
+    .fav {
         margin-left: 0;
     }
 
@@ -707,11 +810,18 @@
         /* Chỉ hiện 1 cột danh mục */
     }
 
+    .manga-collection .manga-header,
+    .skills-collection .skills-header {
+        padding: 40px 15px;
+        /* Thu nhỏ thêm trên mobile */
+        background-attachment: scroll;
+    }
+
     .manga-collection .manga-header h2 {
         font-size: 28px;
     }
 
-    .skills-collection .skills-header {
-        padding: 50px;
+    .skills-collection .skills-header h2 {
+        font-size: 28px;
     }
 }

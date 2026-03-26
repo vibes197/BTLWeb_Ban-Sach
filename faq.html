@@ -41,11 +41,16 @@
                 <h2>Tư vấn khách hàng</h2>
 
                 <form class="faq-form" onsubmit="handleSubmit(event)">
-                    <input type="text" id="faq-name" placeholder="Họ và tên:" required>
-                    <input type="tel" id="faq-phone" placeholder="SĐT:" required>
-                    <textarea id="faq-content" placeholder="Nội dung:" required></textarea>
+                    <label for="faq-name" style="display: block; text-align: left; margin-bottom: 8px; font-weight: bold; color: #333;">Họ và tên:</label>
+                    <input type="text" id="faq-name" placeholder="Nhập họ và tên..." required>
 
-                    <div class="faq-buttons">
+                    <label for="faq-phone" style="display: block; text-align: left; margin-bottom: 8px; margin-top: 15px; font-weight: bold; color: #333;">Số điện thoại:</label>
+                    <input type="tel" id="faq-phone" placeholder="Nhập số điện thoại..." required>
+
+                    <label for="faq-content" style="display: block; text-align: left; margin-bottom: 8px; margin-top: 15px; font-weight: bold; color: #333;">Nội dung tư vấn:</label>
+                    <textarea id="faq-content" placeholder="Chi tiết bạn cần tư vấn..." required></textarea>
+
+                    <div class="faq-buttons" style="margin-top: 25px;">
                         <button type="button" onclick="window.history.back()">Quay lại</button>
                         <button type="submit">Gửi</button>
                     </div>

@@ -1,6 +1,7 @@
 #yeuthich-main {
     padding: 30px 10%;
     min-height: 50vh;
+    background-color: #B5DCE8;
 }
 
 #yeuthich-main h2 {
@@ -76,9 +77,11 @@
     #yeuthich-main {
         padding: 20px 5%;
     }
+
     .breadcrumb {
         padding: 12px 20px;
     }
+
     #favorites-container {
         justify-content: center;
     }
