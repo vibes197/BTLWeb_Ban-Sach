@@ -9,6 +9,12 @@ function register() {
         alert("Nhập đầy đủ thông tin!");
         return;
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Vui lòng nhập định dạng email hợp lệ!");
+        return;
+    }
     if (!agree) {
         alert("Bạn phải đồng ý điều khoản!");
         return;
@@ -25,6 +31,17 @@ function register() {
 function login() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
+
+    if (!email || !pass) {
+        alert("Nhập đầy đủ thông tin!");
+        return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Vui lòng nhập định dạng email hợp lệ!");
+        return;
+    }
 
     let savedEmail = localStorage.getItem("email");
     let savedPass = localStorage.getItem("password");
@@ -235,6 +252,7 @@ function renderSearchResults() {
     });
 }
 
+//Chức năng danh mục sách   
 function renderCategoryResults() {
     let grid = document.getElementById("category-results-grid");
     if (!grid) return;
