@@ -79,6 +79,25 @@ a {
     text-align: left;
 }
 
+p {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.back-home {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #00a8cc;
+    transition: 0.3s;
+}
+
+.back-home:hover {
+    text-decoration: underline;
+    color: #0072ff;
+}
+
 /* =========================================
    RESPONSIVE DESIGN CHO TRANG ĐĂNG NHẬP
    ========================================= */

@@ -13,7 +13,6 @@
 
 
 
-/* ===== BREADCRUMB ===== */
 .breadcrumb {
     background-color: #B5DCE8;
     padding: 12px 60px;
@@ -35,7 +34,6 @@
     margin: 0 6px;
 }
 
-/* ===== MAIN LAYOUT ===== */
 #donhang-main {
     display: flex;
     gap: 40px;
@@ -43,7 +41,6 @@
     align-items: flex-start;
 }
 
-/* ===== LEFT – PRODUCT LIST ===== */
 #donhang-left {
     flex: 1;
     display: flex;
@@ -182,7 +179,6 @@
     padding: 60px 0;
 }
 
-/* ===== RIGHT – SUMMARY ===== */
 #donhang-right {
     width: 340px;
     flex-shrink: 0;

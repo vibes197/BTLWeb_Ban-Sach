@@ -1,57 +1,51 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ & Hỏi đáp - Tư vấn khách hàng - AyaBook</title>
     <link rel="stylesheet" href="./assets/css/trangchu.css">
+    <link rel="stylesheet" href="./assets/css/yeuthich.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="./assets/css/faq.css">
+    <title>Kết quả tìm kiếm - AyaBook</title>
 </head>
 
 <body>
     <div id="container">
         <div id="header">
-            <a href="index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
-            
-            <div class="mobile-menu-btn" id="mobile-menu-btn">
-                <i class="ti-menu"></i>
-            </div>
-
             <ul id="nav">
+                <a href="index.html"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
                 <li><a href="index.html">Trang chủ</a></li>
                 <li>
                     <a href="faq.html">
-                        FAQ &amp; Hỏi đáp
+                        FAQ & Hỏi đáp
                     </a>
                 </li>
                 <li><a href="vechungtoi.html">Về chúng tôi</a></li>
                 <li><a href="#footer">Liên hệ với chúng tôi</a></li>
-                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png" alt="Yêu thích"></a></li>
-                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt="Giỏ hàng"></a></li>
+                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png"
+                            alt="Yêu thích"></a>
+                </li>
+                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt=""></a></li>
                 <button><a href="thanhtoan.html">Thanh toán</a></button>
                 <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
             </ul>
         </div>
         <hr>
 
-        <div id="faq-main">
-            <div class="faq-box">
-                <h2>Tư vấn khách hàng</h2>
 
-                <form class="faq-form" onsubmit="handleSubmit(event)">
-                    <input type="text" id="faq-name" placeholder="Họ và tên:" required>
-                    <input type="tel" id="faq-phone" placeholder="SĐT:" required>
-                    <textarea id="faq-content" placeholder="Nội dung:" required></textarea>
+        <div class="breadcrumb" id="breadcrumb">
+            <a href="index.html">Trang chủ</a>
+            <span>›</span>
+            <span id="bc-title">Kết quả tìm kiếm</span>
+        </div>
 
-                    <div class="faq-buttons">
-                        <button type="button" onclick="window.history.back()">Quay lại</button>
-                        <button type="submit">Gửi</button>
-                    </div>
-                </form>
+        <div id="yeuthich-main">
+            <h2 id="search-title">Kết quả tìm kiếm</h2>
+            <div id="search-results-grid" class="book-grid" style="justify-content: flex-start; gap: 40px;">
             </div>
         </div>
+
         <div id="footer">
             <div class="footer-container">
                 <div class="footer-column">
@@ -87,19 +81,7 @@
             </div>
         </div>
     </div>
-
     <script src="./js/script.js"></script>
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('faq-name').value;
-
-            alert('Cảm ơn ' + name + '! Chúng tôi đã nhận được thông tin và sẽ gọi tư vấn cho bạn sớm nhất.');
-
-            window.location.href = 'index.html';
-        }
-    </script>
 </body>
 
 </html>

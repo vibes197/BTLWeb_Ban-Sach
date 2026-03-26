@@ -13,7 +13,6 @@
 
 
 
-/* ===== BREADCRUMB ===== */
 .breadcrumb {
     background-color: #B5DCE8;
     padding: 12px 60px;
@@ -35,7 +34,6 @@
     margin: 0 6px;
 }
 
-/* ===== MAIN DETAIL AREA ===== */
 #chitiet-main {
     background-color: #B5DCE8;
     padding: 40px 60px 0 60px;
@@ -44,7 +42,6 @@
     align-items: flex-start;
 }
 
-/* Left – book cover */
 .chitiet-cover {
     flex-shrink: 0;
     width: 260px;
@@ -56,7 +53,6 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Right – info */
 .chitiet-info {
     flex: 1;
 }
@@ -69,7 +65,6 @@
     margin-bottom: 10px;
 }
 
-/* stars */
 .chitiet-stars {
     display: flex;
     align-items: center;
@@ -94,7 +89,6 @@
     margin-bottom: 16px;
 }
 
-/* price */
 .chitiet-price-block {
     display: flex;
     align-items: baseline;
@@ -123,7 +117,6 @@
     border-radius: 12px;
 }
 
-/* meta list */
 .chitiet-meta {
     list-style: none;
     margin-bottom: 24px;
@@ -143,7 +136,6 @@
     margin-right: 4px;
 }
 
-/* buy button */
 .btn-buy {
     display: inline-block;
     background-color: #FFB7B7;
@@ -216,7 +208,6 @@
     background-color: #d9363e;
 }
 
-/* ===== DESCRIPTION ===== */
 #chitiet-desc {
     background-color: #B5DCE8;
     padding: 32px 40px;
@@ -237,7 +228,6 @@
     line-height: 1.8;
 }
 
-/* ===== RATINGS ===== */
 #chitiet-reviews {
     background-color: #fff;
     margin: 0 60px 40px 60px;
@@ -305,7 +295,6 @@
     line-height: 1.6;
 }
 
-/* ===== RELATED BOOKS ===== */
 .related-section {
     background-color: #B5DCE8;
     padding: 30px 60px;

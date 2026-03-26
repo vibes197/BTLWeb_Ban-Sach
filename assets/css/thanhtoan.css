@@ -1,8 +1,5 @@
-/* ============================================
-   THANH TOAN PAGE - AyaBook
-   ============================================ */
 
-/* Main layout */
+
 #thanhtoan-main {
     min-width: 1440px;
     width: 100%;
@@ -15,7 +12,6 @@
     box-sizing: border-box;
 }
 
-/* ---- Left column ---- */
 .tt-left {
     flex: 1;
     display: flex;
@@ -44,7 +40,6 @@
     margin-bottom: 8px;
 }
 
-/* ---- Payment options ---- */
 .payment-option {
     display: flex;
     align-items: center;
@@ -106,7 +101,6 @@
     opacity: 0.88;
 }
 
-/* ---- Form ---- */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -190,7 +184,6 @@
     color: #555;
 }
 
-/* ---- Right column: Order summary ---- */
 .tt-right {
     width: 360px;
     flex-shrink: 0;
