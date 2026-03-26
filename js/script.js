@@ -1,3 +1,4 @@
+//Chức năng đăng ký, đăng nhập, đăng xuất
 function register() {
     let email = document.getElementById("regEmail").value;
     let pass = document.getElementById("regPassword").value;
@@ -93,6 +94,7 @@ function updateLoginUI() {
     }
 }
 
+//Chức năng yêu thích
 function toggleFavorite(book) {
     if (!requireLogin()) return;
     let favorites = JSON.parse(localStorage.getItem('ayaFavorites') || '[]');
@@ -140,6 +142,99 @@ function updateFavoriteUI(bookId) {
     }
 }
 
+
+//Chức năng tìm kiếm sách
+const booksData = [
+    { id: 'nina', name: 'Nina ở thị trấn cao nguyên - Tập 2', price: '34,200đ', img: './assets/img/trangchu/nina.png' },
+    { id: 'tet', name: 'Những ngày tết ta', price: '81,000đ', img: './assets/img/trangchu/tet.png' },
+    { id: 'worldtrigger', name: 'World Trigger - Tập 4', price: '31,500đ', img: './assets/img/trangchu/worldtrigger.png' },
+    { id: 'bantusach', name: 'Những người bạn từ trang sách', price: '85,500đ', img: './assets/img/trangchu/bantusach.png' },
+    { id: 'shin', name: 'Shin - Cậu bé bút chì - Tập 1', price: '19,500đ', img: './assets/img/trangchu/shin.png' },
+    { id: 'naruto', name: 'Naruto - Quyển 20', price: '21,000đ', img: './assets/img/trangchu/naruto.png' },
+    { id: 'onepi', name: 'One Piece - Tập 101', price: '25,000đ', img: './assets/img/trangchu/onepi.png' },
+    { id: 'akutami', name: 'Chú thuật hồi chiến - Tập 1', price: '30,000đ', img: './assets/img/trangchu/akutami.png' },
+    { id: 'xebuyt', name: 'XE BUÝT ĐƯA EM ĐI', price: '36,000đ', img: './assets/img/trangchu/xebuyt.png' },
+    { id: 'rantaro', name: 'Ninja Rontaro - Tập 19', price: '36,000đ', img: './assets/img/trangchu/rantaro.png' },
+    { id: 'drstone', name: 'Doctor Stone - Tập 21', price: '22,500đ', img: './assets/img/trangchu/drstone.png' },
+    { id: 'doraemondoiquan', name: 'Đội quân Doraemon - Tập 4', price: '19,800đ', img: './assets/img/trangchu/doraemondoiquan.png' },
+    { id: 'thiendinh', name: 'THIỀN ĐỊNH MỖI NGÀY', price: '118,000đ', img: './assets/img/trangchu/thiendinh.png' },
+    { id: 'tute', name: 'MỘT NĂM SỐNG TỬ TẾ', price: '168,000đ', img: './assets/img/trangchu/tute.png' },
+    { id: 'sohoc', name: 'THAY ĐỔI CUỘC SỐNG VỚI NHÂN SỐ HỌC', price: '181,040đ', img: './assets/img/trangchu/sohoc.png' },
+    { id: 'damnghi', name: 'DÁM NGHĨ LẠI', price: '117,600đ', img: './assets/img/trangchu/damnghi.png' }
+];
+
+function setupSearchRedirect() {
+    let searchInput = document.getElementById("book-search-input");
+    let searchBtn = document.getElementById("book-search-button");
+
+    if (!searchInput || !searchBtn) return;
+
+    function doSearch() {
+        let query = searchInput.value.trim();
+        if (query !== "") {
+            window.location.href = `timkiem.html?q=${encodeURIComponent(query)}`;
+        }
+    }
+
+    searchBtn.addEventListener("click", doSearch);
+    searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            doSearch();
+            e.preventDefault();
+        }
+    });
+}
+
+function renderSearchResults() {
+    let grid = document.getElementById("search-results-grid");
+    if (!grid) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q') || '';
+
+    let title = document.getElementById("search-title");
+    if (title) {
+        title.textContent = query ? `Kết quả tìm kiếm: "${query}"` : "Kết quả tìm kiếm";
+    }
+
+    let qLower = query.toLowerCase();
+    let results = booksData.filter(b => b.name.toLowerCase().includes(qLower));
+
+    grid.innerHTML = '';
+
+    if (!query) {
+        grid.innerHTML = `
+            <div id="empty-favorites" style="text-align: center; padding: 50px; width: 100%;">
+                <p style="font-size: 18px; margin-bottom: 20px;">Bạn chưa nhập từ khóa tìm kiếm.</p>
+                <a href="index.html" class="btn-continue">Bắt đầu tìm kiếm</a>
+            </div>`;
+        return;
+    }
+
+    if (results.length === 0) {
+        grid.innerHTML = `
+            <div id="empty-favorites" style="text-align: center; padding: 50px; width: 100%;">
+                <p style="font-size: 18px; margin-bottom: 20px;">Không tìm thấy sách nào cho "${query}".</p>
+                <a href="index.html" class="btn-continue">Tiếp tục tìm kiếm</a>
+            </div>`;
+        return;
+    }
+
+    results.forEach(book => {
+        let item = document.createElement('div');
+        item.className = 'book-item';
+
+        item.innerHTML = `
+            <a href="chitiet.html?id=${book.id}" class="book-link">
+                <img src="${book.img}" alt="${book.name}">
+            </a>
+            <p class="book-name">${book.name}</p>
+            <p class="book-price">${book.price}</p>
+        `;
+        grid.appendChild(item);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("userName")) {
         updateLoginUI();
@@ -152,4 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentId = urlParams.get('id') || 'akutami';
         updateFavoriteUI(currentId);
     }
+
+    setupSearchRedirect();
+    renderSearchResults();
 });
