@@ -258,7 +258,7 @@
             });
 
             const discount = originalTotal - subtotal;
-            const total = subtotal > 0 ? subtotal + SHIPPING : 0; // Không tính phí ship nếu giỏ hàng rỗng
+            const total = subtotal > 0 ? subtotal + SHIPPING : 0;
 
             const fmt = n => n.toLocaleString('vi-VN') + 'đ';
 
@@ -268,7 +268,6 @@
             document.getElementById('total').textContent = fmt(total);
         }
 
-        // Kiểm tra đăng nhập khi vào trang thanh toán
         if (localStorage.getItem('loggedIn') !== 'true') {
             alert('Bạn cần đăng nhập để thanh toán!');
             window.location.href = 'dangNhap.html';
@@ -308,10 +307,9 @@
                 return;
             }
 
-            // Lấy tổng tiền để truyền sang trang thành công
             const totalAmount = document.getElementById('total').textContent;
 
-            localStorage.removeItem('ayaCart'); // Xóa giỏ hàng sau khi đặt thành công
+            localStorage.removeItem('ayaCart');
             window.location.href = 'thanhcong.html?total=' + encodeURIComponent(totalAmount);
         });
     </script>
