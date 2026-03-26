@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Tiết Sách - AyaBook</title>
-    <link rel="stylesheet" href="./assets/css/trangchu.css">
-    <link rel="stylesheet" href="./assets/css/chitiet.css">
-    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../assets/src/css/trangchu.css">
+    <link rel="stylesheet" href="../assets/src/css/chitiet.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
 </head>
 
 <body>
     <div id="container">
         <div id="header">
-            <a href="index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
+            <a href="../index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
             
             <div class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="ti-menu"></i>
             </div>
 
             <ul id="nav">
-                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="../index.html">Trang chủ</a></li>
                 <li>
                     <a href="faq.html">FAQ &amp; Hỏi đáp</a>
                 </li>
@@ -34,9 +34,9 @@
         </div>
 
         <div class="breadcrumb" id="breadcrumb">
-            <a href="index.html">Trang chủ</a>
+            <a href="../index.html">Trang chủ</a>
             <span>›</span>
-            <a href="index.html" id="bc-category">Sách</a>
+            <a href="../index.html" id="bc-category">Sách</a>
             <span>›</span>
             <span id="bc-title">Chi tiết sách</span>
         </div>
@@ -461,6 +461,17 @@
             }
         ];
 
+        // Fix asset paths when page is moved into /pages/
+        if (window.location.pathname.includes("/pages/") || window.location.pathname.includes("\\pages\\")) {
+            const from = "./assets/";
+            const to = "../assets/";
+            books.forEach(b => {
+                if (b && typeof b.img === "string" && b.img.startsWith(from)) {
+                    b.img = b.img.replace(from, to);
+                }
+            });
+        }
+
         // Reviews mẫu
         const sampleReviews = [
             { name: "Trần Văn A", stars: 5, text: "Sách rất hay, in ấn đẹp, giao hàng nhanh. Rất hài lòng với sản phẩm!" },
@@ -647,7 +658,7 @@
 
         renderPage();
     </script>
-    <script src="./js/script.js"></script>
+    <script src="../assets/src/js/main.js"></script>
 </body>
 
 </html>

@@ -4,23 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sách Yêu Thích - AyaBook</title>
-    <link rel="stylesheet" href="./assets/css/trangchu.css">
-    <link rel="stylesheet" href="./assets/css/yeuthich.css">
-    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <title>FAQ & Hỏi đáp - Tư vấn khách hàng - AyaBook</title>
+    <link rel="stylesheet" href="../assets/src/css/trangchu.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../assets/src/css/faq.css">
 </head>
 
 <body>
     <div id="container">
         <div id="header">
-            <a href="index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
+            <a href="../index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
             
             <div class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="ti-menu"></i>
             </div>
 
             <ul id="nav">
-                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="../index.html">Trang chủ</a></li>
                 <li>
                     <a href="faq.html">
                         FAQ &amp; Hỏi đáp
@@ -34,25 +34,27 @@
                 <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
             </ul>
         </div>
-        <hr>
+        <div id="faq-main">
+            <div class="faq-box">
+                <h2>Tư vấn khách hàng</h2>
 
-        <div class="breadcrumb" id="breadcrumb">
-            <a href="index.html">Trang chủ</a>
-            <span>›</span>
-            <span id="bc-title">Danh sách yêu thích</span>
-        </div>
+                <form class="faq-form" onsubmit="handleSubmit(event)">
+                    <label for="faq-name" style="display: block; text-align: left; margin-bottom: 8px; font-weight: bold; color: #333;">Họ và tên:</label>
+                    <input type="text" id="faq-name" placeholder="Nhập họ và tên..." required>
 
-        <div id="yeuthich-main">
-            <h2>Danh sách yêu thích của bạn</h2>
-            <div id="favorites-container" class="book-grid">
+                    <label for="faq-phone" style="display: block; text-align: left; margin-bottom: 8px; margin-top: 15px; font-weight: bold; color: #333;">Số điện thoại:</label>
+                    <input type="tel" id="faq-phone" placeholder="Nhập số điện thoại..." required>
 
+                    <label for="faq-content" style="display: block; text-align: left; margin-bottom: 8px; margin-top: 15px; font-weight: bold; color: #333;">Nội dung tư vấn:</label>
+                    <textarea id="faq-content" placeholder="Chi tiết bạn cần tư vấn..." required></textarea>
+
+                    <div class="faq-buttons" style="margin-top: 25px;">
+                        <button type="button" onclick="window.history.back()">Quay lại</button>
+                        <button type="submit">Gửi</button>
+                    </div>
+                </form>
             </div>
-            <div id="empty-favorites" style="display: none; text-align: center; padding: 50px;">
-                <p style="font-size: 18px; margin-bottom: 20px;">Bạn chưa có cuốn sách yêu thích nào.</p>
-                <a href="index.html" class="btn-continue">Tiếp tục mua sắm</a>
-            </div>
         </div>
-
         <div id="footer">
             <div class="footer-container">
                 <div class="footer-column">
@@ -89,37 +91,17 @@
         </div>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="../assets/src/js/main.js"></script>
     <script>
-        function renderFavorites() {
-            const container = document.getElementById('favorites-container');
-            const emptyState = document.getElementById('empty-favorites');
-            let favorites = JSON.parse(localStorage.getItem('ayaFavorites') || '[]');
+        function handleSubmit(event) {
+            event.preventDefault();
 
-            if (favorites.length === 0) {
-                container.style.display = 'none';
-                emptyState.style.display = 'block';
-                return;
-            }
+            const name = document.getElementById('faq-name').value;
 
-            container.style.display = 'flex'; // Flex dùng CSS tuỳ chỉnh để nằm ngang
-            emptyState.style.display = 'none';
+            alert('Cảm ơn ' + name + '! Chúng tôi đã nhận được thông tin và sẽ gọi tư vấn cho bạn sớm nhất.');
 
-            container.innerHTML = favorites.map(book => `
-                <div class="book-item">
-                    <a href="chitiet.html?id=${book.id}" class="book-link">
-                        <img src="${book.img}" alt="${book.title}">
-                    </a>
-                    <p class="book-name">${book.title}</p>
-                    <p class="book-price">${book.price}</p>
-                    <button class="btn-remove-fav" onclick="removeFavorite('${book.id}')"><i class="ti-trash"></i> Bỏ yêu thích</button>
-                </div>
-            `).join('');
+            window.location.href = '../index.html';
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderFavorites();
-        });
     </script>
 </body>
 

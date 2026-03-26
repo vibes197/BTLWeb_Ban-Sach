@@ -85,4 +85,8 @@
     #favorites-container {
         justify-content: center;
     }
+
+    .book-item {
+        width: calc(50% - 20px); /* 2 items per row */
+    }
 }

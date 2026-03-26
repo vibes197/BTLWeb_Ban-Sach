@@ -381,29 +381,29 @@ body {
     width: 100%;
     height: auto;
     padding-top: 50%;
-    background: url(../img/trangchu/hanhphuc.png) top center/95% no-repeat;
+    background: url(../../img/trangchu/hanhphuc.png) top center/95% no-repeat;
     animation: slideShow 8s infinite;
 }
 
 @keyframes slideShow {
     0% {
-        background-image: url(../img/trangchu/hanhphuc.png);
+        background-image: url(../../img/trangchu/hanhphuc.png);
     }
 
     25% {
-        background-image: url(../img/trangchu/conan.png);
+        background-image: url(../../img/trangchu/conan.png);
     }
 
     50% {
-        background-image: url(../img/trangchu/dora.png);
+        background-image: url(../../img/trangchu/dora.png);
     }
 
     75% {
-        background-image: url(../img/trangchu/cucdai.png);
+        background-image: url(../../img/trangchu/cucdai.png);
     }
 
     100% {
-        background-image: url(../img/trangchu/hanhphuc.png);
+        background-image: url(../../img/trangchu/hanhphuc.png);
     }
 }
 
@@ -485,7 +485,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url(../img/trangchu/manga-header.png) center center/cover no-repeat;
+    background: url(../../img/trangchu/manga-header.png) center center/cover no-repeat;
     margin-bottom: 30px;
     border-radius: 4px;
     padding: 60px 20px;
@@ -521,7 +521,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url(../img/trangchu/skills-header.png) center center/cover no-repeat;
+    background: url(../../img/trangchu/skills-header.png) center center/cover no-repeat;
     margin-bottom: 30px;
     border-radius: 4px;
     padding: 60px 20px;
@@ -780,6 +780,11 @@ body {
         gap: 15px;
     }
 
+    .book-item {
+        width: calc(50% - 15px); /* Force 2 books per row */
+        max-width: 250px; /* Optional cap for very specific wide tablets */
+    }
+
     .footer-container {
         flex-direction: column;
         align-items: center;
@@ -796,35 +801,5 @@ body {
 @media screen and (max-width: 500px) {
     #nav li {
         font-size: 16px;
-    }
-
-    #nav button {
-        width: 150px;
-        margin-left: 0;
-    }
-
-    .book-item {
-        width: 45%;
-        /* Hiển thị 2 cuốn sách 1 hàng */
-    }
-
-    .subnav li>ul {
-        grid-template-columns: 1fr;
-        /* Chỉ hiện 1 cột danh mục */
-    }
-
-    .manga-collection .manga-header,
-    .skills-collection .skills-header {
-        padding: 40px 15px;
-        /* Thu nhỏ thêm trên mobile */
-        background-attachment: scroll;
-    }
-
-    .manga-collection .manga-header h2 {
-        font-size: 28px;
-    }
-
-    .skills-collection .skills-header h2 {
-        font-size: 28px;
     }
 }

@@ -390,13 +390,19 @@
         margin-top: 10px;
         text-align: center;
     }
+
+    .book-grid {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .book-item {
+        width: calc(50% - 15px); /* Force 2 books per row */
+    }
 }
 @media screen and (max-width: 500px) {
     .chitiet-price-block {
         flex-direction: column;
         gap: 5px;
-    }
-    .book-item {
-        width: 45%;
     }
 }
