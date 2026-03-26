@@ -42,7 +42,6 @@ function logout() {
     window.location.href = "index.html";
 }
 
-// Kiểm tra đăng nhập — gọi trước khi mua/thêm giỏ hàng
 function requireLogin() {
     if (localStorage.getItem("loggedIn") !== "true") {
         alert("Bạn cần đăng nhập để thực hiện chức năng này!");
@@ -52,7 +51,6 @@ function requireLogin() {
     return true;
 }
 
-// Cập nhật NAV: chỉ nút Đăng Nhập/Đăng Xuất (dùng cho mọi trang)
 function updateNavUI() {
     let isLoggedIn = localStorage.getItem("loggedIn") === "true";
     let loginBtn = document.getElementById("loginBtn");
@@ -69,7 +67,6 @@ function updateNavUI() {
     }
 }
 
-// Cập nhật NAV + phần chào sidebar (chỉ trang chủ)
 function updateLoginUI() {
     let isLoggedIn = localStorage.getItem("loggedIn") === "true";
     let email = localStorage.getItem("email") || "ayabook@gmail.com";
@@ -145,12 +142,11 @@ function updateFavoriteUI(bookId) {
 
 document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("userName")) {
-        updateLoginUI(); // trang chủ
+        updateLoginUI();
     } else {
-        updateNavUI();   // các trang khác
+        updateNavUI();
     }
 
-    // Nếu ở trang chi tiết, cập nhật UI nút yêu thích
     if (document.getElementById("btn-fav")) {
         const urlParams = new URLSearchParams(window.location.search);
         const currentId = urlParams.get('id') || 'akutami';

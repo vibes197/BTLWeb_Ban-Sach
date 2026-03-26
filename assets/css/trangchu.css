@@ -10,8 +10,6 @@
     width: 100%;
 }
 
-/* header */
-
 #header {
     min-width: 1440px;
     width: 100%;
@@ -105,8 +103,6 @@
     width: 28px;
     height: 24px;
 }
-
-/* sidebar */
 
 #sidebar {
     min-width: 1440px;
@@ -433,8 +429,6 @@
     margin-bottom: 30px;
     border-radius: 4px;
 }
-
-/* footer */
 
 #footer {
     min-width: 1440px;

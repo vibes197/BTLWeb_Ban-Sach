@@ -1,6 +1,5 @@
 body {
     background-color: #B5DCE8;
-    /* Màu nền xanh nhạt */
     margin: 0;
     font-family: Arial, sans-serif;
     min-height: 100vh;
@@ -43,7 +42,6 @@ body {
     padding: 20px 25px;
     border: none;
     border-radius: 15px;
-    /* Bo góc mượt giống hình */
     font-size: 18px;
     box-sizing: border-box;
     background-color: #fff;
@@ -65,7 +63,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 80px;
-    /* Khoảng cách giữa 2 nút */
     margin-top: 20px;
 }
 
