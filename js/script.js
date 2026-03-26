@@ -145,22 +145,22 @@ function updateFavoriteUI(bookId) {
 
 //Chức năng tìm kiếm sách
 const booksData = [
-    { id: 'nina', name: 'Nina ở thị trấn cao nguyên - Tập 2', price: '34,200đ', img: './assets/img/trangchu/nina.png' },
-    { id: 'tet', name: 'Những ngày tết ta', price: '81,000đ', img: './assets/img/trangchu/tet.png' },
-    { id: 'worldtrigger', name: 'World Trigger - Tập 4', price: '31,500đ', img: './assets/img/trangchu/worldtrigger.png' },
-    { id: 'bantusach', name: 'Những người bạn từ trang sách', price: '85,500đ', img: './assets/img/trangchu/bantusach.png' },
-    { id: 'shin', name: 'Shin - Cậu bé bút chì - Tập 1', price: '19,500đ', img: './assets/img/trangchu/shin.png' },
-    { id: 'naruto', name: 'Naruto - Quyển 20', price: '21,000đ', img: './assets/img/trangchu/naruto.png' },
-    { id: 'onepi', name: 'One Piece - Tập 101', price: '25,000đ', img: './assets/img/trangchu/onepi.png' },
-    { id: 'akutami', name: 'Chú thuật hồi chiến - Tập 1', price: '30,000đ', img: './assets/img/trangchu/akutami.png' },
-    { id: 'xebuyt', name: 'XE BUÝT ĐƯA EM ĐI', price: '36,000đ', img: './assets/img/trangchu/xebuyt.png' },
-    { id: 'rantaro', name: 'Ninja Rontaro - Tập 19', price: '36,000đ', img: './assets/img/trangchu/rantaro.png' },
-    { id: 'drstone', name: 'Doctor Stone - Tập 21', price: '22,500đ', img: './assets/img/trangchu/drstone.png' },
-    { id: 'doraemondoiquan', name: 'Đội quân Doraemon - Tập 4', price: '19,800đ', img: './assets/img/trangchu/doraemondoiquan.png' },
-    { id: 'thiendinh', name: 'THIỀN ĐỊNH MỖI NGÀY', price: '118,000đ', img: './assets/img/trangchu/thiendinh.png' },
-    { id: 'tute', name: 'MỘT NĂM SỐNG TỬ TẾ', price: '168,000đ', img: './assets/img/trangchu/tute.png' },
-    { id: 'sohoc', name: 'THAY ĐỔI CUỘC SỐNG VỚI NHÂN SỐ HỌC', price: '181,040đ', img: './assets/img/trangchu/sohoc.png' },
-    { id: 'damnghi', name: 'DÁM NGHĨ LẠI', price: '117,600đ', img: './assets/img/trangchu/damnghi.png' }
+    { id: 'nina', name: 'Nina ở thị trấn cao nguyên - Tập 2', price: '34,200đ', img: './assets/img/trangchu/nina.png', category: 'manga' },
+    { id: 'tet', name: 'Những ngày tết ta', price: '81,000đ', img: './assets/img/trangchu/tet.png', category: 'thieunhi' },
+    { id: 'worldtrigger', name: 'World Trigger - Tập 4', price: '31,500đ', img: './assets/img/trangchu/worldtrigger.png', category: 'manga' },
+    { id: 'bantusach', name: 'Những người bạn từ trang sách', price: '85,500đ', img: './assets/img/trangchu/bantusach.png', category: 'tieuthuyet' },
+    { id: 'shin', name: 'Shin - Cậu bé bút chì - Tập 1', price: '19,500đ', img: './assets/img/trangchu/shin.png', category: 'manga' },
+    { id: 'naruto', name: 'Naruto - Quyển 20', price: '21,000đ', img: './assets/img/trangchu/naruto.png', category: 'manga' },
+    { id: 'onepi', name: 'One Piece - Tập 101', price: '25,000đ', img: './assets/img/trangchu/onepi.png', category: 'manga' },
+    { id: 'akutami', name: 'Chú thuật hồi chiến - Tập 1', price: '30,000đ', img: './assets/img/trangchu/akutami.png', category: 'manga' },
+    { id: 'xebuyt', name: 'XE BUÝT ĐƯA EM ĐI', price: '36,000đ', img: './assets/img/trangchu/xebuyt.png', category: 'tieuthuyet' },
+    { id: 'rantaro', name: 'Ninja Rontaro - Tập 19', price: '36,000đ', img: './assets/img/trangchu/rantaro.png', category: 'manga' },
+    { id: 'drstone', name: 'Doctor Stone - Tập 21', price: '22,500đ', img: './assets/img/trangchu/drstone.png', category: 'manga' },
+    { id: 'doraemondoiquan', name: 'Đội quân Doraemon - Tập 4', price: '19,800đ', img: './assets/img/trangchu/doraemondoiquan.png', category: 'manga' },
+    { id: 'thiendinh', name: 'THIỀN ĐỊNH MỖI NGÀY', price: '118,000đ', img: './assets/img/trangchu/thiendinh.png', category: 'kynang' },
+    { id: 'tute', name: 'MỘT NĂM SỐNG TỬ TẾ', price: '168,000đ', img: './assets/img/trangchu/tute.png', category: 'kynang' },
+    { id: 'sohoc', name: 'THAY ĐỔI CUỘC SỐNG VỚI NHÂN SỐ HỌC', price: '181,040đ', img: './assets/img/trangchu/sohoc.png', category: 'kynang' },
+    { id: 'damnghi', name: 'DÁM NGHĨ LẠI', price: '117,600đ', img: './assets/img/trangchu/damnghi.png', category: 'kynang' }
 ];
 
 function setupSearchRedirect() {
@@ -235,6 +235,66 @@ function renderSearchResults() {
     });
 }
 
+function renderCategoryResults() {
+    let grid = document.getElementById("category-results-grid");
+    if (!grid) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryId = urlParams.get('c');
+
+    let title = document.getElementById("category-title");
+
+    const categoryNames = {
+        'tieuthuyet': 'Tiểu thuyết',
+        'manga': 'Manga',
+        'kynang': 'Sách kỹ năng',
+        'hoctap': 'Sách học tập',
+        'thieunhi': 'Sách thiếu nhi',
+        'trinhtham': 'Trinh thám'
+    };
+
+    let catName = categoryNames[categoryId] || categoryId;
+
+    if (title) {
+        title.textContent = catName ? `Chủ đề: ${catName}` : "Tất cả chủ đề";
+    }
+
+    grid.innerHTML = '';
+
+    if (!categoryId) {
+        grid.innerHTML = `
+            <div id="empty-favorites" style="text-align: center; padding: 50px; width: 100%;">
+                <p style="font-size: 18px; margin-bottom: 20px;">Vui lòng chọn một chủ đề để xem sách.</p>
+                <a href="index.html" class="btn-continue">Về trang chủ</a>
+            </div>`;
+        return;
+    }
+
+    let results = booksData.filter(b => b.category === categoryId);
+
+    if (results.length === 0) {
+        grid.innerHTML = `
+            <div id="empty-favorites" style="text-align: center; padding: 50px; width: 100%;">
+                <p style="font-size: 18px; margin-bottom: 20px;">Không tìm thấy sách nào thuộc chủ đề "${catName}".</p>
+                <a href="index.html" class="btn-continue">Về trang chủ</a>
+            </div>`;
+        return;
+    }
+
+    results.forEach(book => {
+        let item = document.createElement('div');
+        item.className = 'book-item';
+        item.innerHTML = `
+            <a href="chitiet.html?id=${book.id}" class="book-link">
+                <img src="${book.img}" alt="${book.name}">
+            </a>
+            <p class="book-name">${book.name}</p>
+            <p class="book-price">${book.price}</p>
+        `;
+        grid.appendChild(item);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("userName")) {
         updateLoginUI();
@@ -250,4 +310,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setupSearchRedirect();
     renderSearchResults();
+    renderCategoryResults();
 });
