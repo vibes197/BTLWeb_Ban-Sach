@@ -252,3 +252,50 @@ hr {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 187, 201, 0.45);
 }
+
+/* =========================================
+   RESPONSIVE DESIGN CHO TRANG ĐƠN HÀNG
+   ========================================= */
+@media screen and (max-width: 1440px) {
+    #container {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #donhang-main {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    #donhang-left {
+        width: 100%;
+    }
+    #donhang-right {
+        width: 100%;
+        position: static;
+    }
+    .breadcrumb {
+        padding: 12px 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .order-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+    .item-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .item-qty-row {
+        justify-content: center;
+    }
+    .item-img {
+        width: 120px;
+        height: auto;
+    }
+}

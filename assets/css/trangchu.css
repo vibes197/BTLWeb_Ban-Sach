@@ -13,7 +13,6 @@
 /* header */
 
 #header {
-    min-width: 1440px;
     width: 100%;
     height: 90px;
     background-color: #B5DCE8;
@@ -21,15 +20,21 @@
     top: 0;
     z-index: 1000;
     margin: 0;
+    display: flex;
+    justify-content: flex-start; /* Hiển thị logo và nav cạnh nhau */
+    align-items: center;
+    padding: 0 40px;
+    gap: 40px; /* Thêm khoảng cách nếu cần */
 }
 
 #nav {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Nằm cạch logo */
     align-items: center;
     height: 100%;
-    gap: 50px;
+    gap: 40px;
+    flex-grow: 1; /* Chiếm hết chiều ngang thừa để dễ ép các cột phải sang sát mép */
 }
 
 #nav li {
@@ -77,12 +82,15 @@
 }
 
 .logo {
-    margin-left: 39px;
     padding: 8px 12px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+}
+
+.mobile-menu-btn {
+    display: none;
 }
 
 .logo:hover {
@@ -224,13 +232,7 @@
     background-color: #f0fbff;
 }
 
-.subnav li:hover>ul,
-.subnav li:focus-within>ul {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-}
+/* Chủ đề menu: Chỉ hiện khi Javascript chèn class .open vào */
 
 .subnav li.open>ul {
     opacity: 1;
@@ -497,4 +499,196 @@
 .social-icons a:hover {
     transform: scale(1.2);
     color: #000;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN CHO TRANG CHỦ & LAYOUT CHUNG
+   ========================================= */
+
+/* Dành cho Desktop nhỏ, Tablet ngang (max-width: 1440px) */
+@media screen and (max-width: 1440px) {
+    #container, #header, #sidebar, #content, #footer, .footer-container {
+        min-width: 100%;
+        width: 100%;
+    }
+    
+    .search-container {
+        width: 100%;
+        max-width: 450px;
+    }
+}
+
+/* Dành cho màn hình nhỏ hơn (max-width: 1100px) */
+@media screen and (max-width: 1100px) {
+    #nav {
+        gap: 20px;
+    }
+    .logo {
+        margin-left: 10px;
+    }
+    #nav li:last-child {
+        margin-right: 10px;
+    }
+    .sidebar1 {
+        padding-left: 15px;
+    }
+    .sidebar2 {
+        padding-right: 15px;
+    }
+    .subnav li>ul {
+        min-width: 320px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Dành cho Tablet dọc và Mobile chuẩn (max-width: 850px) */
+@media screen and (max-width: 850px) {
+    #header {
+        height: 70px;
+        padding: 0 20px;
+        position: relative; /* Bỏ sticky nếu bị chiếm màn hình */
+        justify-content: space-between; /* Trả Menu Hamburger về góc phải */
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+        color: #333;
+    }
+    
+    #nav {
+        display: none; /* Hide by default on mobile */
+        flex-direction: column;
+        justify-content: flex-start; /* Xóa flex-end từ desktop để không bị đẩy ngược lên */
+        height: auto; /* Xóa height: 100% (70px) để container tự mở rộng */
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #B5DCE8;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        z-index: 999;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    #nav.active {
+        display: flex; /* Show when toggled */
+    }
+    
+    #nav li.push-right {
+        margin-left: 0;
+    }
+    
+    .logo {
+        margin-left: 0;
+    }
+    
+    /* Reset lại margin bị âm trên desktop làm lỗi form */
+    #nav button {
+        margin-left: 0;
+    }
+    
+    #nav li:last-child {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    #sidebar {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        align-items: center;
+    }
+    
+    .sidebar1 {
+        padding-left: 0;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .sidebar2 {
+        padding-right: 0;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .search-container {
+        width: 90%;
+        max-width: 600px;
+    }
+    
+    .subnav li button {
+        width: 100%;
+        min-width: 250px;
+        height: 50px;
+    }
+    
+    .subnav li button a {
+        font-size: 24px;
+    }
+    
+    /* Chuyển menu con sang dạng dọc relative thay vì popup (absolute) khi ở mobile */
+    .subnav li>ul {
+        position: relative;
+        min-width: 100%;
+        transform: none;
+        box-shadow: none;
+        grid-template-columns: repeat(2, 1fr);
+        display: none; 
+    }
+    
+    /* Hiển thị list con khi click */
+    .subnav li.open>ul {
+        display: grid;
+    }
+    
+    .book-grid {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .footer-column {
+        width: 100%;
+    }
+}
+
+/* Dành cho Mobile nhỏ nhắn (max-width: 500px) */
+@media screen and (max-width: 500px) {
+    #nav li {
+        font-size: 16px;
+    }
+    
+    #nav button {
+        width: 150px;
+        margin-left: 0;
+    }
+    
+    .book-item {
+        width: 45%; /* Hiển thị 2 cuốn sách 1 hàng */
+    }
+    
+    .subnav li>ul {
+        grid-template-columns: 1fr; /* Chỉ hiện 1 cột danh mục */
+    }
+    
+    .manga-collection .manga-header h2 {
+        font-size: 28px;
+    }
+    
+    .skills-collection .skills-header {
+        padding: 50px;
+    }
 }

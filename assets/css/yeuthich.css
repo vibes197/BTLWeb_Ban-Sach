@@ -68,3 +68,18 @@
     justify-content: flex-start;
     gap: 40px;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN CHO TRANG YÊU THÍCH
+   ========================================= */
+@media screen and (max-width: 768px) {
+    #yeuthich-main {
+        padding: 20px 5%;
+    }
+    .breadcrumb {
+        padding: 12px 20px;
+    }
+    #favorites-container {
+        justify-content: center;
+    }
+}

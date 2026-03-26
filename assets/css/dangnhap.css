@@ -78,3 +78,13 @@ a {
     font-size: 12px;
     text-align: left;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN CHO TRANG ĐĂNG NHẬP
+   ========================================= */
+@media screen and (max-width: 400px) {
+    .form-box {
+        width: 90%;
+        padding: 20px;
+    }
+}

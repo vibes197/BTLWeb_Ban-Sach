@@ -84,3 +84,21 @@ body {
 .faq-buttons button:hover {
     opacity: 0.8;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN CHO TRANG FAQ
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .faq-box {
+        padding: 30px 20px;
+    }
+    .faq-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    .faq-buttons button {
+        width: 100%;
+        max-width: 200px;
+    }
+}

@@ -156,4 +156,23 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentId = urlParams.get('id') || 'akutami';
         updateFavoriteUI(currentId);
     }
+
+    // Toggle Mobile Menu
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const nav = document.getElementById("nav");
+    if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener("click", function () {
+            nav.classList.toggle("active");
+        });
+    }
+
+    // Toggle Desktop Submenu Category (Chủ đề)
+    const categoryBtn = document.getElementById("category-btn");
+    const categoryItem = document.getElementById("category-item");
+    if (categoryBtn && categoryItem) {
+        categoryBtn.addEventListener("click", function (e) {
+            e.preventDefault(); // Ngăn thẻ <a> load lại trang nếu lỡ ấn trúng chữ
+            categoryItem.classList.toggle("open");
+        });
+    }
 });

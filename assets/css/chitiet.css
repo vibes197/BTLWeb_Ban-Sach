@@ -364,3 +364,50 @@
     text-decoration: none;
     color: inherit;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN CHO TRANG CHI TIẾT
+   ========================================= */
+@media screen and (max-width: 1440px) {
+    #container {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #chitiet-main {
+        flex-direction: column;
+        padding: 30px 20px 0 20px;
+        align-items: center;
+        gap: 30px;
+    }
+    .chitiet-cover {
+        width: 100%;
+        max-width: 350px;
+    }
+    .chitiet-info {
+        width: 100%;
+    }
+    #chitiet-desc, #chitiet-reviews, .related-section {
+        padding: 20px;
+        margin: 0 20px 30px 20px;
+    }
+    .breadcrumb {
+        padding: 12px 20px;
+    }
+    .btn-buy, .btn-addcart, .btn-fav {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 500px) {
+    .chitiet-price-block {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .book-item {
+        width: 45%;
+    }
+}

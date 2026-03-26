@@ -294,3 +294,46 @@
 }
 
 /* Shared with trangchu.css so footer is consistent */
+
+/* =========================================
+   RESPONSIVE DESIGN CHO TRANG THANH TOÁN
+   ========================================= */
+
+@media screen and (max-width: 1440px) {
+    #thanhtoan-main {
+        min-width: 100%;
+        width: 100%;
+        padding: 40px 30px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #thanhtoan-main {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+    
+    .tt-right {
+        width: 100%; /* Cho bảng thông tin đơn hàng tràn viền ngang thay vì fix cứng 360px */
+    }
+    
+    .form-row {
+        flex-direction: column; /* Chia form ngang thành dọc */
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #thanhtoan-main {
+        padding: 20px 15px;
+    }
+    
+    .tt-order-summary {
+        padding: 20px 15px;
+    }
+    
+    .tt-section-title {
+        font-size: 16px;
+    }
+}
