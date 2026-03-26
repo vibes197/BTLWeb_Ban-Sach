@@ -283,6 +283,31 @@
                 return;
             }
 
+            const fullName = document.getElementById('full-name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const province = document.getElementById('province').value;
+            const district = document.getElementById('district').value;
+            const ward = document.getElementById('ward').value;
+            const address = document.getElementById('address').value.trim();
+
+            if (!fullName || !phone || !email || !province || !district || !ward || !address) {
+                alert('Vui lòng điền đầy đủ thông tin giao hàng!');
+                return;
+            }
+
+            const phoneRegex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+            if (!phoneRegex.test(phone)) {
+                alert('Vui lòng nhập số điện thoại hợp lệ!');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Vui lòng nhập định dạng email hợp lệ!');
+                return;
+            }
+
             // Lấy tổng tiền để truyền sang trang thành công
             const totalAmount = document.getElementById('total').textContent;
 
