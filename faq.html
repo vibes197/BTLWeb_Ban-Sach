@@ -7,101 +7,14 @@
     <title>FAQ & Hỏi đáp - Tư vấn khách hàng - AyaBook</title>
     <link rel="stylesheet" href="./assets/css/trangchu.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
-    <style>
-        body {
-            background-color: #B5DCE8;
-            /* Màu nền xanh nhạt */
-            margin: 0;
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
-        }
-
-        #faq-main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-        }
-
-        .faq-box {
-            background-color: #DCDCDC;
-            /* Hộp màu xám sáng giống hình */
-            padding: 50px 80px;
-            width: 100%;
-            max-width: 700px;
-            box-sizing: border-box;
-            color: #333;
-        }
-
-        .faq-box h2 {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 500;
-            margin-bottom: 40px;
-            color: #222;
-        }
-
-        .faq-form {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .faq-form input,
-        .faq-form textarea {
-            width: 100%;
-            padding: 20px 25px;
-            border: none;
-            border-radius: 15px;
-            /* Bo góc mượt giống hình */
-            font-size: 18px;
-            box-sizing: border-box;
-            background-color: #fff;
-            outline: none;
-            color: #333;
-        }
-
-        .faq-form input::placeholder,
-        .faq-form textarea::placeholder {
-            color: #111;
-        }
-
-        .faq-form textarea {
-            resize: none;
-            min-height: 180px;
-        }
-
-        .faq-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            /* Khoảng cách giữa 2 nút */
-            margin-top: 20px;
-        }
-
-        .faq-buttons button {
-            background-color: #B5DCE8;
-            border: none;
-            padding: 12px 0;
-            width: 130px;
-            border-radius: 25px;
-            font-size: 18px;
-            color: #111;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .faq-buttons button:hover {
-            opacity: 0.8;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/faq.css">
 </head>
 
 <body>
     <div id="container">
         <!-- HEADER SAO CHÉP TỪ CÁC TRANG KHÁC -->
-        <div id="header" style="background: transparent;">
-            <ul id="nav" style="background: transparent;">
+        <div id="header">
+            <ul id="nav">
                 <a href="index.html"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="AyaBook Logo"></a>
                 <li><a href="index.html">Trang chủ</a></li>
                 <li>
@@ -120,7 +33,7 @@
                 <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
             </ul>
         </div>
-        <hr style="opacity: 0.3;">
+        <hr>
 
         <div id="faq-main">
             <div class="faq-box">
@@ -136,6 +49,40 @@
                         <button type="submit">Gửi</button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>DỊCH VỤ</h3>
+                    <ul>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Hệ thống nhà sách</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>HỖ TRỢ</h3>
+                    <ul>
+                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="#">Chính sách khách hàng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>KẾT NỐI MẠNG XÃ HỘI</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-youtube"></i></a>
+                        <a href="#"><i class="ti-instagram"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

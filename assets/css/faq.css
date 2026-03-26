@@ -1,0 +1,86 @@
+body {
+    background-color: #B5DCE8;
+    /* Màu nền xanh nhạt */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+#faq-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.faq-box {
+    background-color: #DCDCDC;
+    padding: 50px 80px;
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.faq-box h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #4CB0C9;
+    text-transform: uppercase;
+}
+
+.faq-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.faq-form input,
+.faq-form textarea {
+    width: 100%;
+    padding: 20px 25px;
+    border: none;
+    border-radius: 15px;
+    /* Bo góc mượt giống hình */
+    font-size: 18px;
+    box-sizing: border-box;
+    background-color: #fff;
+    outline: none;
+    color: #333;
+}
+
+.faq-form input::placeholder,
+.faq-form textarea::placeholder {
+    color: #111;
+}
+
+.faq-form textarea {
+    resize: none;
+    min-height: 180px;
+}
+
+.faq-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    /* Khoảng cách giữa 2 nút */
+    margin-top: 20px;
+}
+
+.faq-buttons button {
+    background-color: #B5DCE8;
+    border: none;
+    padding: 12px 0;
+    width: 130px;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #111;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.faq-buttons button:hover {
+    opacity: 0.8;
+}
