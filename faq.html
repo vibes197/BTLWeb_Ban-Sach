@@ -12,7 +12,6 @@
 
 <body>
     <div id="container">
-        <!-- HEADER SAO CHÉP TỪ CÁC TRANG KHÁC -->
         <div id="header">
             <ul id="nav">
                 <a href="index.html"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="AyaBook Logo"></a>
@@ -90,15 +89,12 @@
     <script src="./js/script.js"></script>
     <script>
         function handleSubmit(event) {
-            event.preventDefault(); // Ngăn chặn tải lại trang
+            event.preventDefault();
 
-            // Có thể lấy dữ liệu form ở đây nếu cần gửi lên server
             const name = document.getElementById('faq-name').value;
 
             alert('Cảm ơn ' + name + '! Chúng tôi đã nhận được thông tin và sẽ gọi tư vấn cho bạn sớm nhất.');
 
-            // Xóa nội dung form để người dùng có thể nhập tiếp nếu ở lại, 
-            // hoặc chuyển hướng về trang chủ:
             window.location.href = 'index.html';
         }
     </script>
