@@ -20,7 +20,6 @@
                 <li>
                     <a href="#">
                         FAQ &amp; Hỏi đáp
-                        <i class="ti-angle-down"></i>
                     </a>
                 </li>
                 <li><a href="vechungtoi.html">Về chúng tôi</a></li>
@@ -283,12 +282,12 @@
                 alert('Giỏ hàng của bạn đang trống!');
                 return;
             }
-            
+
             // Lấy tổng tiền để truyền sang trang thành công
             const totalAmount = document.getElementById('total').textContent;
-            
+
             localStorage.removeItem('ayaCart'); // Xóa giỏ hàng sau khi đặt thành công
-            window.location.href = 'thanhcong.html?total=' + encodeURIComponent(totalAmount); 
+            window.location.href = 'thanhcong.html?total=' + encodeURIComponent(totalAmount);
         });
     </script>
     <script src="./js/script.js"></script>
