@@ -31,14 +31,16 @@ body {
     left: 0;
     z-index: 10000;
     margin: 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm transition để lướt mượt */
+    /* Loại bỏ shadow đen gây hiệu ứng đường kẻ */
+    box-shadow: none;
+    border-bottom: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hiệu ứng khi lướt trang web xuống (Header sẽ nhích nhẹ lên trên) */
 #header.header-scrolled {
     transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Tăng nhẹ bóng đổ để nổi hơn khi lướt */
+    box-shadow: none; /* Không dùng shadow khi lướt để tránh lộ đường kẻ */
 }
 
 .header-inner {
@@ -124,6 +126,7 @@ body {
     color: #1a1a1a;
     text-decoration: none;
     letter-spacing: -1px;
+    border: none !important; /* Đảm bảo không có đường kẻ dọc */
     transition: transform 0.3s ease;
 }
 
