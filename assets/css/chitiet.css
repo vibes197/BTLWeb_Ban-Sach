@@ -278,6 +278,36 @@
     transform: translateY(-3px);
 }
 
+.btn-fav {
+    display: inline-block;
+    background-color: white;
+    color: #4CB0C9;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 13px 20px;
+    border-radius: 10px;
+    border: 2px solid #4CB0C9;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-left: 16px;
+}
+
+.btn-fav:hover {
+    background-color: #e6f6fa;
+    transform: translateY(-3px);
+}
+
+.btn-fav.active-fav {
+    background-color: #ff4d4f;
+    color: white;
+    border-color: #ff4d4f;
+}
+
+.btn-fav.active-fav:hover {
+    background-color: #d9363e;
+}
+
 /* ===== DESCRIPTION ===== */
 #chitiet-desc {
     background-color: #B5DCE8;

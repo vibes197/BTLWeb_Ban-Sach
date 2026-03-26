@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <style>
         body {
-            background-color: #B5DCE8; /* Màu nền xanh nhạt */
+            background-color: #B5DCE8;
+            /* Màu nền xanh nhạt */
             margin: 0;
             font-family: Arial, sans-serif;
             min-height: 100vh;
@@ -23,7 +24,8 @@
         }
 
         .faq-box {
-            background-color: #DCDCDC; /* Hộp màu xám sáng giống hình */
+            background-color: #DCDCDC;
+            /* Hộp màu xám sáng giống hình */
             padding: 50px 80px;
             width: 100%;
             max-width: 700px;
@@ -50,14 +52,15 @@
             width: 100%;
             padding: 20px 25px;
             border: none;
-            border-radius: 15px; /* Bo góc mượt giống hình */
+            border-radius: 15px;
+            /* Bo góc mượt giống hình */
             font-size: 18px;
             box-sizing: border-box;
             background-color: #fff;
             outline: none;
             color: #333;
         }
-        
+
         .faq-form input::placeholder,
         .faq-form textarea::placeholder {
             color: #111;
@@ -71,7 +74,8 @@
         .faq-buttons {
             display: flex;
             justify-content: center;
-            gap: 80px; /* Khoảng cách giữa 2 nút */
+            gap: 80px;
+            /* Khoảng cách giữa 2 nút */
             margin-top: 20px;
         }
 
@@ -108,7 +112,7 @@
                 </li>
                 <li><a href="#">Về chúng tôi</a></li>
                 <li><a href="#footer">Liên hệ với chúng tôi</a></li>
-                <li class="push-right"><a href="#"><img class="shop" src="./assets/img/trangchu/Fav.png"
+                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png"
                             alt="Yêu thích"></a></li>
                 <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png"
                             alt="Giỏ hàng"></a></li>
@@ -121,12 +125,12 @@
         <div id="faq-main">
             <div class="faq-box">
                 <h2>Tư vấn khách hàng</h2>
-                
+
                 <form class="faq-form" onsubmit="handleSubmit(event)">
                     <input type="text" id="faq-name" placeholder="Họ và tên:" required>
                     <input type="tel" id="faq-phone" placeholder="SĐT:" required>
                     <textarea id="faq-content" placeholder="Nội dung:" required></textarea>
-                    
+
                     <div class="faq-buttons">
                         <button type="button" onclick="window.history.back()">Quay lại</button>
                         <button type="submit">Gửi</button>
@@ -135,20 +139,20 @@
             </div>
         </div>
     </div>
-    
+
     <script src="./js/script.js"></script>
     <script>
         function handleSubmit(event) {
             event.preventDefault(); // Ngăn chặn tải lại trang
-            
+
             // Có thể lấy dữ liệu form ở đây nếu cần gửi lên server
             const name = document.getElementById('faq-name').value;
-            
+
             alert('Cảm ơn ' + name + '! Chúng tôi đã nhận được thông tin và sẽ gọi tư vấn cho bạn sớm nhất.');
-            
+
             // Xóa nội dung form để người dùng có thể nhập tiếp nếu ở lại, 
             // hoặc chuyển hướng về trang chủ:
-            window.location.href = 'index.html'; 
+            window.location.href = 'index.html';
         }
     </script>
 </body>

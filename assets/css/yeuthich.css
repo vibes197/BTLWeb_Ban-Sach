@@ -1,0 +1,43 @@
+#yeuthich-main {
+    padding: 30px 10%;
+    min-height: 50vh;
+}
+
+#yeuthich-main h2 {
+    text-align: center;
+    color: #4CB0C9;
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.btn-remove-fav {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%;
+    transition: background 0.3s;
+    font-size: 14px;
+}
+
+.btn-remove-fav:hover {
+    background-color: #d9363e;
+}
+
+.btn-continue {
+    display: inline-block;
+    background-color: #4CB0C9;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.btn-continue:hover {
+    background-color: #388a9e;
+}

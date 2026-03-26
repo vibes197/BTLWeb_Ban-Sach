@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sách Yêu Thích - AyaBook</title>
+    <link rel="stylesheet" href="./assets/css/trangchu.css">
+    <link rel="stylesheet" href="./assets/css/yeuthich.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <ul id="nav">
+                <a href="index.html"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li>
+                    <a href="faq.html">
+                        FAQ & Hỏi đáp
+                        <i class="ti-angle-down"></i>
+                    </a>
+                </li>
+                <li><a href="#">Về chúng tôi</a></li>
+                <li><a href="#footer">Liên hệ với chúng tôi</a></li>
+                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png"
+                            alt="Yêu thích"></a>
+                </li>
+                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt=""></a></li>
+                <button><a href="thanhtoan.html">Thanh toán</a></button>
+                <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
+            </ul>
+        </div>
+        <hr>
+
+        <div id="yeuthich-main">
+            <h2>Danh sách yêu thích của bạn</h2>
+            <div id="favorites-container" class="book-grid">
+                <!-- Sẽ được thêm bằng JS -->
+            </div>
+            <div id="empty-favorites" style="display: none; text-align: center; padding: 50px;">
+                <p style="font-size: 18px; margin-bottom: 20px;">Bạn chưa có cuốn sách yêu thích nào.</p>
+                <a href="index.html" class="btn-continue">Tiếp tục mua sắm</a>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>DỊCH VỤ</h3>
+                    <ul>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Hệ thống nhà sách</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>HỖ TRỢ</h3>
+                    <ul>
+                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="#">Chính sách khách hàng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>KẾT NỐI MẠNG XÃ HỘI</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-youtube"></i></a>
+                        <a href="#"><i class="ti-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+    <script>
+        function renderFavorites() {
+            const container = document.getElementById('favorites-container');
+            const emptyState = document.getElementById('empty-favorites');
+            let favorites = JSON.parse(localStorage.getItem('ayaFavorites') || '[]');
+
+            if (favorites.length === 0) {
+                container.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            container.style.display = 'grid'; // Grid từ css của trang chủ
+            emptyState.style.display = 'none';
+
+            container.innerHTML = favorites.map(book => `
+                <div class="book-item">
+                    <a href="chitiet.html?id=${book.id}" class="book-link">
+                        <img src="${book.img}" alt="${book.title}">
+                    </a>
+                    <p class="book-name">${book.title}</p>
+                    <p class="book-price">${book.price}</p>
+                    <button class="btn-remove-fav" onclick="removeFavorite('${book.id}')"><i class="ti-trash"></i> Bỏ yêu thích</button>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFavorites();
+        });
+    </script>
+</body>
+
+</html>
