@@ -34,10 +34,16 @@
         </div>
         <hr>
 
+        <div class="breadcrumb" id="breadcrumb">
+            <a href="index.html">Trang chủ</a>
+            <span>›</span>
+            <span id="bc-title">Danh sách yêu thích</span>
+        </div>
+
         <div id="yeuthich-main">
             <h2>Danh sách yêu thích của bạn</h2>
             <div id="favorites-container" class="book-grid">
-                <!-- Sẽ được thêm bằng JS -->
+
             </div>
             <div id="empty-favorites" style="display: none; text-align: center; padding: 50px;">
                 <p style="font-size: 18px; margin-bottom: 20px;">Bạn chưa có cuốn sách yêu thích nào.</p>
@@ -94,7 +100,7 @@
                 return;
             }
 
-            container.style.display = 'grid'; // Grid từ css của trang chủ
+            container.style.display = 'flex'; // Flex dùng CSS tuỳ chỉnh để nằm ngang
             emptyState.style.display = 'none';
 
             container.innerHTML = favorites.map(book => `
