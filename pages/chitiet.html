@@ -13,8 +13,9 @@
 <body>
     <div id="container">
         <div id="header">
-            <a href="../index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
-            
+            <a href="../index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png"
+                    alt="Trang chủ"></a>
+
             <div class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="ti-menu"></i>
             </div>
@@ -26,8 +27,10 @@
                 </li>
                 <li><a href="vechungtoi.html">Về chúng tôi</a></li>
                 <li><a href="#footer">Liên hệ với chúng tôi</a></li>
-                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png" alt="Yêu thích"></a></li>
-                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt="Giỏ hàng"></a></li>
+                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png"
+                            alt="Yêu thích"></a></li>
+                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png"
+                            alt="Giỏ hàng"></a></li>
                 <button><a href="thanhtoan.html">Thanh toán</a></button>
                 <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
             </ul>
@@ -460,7 +463,60 @@
                 cungBo: ["damnghi"]
             }
         ];
+        function showToast(message, type = 'success') {
+            // Tạo element toast
+            const toast = document.createElement('div');
+            toast.className = `toast-notification ${type}`;
+            toast.textContent = message;
 
+            // Style cho toast
+            toast.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: ${type === 'success' ? '#4CAF50' : '#f44336'};
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        z-index: 9999;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        animation: slideIn 0.3s ease-out;
+        transition: opacity 0.3s ease-out;
+    `;
+
+            // Thêm animation keyframes nếu chưa có
+            if (!document.querySelector('#toast-styles')) {
+                const style = document.createElement('style');
+                style.id = 'toast-styles';
+                style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateY(100%);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateY(0%);
+                    opacity: 1;
+                }
+            }
+        `;
+                document.head.appendChild(style);
+            }
+
+            document.body.appendChild(toast);
+
+            // Tự động xóa toast sau 3 giây
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 300);
+            }, 3000);
+        }
         // Fix asset paths when page is moved into /pages/
         if (window.location.pathname.includes("/pages/") || window.location.pathname.includes("\\pages\\")) {
             const from = "./assets/";
@@ -630,7 +686,7 @@
                 });
             }
             localStorage.setItem('ayaCart', JSON.stringify(cart));
-            alert('✅ Đã thêm vào giỏ hàng: ' + book.title);
+            showToast('✅ Đã thêm vào giỏ hàng: ' + book.title);
         }
 
         function handleBuy() {

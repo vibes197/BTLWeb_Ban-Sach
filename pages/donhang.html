@@ -13,8 +13,9 @@
 <body>
     <div id="container">
         <div id="header">
-            <a href="../index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
-            
+            <a href="../index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png"
+                    alt="Trang chủ"></a>
+
             <div class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="ti-menu"></i>
             </div>
@@ -26,8 +27,10 @@
                 </li>
                 <li><a href="vechungtoi.html">Về chúng tôi</a></li>
                 <li><a href="#footer">Liên hệ với chúng tôi</a></li>
-                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png" alt="Yêu thích"></a></li>
-                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt="Giỏ hàng"></a></li>
+                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png"
+                            alt="Yêu thích"></a></li>
+                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png"
+                            alt="Giỏ hàng"></a></li>
                 <button><a href="thanhtoan.html">Thanh toán</a></button>
                 <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
             </ul>
@@ -101,89 +104,8 @@
         </div>
     </div>
 
-    <script>
-        function parsePrice(str) {
-            return parseInt((str || '0').replace(/[^\d]/g, ''), 10) || 0;
-        }
-
-        function formatPrice(n) {
-            return n.toLocaleString('vi-VN') + 'đ';
-        }
-
-        let donhangItems = JSON.parse(localStorage.getItem('ayaCart') || '[]');
-
-        function renderItems() {
-            const list = document.getElementById('item-list');
-
-            if (donhangItems.length === 0) {
-                list.innerHTML = '<p class="empty-msg">Không có sản phẩm nào trong đơn hàng.</p>';
-                updateSummary();
-                return;
-            }
-
-            function normalizeImgSrc(src) {
-                if (!src || typeof src !== 'string') return src;
-
-                // Items may be stored from earlier pages at root, e.g. "./assets/..."
-                // When this page is under /pages/, those become broken.
-                if (src.startsWith("./assets/")) return src.replace("./assets/", "../assets/");
-                if (src.startsWith(".\\assets\\")) return src.replace(".\\assets\\", "../assets/");
-                return src;
-            }
-
-            list.innerHTML = donhangItems.map((item, idx) => `
-            <div class="order-item" data-idx="${idx}">
-                <img src="${normalizeImgSrc(item.img)}" alt="${item.name}" class="item-img">
-                <div class="item-info">
-                    <div class="item-header">
-                        <span class="item-name">${item.name}</span>
-                        <button class="btn-delete" onclick="removeItem(${idx})" title="Xóa">🗑</button>
-                    </div>
-                    <div class="item-price-display">${item.price}</div>
-                    <div class="item-qty-row">
-                        <span class="qty-label">Số lượng</span>
-                        <button class="qty-btn" onclick="changeQty(${idx}, -1)">−</button>
-                        <span class="qty-val">${item.qty}</span>
-                        <button class="qty-btn" onclick="changeQty(${idx}, +1)">+</button>
-                    </div>
-                    <div class="item-total">Thành tiền: <span class="sum-val">${formatPrice(parsePrice(item.price) * item.qty)}</span></div>
-                </div>
-            </div>`).join('');
-
-            updateSummary();
-        }
-
-        function updateSummary() {
-            let subtotal = donhangItems.reduce((s, i) => s + parsePrice(i.price) * i.qty, 0);
-
-            let original = donhangItems.reduce((s, i) => s + parsePrice(i.originalPrice || i.price) * i.qty, 0);
-
-            let discount = original - subtotal;
-
-            document.getElementById('sum-subtotal').textContent = formatPrice(subtotal);
-            document.getElementById('sum-discount').textContent = discount > 0 ? formatPrice(discount) : '0đ';
-            document.getElementById('sum-total').textContent = formatPrice(subtotal);
-        }
-
-        function changeQty(idx, delta) {
-            donhangItems[idx].qty = Math.max(1, (donhangItems[idx].qty || 1) + delta);
-
-            localStorage.setItem('ayaCart', JSON.stringify(donhangItems));
-
-            renderItems();
-        }
-
-        function removeItem(idx) {
-            donhangItems.splice(idx, 1);
-
-            localStorage.setItem('ayaCart', JSON.stringify(donhangItems));
-
-            renderItems();
-        }
-
-        renderItems();
-    </script>
     <script src="../assets/src/js/main.js"></script>
+    <script src="../assets/src/js/core/cart.js"></script>
 </body>
 
 </html>

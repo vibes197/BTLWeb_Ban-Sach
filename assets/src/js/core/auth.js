@@ -32,7 +32,7 @@
             @keyframes slideIn {
                 from {
                     transform: translateY(100%);
-                    opacity: 0;
+                    opacity: 1;
                 }
                 to {
                     transform: translateY(0%);
