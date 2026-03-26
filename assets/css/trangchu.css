@@ -295,23 +295,38 @@
     height: auto;
     padding-top: 50%;
     background: url(../img/trangchu/hanhphuc.png) top center/95% no-repeat;
-    animation: slideShow 8s infinite;
+    animation: slideShow 16s infinite;
+}
+
+.slider1::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: "";
+    background-image: url(../img/trangchu/hanhphuc.png), url(../img/trangchu/conan.png), url(../img/trangchu/dora.png), url(../img/trangchu/cucdai.png);
 }
 
 @keyframes slideShow {
-    0% {
+
+    0%,
+    20% {
         background-image: url(../img/trangchu/hanhphuc.png);
     }
 
-    25% {
+    25%,
+    45% {
         background-image: url(../img/trangchu/conan.png);
     }
 
-    50% {
+    50%,
+    70% {
         background-image: url(../img/trangchu/dora.png);
     }
 
-    75% {
+    75%,
+    95% {
         background-image: url(../img/trangchu/cucdai.png);
     }
 
