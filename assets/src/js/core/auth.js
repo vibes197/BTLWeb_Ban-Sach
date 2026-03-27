@@ -1,60 +1,5 @@
 // Authentication helpers
 (function () {
-
-    function showToast(message, type = 'success') {
-        // Tạo element toast
-        const toast = document.createElement('div');
-        toast.className = `toast-notification ${type}`;
-        toast.textContent = message;
-
-        // Style cho toast
-        toast.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: ${type === 'success' ? '#4CAF50' : '#f44336'};
-        color: white;
-        padding: 12px 20px;
-        border-radius: 4px;
-        font-size: 14px;
-        font-family: Arial, sans-serif;
-        z-index: 9999;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        animation: slideIn 0.3s ease-out;
-        transition: opacity 0.3s ease-out;
-    `;
-
-        // Thêm animation keyframes nếu chưa có
-        if (!document.querySelector('#toast-styles')) {
-            const style = document.createElement('style');
-            style.id = 'toast-styles';
-            style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateY(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateY(0%);
-                    opacity: 1;
-                }
-            }
-        `;
-            document.head.appendChild(style);
-        }
-
-        document.body.appendChild(toast);
-
-        // Tự động xóa toast sau 3 giây
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => {
-                if (toast.parentNode) {
-                    toast.parentNode.removeChild(toast);
-                }
-            }, 300);
-        }, 3000);
-    }
     function register() {
         let email = document.getElementById("regEmail")?.value;
         let pass = document.getElementById("regPassword")?.value;
@@ -62,17 +7,17 @@
         let agree = document.getElementById("agree")?.checked;
 
         if (!email || !pass || !name) {
-            showToast("Nhập đầy đủ thông tin!", "error");
+            alert("Nhập đầy đủ thông tin!");
             return;
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            showToast("Vui lòng nhập định dạng email hợp lệ!", "error");
+            alert("Vui lòng nhập định dạng email hợp lệ!");
             return;
         }
         if (!agree) {
-            showToast("Bạn phải đồng ý điều khoản!", "error");
+            alert("Bạn phải đồng ý điều khoản!");
             return;
         }
 
@@ -80,7 +25,7 @@
         localStorage.setItem("password", pass);
         localStorage.setItem("name", name);
 
-        showToast("Đăng ký thành công!");
+        alert("Đăng ký thành công!");
         window.location.href = `${window.ayaPagesPrefix}dangNhap.html`;
     }
 
@@ -89,13 +34,13 @@
         let pass = document.getElementById("password")?.value;
 
         if (!email || !pass) {
-            showToast("Nhập đầy đủ thông tin!", "error");
+            alert("Nhập đầy đủ thông tin!");
             return;
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            showToast("Vui lòng nhập định dạng email hợp lệ!", "error");
+            alert("Vui lòng nhập định dạng email hợp lệ!");
             return;
         }
 
@@ -104,10 +49,10 @@
 
         if (email === savedEmail && pass === savedPass) {
             localStorage.setItem("loggedIn", "true");
-            showToast("Đăng nhập thành công!");
+            alert("Đăng nhập thành công!");
             window.location.href = window.ayaIndexHref;
         } else {
-            showToast("Sai tài khoản hoặc mật khẩu!", "error");
+            alert("Sai tài khoản hoặc mật khẩu!");
         }
     }
 
@@ -118,7 +63,7 @@
 
     function requireLogin() {
         if (localStorage.getItem("loggedIn") !== "true") {
-            showToast("Bạn cần đăng nhập để thực hiện chức năng này!", "error");
+            alert("Bạn cần đăng nhập để thực hiện chức năng này!");
             window.location.href = `${window.ayaPagesPrefix}dangNhap.html`;
             return false;
         }

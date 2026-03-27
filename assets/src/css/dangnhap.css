@@ -16,9 +16,8 @@ body {
 .form-box {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    padding-left: 30px;
-    padding-right: 30px;
-    width: 80%;
+    padding: 30px;
+    width: 300px;
     border-radius: 10px;
     text-align: center;
 }
@@ -106,13 +105,5 @@ p {
     .form-box {
         width: 90%;
         padding: 20px;
-    }
-}
-
-/*Can anh background sang 85% ben phai*/
-@media screen and (orientation: portrait) {
-    body {
-        background-position: 85% center;
-        /* Đưa ảnh nền về bên phải */
     }
 }
