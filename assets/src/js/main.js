@@ -21,6 +21,7 @@
 
     const files = [
         "utils/paths.js",
+        "ui/customAlert.js",
         "core/data.js",
         "core/auth.js",
         "core/favorites.js",

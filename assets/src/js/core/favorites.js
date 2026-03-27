@@ -7,7 +7,7 @@
 
         if (index !== -1) {
             favorites.splice(index, 1);
-            alert('Đã xóa khỏi danh sách Yêu thích: ' + (book.title || book.name));
+            alert('Đã xóa khỏi danh sách Yêu thích');
         } else {
             favorites.push({
                 id: book.id,
@@ -15,7 +15,7 @@
                 img: book.img,
                 price: book.price
             });
-            alert('❤️ Đã thêm vào danh sách Yêu thích: ' + (book.title || book.name));
+            alert('❤️ Đã thêm vào danh sách Yêu thích');
         }
         localStorage.setItem('ayaFavorites', JSON.stringify(favorites));
         window.updateFavoriteUI(book.id);
