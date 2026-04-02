@@ -72,17 +72,18 @@
 
     function updateNavUI() {
         let isLoggedIn = localStorage.getItem("loggedIn") === "true";
+        let name = localStorage.getItem("name") || "";
         let loginBtn = document.getElementById("loginBtn");
-        if (!loginBtn) return;
+        let userAvatarBtn = document.getElementById("user-avatar-btn");
+        let userDropdownName = document.getElementById("user-dropdown-name");
 
         if (isLoggedIn) {
-            loginBtn.innerHTML = '<i class="ti-shift-left"></i><span>Sign Out</span>';
-            loginBtn.onclick = function (e) { e.preventDefault(); logout(); };
-            loginBtn.removeAttribute("href");
+            if (loginBtn) loginBtn.style.display = 'none';
+            if (userAvatarBtn) userAvatarBtn.style.display = 'flex';
+            if (userDropdownName && name) userDropdownName.textContent = 'Xin chào, ' + name;
         } else {
-            loginBtn.innerHTML = '<i class="ti-shift-right"></i><span>Sign In</span>';
-            loginBtn.onclick = null;
-            loginBtn.setAttribute("href", `${window.ayaPagesPrefix}dangNhap.html`);
+            if (loginBtn) loginBtn.style.display = '';
+            if (userAvatarBtn) userAvatarBtn.style.display = 'none';
         }
     }
 
@@ -92,21 +93,20 @@
         let name = localStorage.getItem("name") || email.split("@")[0];
 
         let loginBtn = document.getElementById("loginBtn");
+        let userAvatarBtn = document.getElementById("user-avatar-btn");
+        let userDropdownName = document.getElementById("user-dropdown-name");
         let userName = document.getElementById("userName");
         let userEmail = document.getElementById("userEmail");
 
-        if (!loginBtn) return;
-
         if (isLoggedIn) {
-            loginBtn.innerHTML = '<i class="ti-shift-left"></i><span>Sign Out</span>';
-            loginBtn.onclick = function (e) { e.preventDefault(); logout(); };
-            loginBtn.removeAttribute("href");
+            if (loginBtn) loginBtn.style.display = 'none';
+            if (userAvatarBtn) userAvatarBtn.style.display = 'flex';
+            if (userDropdownName) userDropdownName.textContent = 'Xin chào, ' + name;
             if (userName) userName.textContent = "Hi, " + name + "!";
             if (userEmail) userEmail.textContent = email;
         } else {
-            loginBtn.innerHTML = '<i class="ti-shift-right"></i><span>Sign In</span>';
-            loginBtn.onclick = null;
-            loginBtn.setAttribute("href", `${window.ayaPagesPrefix}dangNhap.html`);
+            if (loginBtn) loginBtn.style.display = '';
+            if (userAvatarBtn) userAvatarBtn.style.display = 'none';
             if (userName) userName.textContent = "Welcome back!";
             if (userEmail) userEmail.textContent = "ayabook@gmail.com";
         }

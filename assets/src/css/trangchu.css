@@ -49,6 +49,7 @@ body {
     height: 70px;
     margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 16px;
 }
@@ -197,7 +198,8 @@ body {
     flex: 1;
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 38px;
+    max-width: 380px;
     border: 1.5px solid #E5E7EB;
     border-radius: 8px;
     background: #F9FAFB;
@@ -334,6 +336,122 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* ─── Account wrapper / User avatar ─────────────────────────── */
+.account-wrapper {
+    position: relative;
+}
+
+/* user-avatar styled same as header-icon-btn, with dropdown */
+.user-avatar {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Override: icon inside user-avatar should be plain (no red circle) */
+.user-avatar > i {
+    font-size: 18px;
+    background: none;
+    color: inherit;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    display: inline;
+}
+
+.user-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: #fff;
+    border: 1px solid #F3F4F6;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    min-width: 180px;
+    padding: 10px 0;
+    z-index: 10001;
+    flex-direction: column;
+}
+
+.user-dropdown-menu.open { display: flex; }
+
+.user-dropdown-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    padding: 8px 16px 6px;
+    border-bottom: 1px solid #F3F4F6;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-dropdown-signout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: left;
+    padding: 9px 16px;
+    font-size: 14px;
+    color: #e53935;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.15s;
+}
+
+.user-dropdown-signout:hover { background: #FFF1F1; }
+
+/* ─── Mobile nav: Submenu Chủ đề ────────────────────────────── */
+.mobile-nav-category {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-cat-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-align: left;
+}
+
+.mobile-cat-btn:hover { background: #FFF1F1; color: #FF6B6B; }
+
+.mobile-cat-btn.open i { transform: rotate(180deg); }
+
+.mobile-cat-sub {
+    display: none;
+    flex-direction: column;
+    padding-left: 12px;
+    gap: 2px;
+}
+
+.mobile-cat-sub.open { display: flex; }
+
+.mobile-cat-sub a {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #6B7280;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.mobile-cat-sub a:hover { background: #FFF1F1; color: #FF6B6B; }
 
 /* ─── Sidebar (legacy, kept for compat) ──────────────────── */
 #sidebar { display: none; }
@@ -650,9 +768,12 @@ body {
 
     .header-icon-btn span { display: none; }
 
-    .header-icon-btn i { font-size: 22px; }
+    .header-icon-btn { width: auto; padding: 0 6px; }
 
-    .logo-text { font-size: 22px; }
+    .header-icon-btn i { font-size: 24px; }
+
+    .logo-text { font-size: 30px; }
+
 
     .book-grid { justify-content: center; gap: 12px; }
     .book-item { width: calc(50% - 16px); max-width: 220px; }
