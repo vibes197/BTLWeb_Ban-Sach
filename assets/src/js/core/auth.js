@@ -76,11 +76,11 @@
         if (!loginBtn) return;
 
         if (isLoggedIn) {
-            loginBtn.innerHTML = '<i class="ti-shift-left"></i> Sign Out';
+            loginBtn.innerHTML = '<i class="ti-shift-left"></i><span>Sign Out</span>';
             loginBtn.onclick = function (e) { e.preventDefault(); logout(); };
             loginBtn.removeAttribute("href");
         } else {
-            loginBtn.innerHTML = '<i class="ti-shift-right"></i> Sign In';
+            loginBtn.innerHTML = '<i class="ti-shift-right"></i><span>Sign In</span>';
             loginBtn.onclick = null;
             loginBtn.setAttribute("href", `${window.ayaPagesPrefix}dangNhap.html`);
         }
@@ -98,13 +98,13 @@
         if (!loginBtn) return;
 
         if (isLoggedIn) {
-            loginBtn.innerHTML = '<i class="ti-shift-left"></i> Sign Out';
+            loginBtn.innerHTML = '<i class="ti-shift-left"></i><span>Sign Out</span>';
             loginBtn.onclick = function (e) { e.preventDefault(); logout(); };
             loginBtn.removeAttribute("href");
             if (userName) userName.textContent = "Hi, " + name + "!";
             if (userEmail) userEmail.textContent = email;
         } else {
-            loginBtn.innerHTML = '<i class="ti-shift-right"></i> Sign In';
+            loginBtn.innerHTML = '<i class="ti-shift-right"></i><span>Sign In</span>';
             loginBtn.onclick = null;
             loginBtn.setAttribute("href", `${window.ayaPagesPrefix}dangNhap.html`);
             if (userName) userName.textContent = "Welcome back!";

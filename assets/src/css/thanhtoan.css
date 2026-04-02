@@ -1,15 +1,14 @@
-
-
+/* ─── Thanh toán — Modern redesign ──────────────────────── */
 
 #thanhtoan-main {
-    min-width: 1440px;
+    min-width: unset;
     width: 100%;
-    background-color: #B5DCE8;
+    background-color: #F8F9FA;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 40px;
-    padding: 40px 60px;
+    gap: 32px;
+    padding: 36px 5% 60px 5%;
     box-sizing: border-box;
 }
 
@@ -17,91 +16,84 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 28px;
 }
 
 .tt-section {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #F3F4F6;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
 .tt-section-title {
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #222;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #111827;
     margin-bottom: 4px;
+    text-transform: uppercase;
 }
 
 .tt-divider {
     width: 100%;
     height: 1px;
-    background-color: #9dc9d8;
-    margin-bottom: 8px;
+    background-color: #F3F4F6;
+    margin-bottom: 4px;
 }
 
+/* Payment options */
 .payment-option {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 18px;
+    padding: 13px 16px;
     border-radius: 10px;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
+    border: 1.5px solid #F3F4F6;
 }
 
+.payment-option:hover { border-color: #FF6B6B; }
+
 .payment-option--disabled {
-    background-color: #c8e8f0;
+    background-color: #F9FAFB;
     opacity: 0.7;
 }
 
 .payment-option--dark {
-    background-color: #3a3a4a;
+    background-color: #1E293B;
     color: #fff;
+    border-color: #1E293B;
 }
+
+.payment-option--dark:hover { border-color: #FF6B6B; opacity: 0.9; }
 
 .payment-option--dark .payment-label {
     color: #fff;
     font-size: 15px;
 }
 
-.payment-option--disabled .payment-label {
-    color: #555;
-    font-size: 15px;
-}
+.payment-option--disabled .payment-label { color: #6B7280; font-size: 15px; }
 
-.payment-option--dark .ti-angle-right {
-    color: #fff;
-}
+.payment-option--dark .ti-angle-right { color: #CBD5E1; }
+.payment-option--disabled .ti-angle-right { color: #9CA3AF; }
 
-.payment-option--disabled .ti-angle-right {
-    color: #555;
-}
-
-.payment-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.payment-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+.payment-left { display: flex; align-items: center; gap: 10px; }
+.payment-right { display: flex; align-items: center; gap: 10px; }
 
 .payment-logo {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
     border-radius: 8px;
 }
 
-.payment-option:hover {
-    opacity: 0.88;
-}
-
+/* ─── Form inputs ─────────────────────────────────────────── */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -109,40 +101,42 @@
 }
 
 .form-label {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: #333;
+    color: #374151;
 }
 
 .form-row {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 16px;
 }
 
-.form-row .form-group {
-    flex: 1;
-}
+.form-row .form-group { flex: 1; }
 
 .input-wrapper {
     display: flex;
     align-items: center;
-    background-color: #8BF3FA;
+    background-color: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
     border-radius: 8px;
     overflow: hidden;
-    height: 46px;
+    height: 44px;
+    transition: border-color 0.2s;
 }
+
+.input-wrapper:focus-within { border-color: #FF6B6B; }
 
 .input-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 46px;
-    background-color: #6cdde5;
+    width: 42px;
+    height: 44px;
+    background-color: #F3F4F6;
     flex-shrink: 0;
-    font-size: 18px;
-    color: #333;
+    font-size: 16px;
+    color: #6B7280;
 }
 
 .form-input {
@@ -151,14 +145,12 @@
     border: none;
     outline: none;
     background: transparent;
-    font-size: 15px;
+    font-size: 14px;
     padding: 0 12px;
-    color: #222;
+    color: #111827;
 }
 
-.form-input::placeholder {
-    color: #555;
-}
+.form-input::placeholder { color: #9CA3AF; }
 
 .form-select {
     appearance: none;
@@ -168,166 +160,135 @@
 
 .form-textarea {
     width: 100%;
-    height: 120px;
-    border: none;
+    height: 100px;
+    border: 1.5px solid #E5E7EB;
     outline: none;
-    background-color: #8BF3FA;
+    background: #F9FAFB;
     border-radius: 8px;
-    font-size: 15px;
-    padding: 14px;
-    color: #222;
+    font-size: 14px;
+    padding: 12px;
+    color: #111827;
     resize: vertical;
     font-family: inherit;
     box-sizing: border-box;
+    transition: border-color 0.2s;
 }
 
-.form-textarea::placeholder {
-    color: #555;
-}
+.form-textarea:focus { border-color: #FF6B6B; }
+.form-textarea::placeholder { color: #9CA3AF; }
 
+/* ─── Order summary ───────────────────────────────────────── */
 .tt-right {
-    width: 360px;
+    width: 320px;
     flex-shrink: 0;
 }
 
 .tt-order-summary {
     background-color: #fff;
-    border-radius: 14px;
+    border-radius: 16px;
     padding: 28px 24px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    border: 1px solid #F3F4F6;
+    position: sticky;
+    top: 90px;
 }
 
 .tt-order-title {
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #222;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #111827;
     margin-bottom: 4px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .order-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .order-row--total {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 700;
     padding-top: 4px;
 }
 
-.order-label {
-    color: #333;
-}
+.order-label { color: #374151; }
 
-.order-value {
-    font-size: 15px;
-    color: #333;
-}
+.order-value { font-size: 14px; color: #374151; }
 
-.order-value--red {
-    color: #e53935;
-    font-weight: 600;
-}
+.order-value--red { color: #e53935; font-weight: 700; }
 
 .order-notice {
-    background-color: #ffe0e0;
+    background: #FFF1F1;
     border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 13px;
-    color: #555;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #6B7280;
     line-height: 1.5;
 }
 
 .order-divider {
     width: 100%;
     height: 1px;
-    background-color: #e0e0e0;
+    background-color: #F3F4F6;
     margin: 4px 0;
 }
 
 .order-terms {
-    font-size: 13px;
-    color: #555;
+    font-size: 12px;
+    color: #6B7280;
     line-height: 1.6;
-    text-align: left;
 }
 
-.order-terms-link {
-    color: #00aacc;
-    text-decoration: none;
-}
-
-.order-terms-link:hover {
-    text-decoration: underline;
-}
+.order-terms-link { color: #FF6B6B; text-decoration: none; }
+.order-terms-link:hover { text-decoration: underline; }
 
 #btn-dathang {
     width: 100%;
     padding: 14px;
-    background-color: #00d4cc;
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
     color: #fff;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 700;
     border: none;
-    border-radius: 30px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.25s ease, transform 0.2s ease;
+    transition: all 0.25s ease;
     margin-top: 4px;
+    box-shadow: 0 4px 14px rgba(255,107,107,0.35);
+    letter-spacing: 0.5px;
 }
 
 #btn-dathang:hover {
-    background-color: #00b8b0;
     transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(255,107,107,0.45);
 }
 
-/* Shared with trangchu.css so footer is consistent */
-
-/* =========================================
-   RESPONSIVE DESIGN CHO TRANG THANH TOÁN
-   ========================================= */
-
-@media screen and (max-width: 1440px) {
-    #thanhtoan-main {
-        min-width: 100%;
-        width: 100%;
-        padding: 40px 30px;
-    }
-}
-
+/* ─── Responsive ──────────────────────────────────────────── */
 @media screen and (max-width: 900px) {
     #thanhtoan-main {
         flex-direction: column;
-        padding: 30px 20px;
-        gap: 30px;
+        padding: 24px 4%;
+        gap: 24px;
     }
-    
-    .tt-right {
-        width: 100%; /* Cho bảng thông tin đơn hàng tràn viền ngang thay vì fix cứng 360px */
-    }
-    
-    .form-row {
-        flex-direction: column; /* Chia form ngang thành dọc */
-        gap: 15px;
-    }
+
+    .tt-right { width: 100%; }
+
+    .tt-order-summary { position: static; }
+
+    .form-row { flex-direction: column; gap: 12px; }
 }
 
 @media screen and (max-width: 500px) {
-    #thanhtoan-main {
-        padding: 20px 15px;
-    }
-    
-    .tt-order-summary {
-        padding: 20px 15px;
-    }
-    
-    .tt-section-title {
-        font-size: 16px;
-    }
+    #thanhtoan-main { padding: 16px 3%; }
+    .tt-section { padding: 16px; }
+    .tt-order-summary { padding: 18px 14px; }
+    .tt-section-title { font-size: 14px; }
 }

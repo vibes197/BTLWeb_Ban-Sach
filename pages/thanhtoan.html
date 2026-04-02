@@ -13,29 +13,9 @@
 <body>
     <div id="container">
 
-        <div id="header">
-            <a href="../index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
-            
-            <div class="mobile-menu-btn" id="mobile-menu-btn">
-                <i class="ti-menu"></i>
-            </div>
+        <div id="header"></div>
 
-            <ul id="nav">
-                <li><a href="../index.html">Trang chủ</a></li>
-                <li>
-                    <a href="faq.html">
-                        FAQ &amp; Hỏi đáp
-                    </a>
-                </li>
-                <li><a href="vechungtoi.html">Về chúng tôi</a></li>
-                <li><a href="#footer">Liên hệ với chúng tôi</a></li>
-                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png" alt="Yêu thích"></a></li>
-                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt="Giỏ hàng"></a></li>
-                <button><a href="#footer">Liên hệ</a></button>
-                <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
-            </ul>
-        </div>
-        <hr>
+
 
         <div id="thanhtoan-main">
 
@@ -194,6 +174,7 @@
                         <span class="order-value order-value--red" id="total">27,000đ</span>
                     </div>
 
+
                     <p class="order-terms">
                         Bằng việc nhấn thanh toán, bạng đồng ý với
                         <a href="#" class="order-terms-link">Các điều khoản khách hàng</a>
@@ -206,52 +187,17 @@
 
         </div>
 
-        <div id="footer">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>DỊCH VỤ</h3>
-                    <ul>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">Hệ thống nhà sách</a></li>
-                        <li><a href="#">Tra cứu đơn hàng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>HỖ TRỢ</h3>
-                    <ul>
-                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
-                        <li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
-                        <li><a href="#">Chính sách vận chuyển</a></li>
-                        <li><a href="#">Phương thức thanh toán</a></li>
-                        <li><a href="#">Chính sách khách hàng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>KẾT NỐI MẠNG XÃ HỘI</h3>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/" target="_blank"><i class="ti-facebook"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank"><i class="ti-youtube"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank"><i class="ti-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="footer"></div>
 
     </div>
 
+    <script src="../assets/src/js/main.js"></script>
     <script>
         function loadOrderSummary() {
             const cart = JSON.parse(localStorage.getItem('ayaCart') || '[]');
-
             const SHIPPING = 20000;
-
             let subtotal = 0;
             let originalTotal = 0;
-
             cart.forEach(item => {
                 const price = parseInt(String(item.price || '0').replace(/[^0-9]/g, ''), 10) || 0;
                 const original = parseInt(String(item.originalPrice || item.price || '0').replace(/[^0-9]/g, ''), 10) || price;
@@ -259,12 +205,9 @@
                 subtotal += price * qty;
                 originalTotal += original * qty;
             });
-
             const discount = originalTotal - subtotal;
             const total = subtotal > 0 ? subtotal + SHIPPING : 0;
-
             const fmt = n => n.toLocaleString('vi-VN') + 'đ';
-
             document.getElementById('subtotal').textContent = fmt(subtotal);
             document.getElementById('discount').textContent = discount > 0 ? fmt(discount) : '0đ';
             document.getElementById('shipping').textContent = subtotal > 0 ? fmt(SHIPPING) : '0đ';
@@ -272,8 +215,8 @@
         }
 
         if (localStorage.getItem('loggedIn') !== 'true') {
-            alert('Bạn cần đăng nhập để thanh toán!');
-            window.location.href = 'dangNhap.html';
+            window.showToast && window.showToast('Bạn cần đăng nhập để thanh toán!', 'success');
+            setTimeout(() => { window.location.href = 'dangNhap.html'; }, 1800);
         } else {
             loadOrderSummary();
         }
@@ -281,10 +224,9 @@
         document.getElementById('btn-dathang') && document.getElementById('btn-dathang').addEventListener('click', function () {
             const cart = JSON.parse(localStorage.getItem('ayaCart') || '[]');
             if (cart.length === 0) {
-                alert('Giỏ hàng của bạn đang trống!');
+                window.showToast && window.showToast('Giỏ hàng của bạn đang trống!', 'success');
                 return;
             }
-
             const fullName = document.getElementById('full-name').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -292,31 +234,29 @@
             const district = document.getElementById('district').value;
             const ward = document.getElementById('ward').value;
             const address = document.getElementById('address').value.trim();
-
             if (!fullName || !phone || !email || !province || !district || !ward || !address) {
-                alert('Vui lòng điền đầy đủ thông tin giao hàng!');
+                window.showToast && window.showToast('Vui lòng điền đầy đủ thông tin giao hàng!', 'success');
                 return;
             }
-
             const phoneRegex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
             if (!phoneRegex.test(phone)) {
-                alert('Vui lòng nhập số điện thoại hợp lệ!');
+                window.showToast && window.showToast('Vui lòng nhập số điện thoại hợp lệ!', 'success');
                 return;
             }
-
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                alert('Vui lòng nhập định dạng email hợp lệ!');
+                window.showToast && window.showToast('Vui lòng nhập định dạng email hợp lệ!', 'success');
                 return;
             }
-
             const totalAmount = document.getElementById('total').textContent;
-
+            // Show success toast
+            window.showToast && window.showToast('Đặt hàng thành công! Đang chuyển trang...', 'success');
             localStorage.removeItem('ayaCart');
-            window.location.href = 'thanhcong.html?total=' + encodeURIComponent(totalAmount);
+            setTimeout(() => {
+                window.location.href = 'thanhcong.html?total=' + encodeURIComponent(totalAmount);
+            }, 1500);
         });
     </script>
-    <script src="../assets/src/js/main.js"></script>
 </body>
 
 </html>

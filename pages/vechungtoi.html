@@ -8,29 +8,22 @@
     <link rel="stylesheet" href="../assets/src/css/trangchu.css">
     <link rel="stylesheet" href="../assets/src/css/vechungtoi.css">
     <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <style>
+        html, body { height: 100%; }
+        body { display: flex; flex-direction: column; margin: 0; }
+        #container { flex: 1; display: flex; flex-direction: column; }
+        #about-main { flex: 1; }
+        /* Reset footer về đúng vị trí — nằm NGOÀI container nên không cần margin âm */
+        #footer {
+            width: 100% !important;
+            margin-left: 0 !important;
+        }
+    </style>
 </head>
 
 <body>
     <div id="container">
-        <div id="header">
-            <ul id="nav">
-                <a href="../index.html"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
-                <li><a href="../index.html">Trang chủ</a></li>
-                <li>
-                    <a href="faq.html">
-                        FAQ & Hỏi đáp
-                    </a>
-                </li>
-                <li><a href="vechungtoi.html">Về chúng tôi</a></li>
-                <li><a href="#footer">Liên hệ với chúng tôi</a></li>
-                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png"
-                            alt="Yêu thích"></a>
-                </li>
-                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt=""></a></li>
-                <button><a href="thanhtoan.html">Thanh toán</a></button>
-                <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
-            </ul>
-        </div>
+        <div id="header"></div>
 
         <div class="breadcrumb">
             <a href="../index.html">Trang chủ</a>
@@ -57,54 +50,22 @@
 
             <div class="about-map">
                 <h2>Hệ Thống Nhà Sách</h2>
-                <p style="text-align: center; color: #555; margin-bottom: 20px; font-size: 15px;">AyaBook hiện nay đang
+                <p style="text-align: center; color: #6B7280; margin-bottom: 24px; font-size: 15px;">AyaBook hiện nay đang
                     có chi nhánh trụ sở chính tại địa chỉ dưới đây. Rất hân hạnh được đón tiếp bạn đến mua sắm trực
                     tiếp!</p>
                 <div class="map-container">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096384214227!2d105.77972681493262!3d21.02882859315053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b32b842a37%3A0xe91a56573e7e9a11!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBUaMawxqFuZyBN4bqhaQ!5e0!3m2!1svi!2s!4v1682348567123!5m2!1svi!2s"
-                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
         </div>
-
-        <div id="footer">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>DỊCH VỤ</h3>
-                    <ul>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">Hệ thống nhà sách</a></li>
-                        <li><a href="#">Tra cứu đơn hàng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>HỖ TRỢ</h3>
-                    <ul>
-                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
-                        <li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
-                        <li><a href="#">Chính sách vận chuyển</a></li>
-                        <li><a href="#">Phương thức thanh toán</a></li>
-                        <li><a href="#">Chính sách khách hàng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>KẾT NỐI MẠNG XÃ HỘI</h3>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/" target="_blank"><i class="ti-facebook"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank"><i class="ti-youtube"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank"><i class="ti-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <!-- Footer đặt NGOÀI container để tránh bị giới hạn bởi width 90% của #container -->
+    <div id="footer"></div>
 
     <script src="../assets/src/js/main.js"></script>
 </body>

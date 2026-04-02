@@ -1,50 +1,59 @@
-#about-main {
-    background-color: #B5DCE8;
-    padding: 30px 10% 80px 10%;
+/* ─── Về Chúng Tôi — Modern redesign ────────────────────── */
+
+/* Dùng flexbox để footer luôn xuống cuối */
+html, body { height: 100%; }
+
+body {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    min-height: 60vh;
 }
 
+#container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#about-main {
+    flex: 1;
+    background-color: #F8F9FA;
+    padding: 40px 5% 60px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+/* ─── Breadcrumb ─────────────────────────────────────────── */
 .breadcrumb {
-    background-color: #B5DCE8;
-    padding: 12px 10%;
+    padding: 12px 5%;
     font-size: 13px;
-    color: #555;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    color: #6B7280;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
-.breadcrumb a {
-    color: #555;
-    text-decoration: none;
-}
+.breadcrumb a { color: #6B7280; text-decoration: none; }
+.breadcrumb a:hover { color: #FF6B6B; }
+.breadcrumb span { margin: 0 6px; }
 
-.breadcrumb a:hover {
-    color: #e53935;
-}
-
-.breadcrumb span {
-    margin: 0 6px;
-}
-
+/* ─── Content cards ──────────────────────────────────────── */
 .about-content,
 .about-map {
     background: #fff;
-    border-radius: 12px;
-    padding: 40px 60px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    padding: 40px 52px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    border: 1px solid #F3F4F6;
 }
 
 #about-main h2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #1a4f76;
-    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 28px;
     text-transform: uppercase;
     text-align: center;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 16px;
     letter-spacing: 1px;
 }
 
@@ -54,41 +63,51 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 56px;
     height: 4px;
-    background: linear-gradient(90deg, #5ab1ce, #1a4f76);
+    background: linear-gradient(90deg, #FF6B6B, #FF8E8B);
     border-radius: 2px;
 }
 
 .about-text {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #444;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4B5563;
     text-align: justify;
 }
 
-.about-text p {
-    margin-bottom: 18px;
-}
-
-.about-text p:last-child {
-    margin-bottom: 0;
-}
+.about-text p { margin-bottom: 16px; }
+.about-text p:last-child { margin-bottom: 0; }
 
 .about-text strong {
-    color: #e53935;
-    font-size: 17px;
+    color: #FF6B6B;
+    font-size: 16px;
 }
 
+/* ─── Map ────────────────────────────────────────────────── */
 .map-container {
     width: 100%;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .map-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Footer: dùng style toàn cục từ trangchu.css */
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media screen and (max-width: 768px) {
+    #about-main { padding: 24px 4% 40px 4%; }
+
+    .about-content,
+    .about-map { padding: 24px 20px; }
+
+    #about-main h2 { font-size: 20px; }
+
+    .about-text { font-size: 14px; }
 }

@@ -1,101 +1,193 @@
 body {
-    background-color: #B5DCE8;
+    background-color: #F8F9FA;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     min-height: 100vh;
 }
 
 #faq-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 60px 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-header h2 {
+    font-size: 36px;
+    color: #1F2937;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.faq-header p {
+    font-size: 18px;
+    color: #6B7280;
+}
+
+.faq-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+}
+
+.faq-accordion {
+    flex: 1;
+    min-width: 300px;
+}
+
+.accordion-item {
+    background: #FFFFFF;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.06);
+}
+
+.accordion-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 20px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #374151;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.accordion-btn:hover, .accordion-btn.active {
+    color: #FF6B6B;
+}
+
+.accordion-btn i {
+    transition: transform 0.3s;
+}
+
+.accordion-btn.active i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: #FAFAFA;
+}
+
+.accordion-content p {
+    padding: 0 25px 25px 25px;
+    margin: 0;
+    color: #4B5563;
+    line-height: 1.6;
 }
 
 .faq-box {
-    background-color: #DCDCDC;
-    padding: 50px 80px;
-    width: 100%;
-    max-width: 700px;
-    box-sizing: border-box;
-    color: #333;
+    flex: 1;
+    min-width: 300px;
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.faq-box h2 {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 40px;
-    color: #4CB0C9;
-    text-transform: uppercase;
+.faq-box h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #1F2937;
+}
+
+.faq-box .subtitle {
+    color: #6B7280;
+    margin-bottom: 30px;
+    font-size: 15px;
 }
 
 .faq-form {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
-.faq-form input,
-.faq-form textarea {
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea {
     width: 100%;
-    padding: 20px 25px;
-    border: none;
-    border-radius: 15px;
-    font-size: 18px;
+    padding: 14px 18px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 16px;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #F9FAFB;
     outline: none;
-    color: #333;
+    color: #1F2937;
+    transition: border-color 0.3s, background-color 0.3s;
 }
 
-.faq-form input::placeholder,
-.faq-form textarea::placeholder {
-    color: #111;
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #FF6B6B;
+    background-color: #FFFFFF;
 }
 
-.faq-form textarea {
-    resize: none;
-    min-height: 180px;
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
 .faq-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-.faq-buttons button {
-    background-color: #B5DCE8;
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8B 100%);
+    color: white;
+    font-weight: bold;
     border: none;
-    padding: 12px 0;
-    width: 130px;
-    border-radius: 25px;
+    padding: 16px 0;
+    border-radius: 12px;
     font-size: 18px;
-    color: #111;
     cursor: pointer;
-    transition: opacity 0.2s;
+    box-shadow: 0 4px 6px rgba(255, 107, 107, 0.3);
+    transition: all 0.3s;
 }
 
-.faq-buttons button:hover {
-    opacity: 0.8;
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(255, 107, 107, 0.4);
 }
 
-/* =========================================
-   RESPONSIVE DESIGN CHO TRANG FAQ
-   ========================================= */
 @media screen and (max-width: 768px) {
+    #faq-main {
+        padding-top: 100px;
+    }
+    .faq-container {
+        flex-direction: column;
+    }
     .faq-box {
         padding: 30px 20px;
-    }
-    .faq-buttons {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-    .faq-buttons button {
-        width: 100%;
-        max-width: 200px;
     }
 }

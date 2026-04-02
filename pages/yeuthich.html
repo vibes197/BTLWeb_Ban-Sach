@@ -8,33 +8,18 @@
     <link rel="stylesheet" href="../assets/src/css/trangchu.css">
     <link rel="stylesheet" href="../assets/src/css/yeuthich.css">
     <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <style>
+        html, body { height: 100%; }
+        body { display: flex; flex-direction: column; }
+        #container { display: flex; flex-direction: column; flex: 1; }
+        #yeuthich-main { flex: 1; }
+        #footer { width: 100% !important; margin-left: 0 !important; }
+    </style>
 </head>
 
 <body>
     <div id="container">
-        <div id="header">
-            <a href="../index.html" class="logo-link"><img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="Trang chủ"></a>
-            
-            <div class="mobile-menu-btn" id="mobile-menu-btn">
-                <i class="ti-menu"></i>
-            </div>
-
-            <ul id="nav">
-                <li><a href="../index.html">Trang chủ</a></li>
-                <li>
-                    <a href="faq.html">
-                        FAQ &amp; Hỏi đáp
-                    </a>
-                </li>
-                <li><a href="vechungtoi.html">Về chúng tôi</a></li>
-                <li><a href="#footer">Liên hệ với chúng tôi</a></li>
-                <li class="push-right"><a href="yeuthich.html"><img class="shop" src="./assets/img/trangchu/Fav.png" alt="Yêu thích"></a></li>
-                <li><a href="donhang.html"><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt="Giỏ hàng"></a></li>
-                <button><a href="thanhtoan.html">Thanh toán</a></button>
-                <li><a id="loginBtn" href="./dangNhap.html">Đăng Nhập</a></li>
-            </ul>
-        </div>
-        <hr>
+        <div id="header"></div>
 
         <div class="breadcrumb" id="breadcrumb">
             <a href="../index.html">Trang chủ</a>
@@ -45,49 +30,17 @@
         <div id="yeuthich-main">
             <h2>Danh sách yêu thích của bạn</h2>
             <div id="favorites-container" class="book-grid">
-
             </div>
             <div id="empty-favorites" style="display: none; text-align: center; padding: 50px;">
                 <p style="font-size: 18px; margin-bottom: 20px;">Bạn chưa có cuốn sách yêu thích nào.</p>
-                <a href="../index.html" class="btn-continue">Tiếp tục mua sắm</a>
+                <a href="../index.html" class="btn-continue"><i class="ti-home"></i> Tiếp tục mua sắm</a>
             </div>
         </div>
 
-        <div id="footer">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>DỊCH VỤ</h3>
-                    <ul>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">Hệ thống nhà sách</a></li>
-                        <li><a href="#">Tra cứu đơn hàng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>HỖ TRỢ</h3>
-                    <ul>
-                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
-                        <li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
-                        <li><a href="#">Chính sách vận chuyển</a></li>
-                        <li><a href="#">Phương thức thanh toán</a></li>
-                        <li><a href="#">Chính sách khách hàng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>KẾT NỐI MẠNG XÃ HỘI</h3>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/" target="_blank"><i class="ti-facebook"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank"><i class="ti-youtube"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank"><i class="ti-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <!-- Footer ngoài container to be full-width -->
+    <div id="footer"></div>
 
     <script src="../assets/src/js/main.js"></script>
     <script>
@@ -109,7 +62,7 @@
                 return;
             }
 
-            container.style.display = 'flex'; // Flex dùng CSS tuỳ chỉnh để nằm ngang
+            container.style.display = 'flex';
             emptyState.style.display = 'none';
 
             container.innerHTML = favorites.map(book => `

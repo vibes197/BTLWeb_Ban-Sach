@@ -1,92 +1,132 @@
+/* ─── Yêu thích — Modern redesign ───────────────────────── */
+
+.breadcrumb {
+    padding: 12px 40px;
+    font-size: 13px;
+    color: #6B7280;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.breadcrumb a { color: #6B7280; text-decoration: none; }
+.breadcrumb a:hover { color: #FF6B6B; }
+.breadcrumb span { margin: 0 6px; }
+
 #yeuthich-main {
-    padding: 30px 10%;
+    padding: 36px 5%;
     min-height: 50vh;
-    background-color: #B5DCE8;
+    background-color: #F8F9FA;
 }
 
 #yeuthich-main h2 {
     text-align: center;
-    color: #4CB0C9;
-    margin-bottom: 30px;
-    font-size: 28px;
+    color: #111827;
+    margin-bottom: 32px;
+    font-size: 26px;
+    font-weight: 800;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.btn-remove-fav {
-    background-color: #ff4d4f;
-    color: white;
-    border: none;
-    padding: 8px 12px;
+/* Book grid (dùng từ chitiet.css / trangchu.css) */
+#favorites-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+.book-item {
+    width: 180px;
+    text-align: left;
     cursor: pointer;
-    border-radius: 4px;
-    margin-top: 10px;
+    transition: transform 0.2s ease;
+}
+
+.book-item:hover { transform: translateY(-4px); }
+
+.book-item img {
     width: 100%;
-    transition: background 0.3s;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.book-name {
+    font-size: 13px;
+    margin: 8px 0 4px 0;
+    color: #374151;
+    line-height: 1.4;
+    height: 38px;
+    overflow: hidden;
+}
+
+.book-price {
+    font-weight: 700;
+    color: #e53935;
     font-size: 14px;
 }
 
+.book-item a { text-decoration: none; color: inherit; }
+
+/* Action buttons */
+.btn-remove-fav {
+    width: 100%;
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: all 0.25s ease;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(255,107,107,0.3);
+}
+
 .btn-remove-fav:hover {
-    background-color: #d9363e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255,107,107,0.4);
 }
 
 .btn-continue {
-    display: inline-block;
-    background-color: #4CB0C9;
-    color: white;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FF6B6B;
+    color: #fff;
+    padding: 11px 24px;
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
+    border-radius: 10px;
+    margin-top: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(255,107,107,0.3);
 }
 
 .btn-continue:hover {
-    background-color: #388a9e;
+    background: #e85d5d;
+    transform: translateY(-2px);
 }
 
-
-.breadcrumb {
-    background-color: #B5DCE8;
-    padding: 12px 60px;
-    font-size: 13px;
-    color: #555;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.breadcrumb a {
-    color: #555;
-    text-decoration: none;
-}
-
-.breadcrumb a:hover {
-    color: #e53935;
-}
-
-.breadcrumb span {
-    margin: 0 6px;
-}
-
-#favorites-container {
-    justify-content: flex-start;
-    gap: 40px;
-}
-
-/* =========================================
-   RESPONSIVE DESIGN CHO TRANG YÊU THÍCH
-   ========================================= */
+/* Responsive */
 @media screen and (max-width: 768px) {
-    #yeuthich-main {
-        padding: 20px 5%;
-    }
+    #yeuthich-main { padding: 24px 4%; }
 
-    .breadcrumb {
-        padding: 12px 20px;
-    }
+    .breadcrumb { padding: 12px 16px; }
 
     #favorites-container {
         justify-content: center;
+        gap: 16px;
     }
 
-    .book-item {
-        width: calc(50% - 20px); /* 2 items per row */
-    }
+    .book-item { width: calc(50% - 16px); }
+    .book-item img { height: 180px; }
+}
+
+@media screen and (max-width: 480px) {
+    .book-item { width: calc(50% - 8px); }
+    .book-item img { height: 150px; }
 }
