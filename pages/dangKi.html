@@ -3,47 +3,234 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Đăng ký</title>
-    <link rel="stylesheet" href="../assets/src/css/trangchu.css">
-    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tạo tài khoản AyaBook để mua sách, lưu yêu thích và theo dõi đơn hàng dễ dàng.">
+    <title>Đăng ký – AyaBook</title>
     <link rel="stylesheet" href="../assets/src/css/dangnhap.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="form-box">
-            <h2>Đăng ký</h2>
+    <main class="auth-page">
+        <div class="auth-card" role="main">
 
-            <div class="input-box">
-                <input type="email" id="regEmail" required placeholder=" ">
-                <label>Email</label>
+            <!-- Header Banner -->
+            <div class="auth-header">
+                <a href="../index.html" class="auth-logo">AyaBook</a>
+                <h1>Tạo tài khoản mới</h1>
+                <p>Tham gia cộng đồng yêu sách của chúng tôi</p>
             </div>
 
-            <div class="input-box">
-                <input type="password" id="regPassword" required placeholder=" ">
-                <label>Mật khẩu</label>
+            <!-- Form Body -->
+            <div class="auth-body">
+
+                <!-- Error / Success messages -->
+                <div class="auth-error" id="regError" role="alert" aria-live="polite">
+                    <i class="ti-alert"></i>
+                    <span id="regErrorMsg">Vui lòng kiểm tra lại thông tin!</span>
+                </div>
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="regName"
+                        placeholder=" "
+                        autocomplete="name"
+                        required
+                        aria-label="Họ và tên"
+                    >
+                    <label for="regName">Họ và tên</label>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <input
+                        type="email"
+                        id="regEmail"
+                        placeholder=" "
+                        autocomplete="email"
+                        required
+                        aria-label="Địa chỉ email"
+                    >
+                    <label for="regEmail">Địa chỉ email</label>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group has-icon">
+                    <input
+                        type="password"
+                        id="regPassword"
+                        placeholder=" "
+                        autocomplete="new-password"
+                        required
+                        aria-label="Mật khẩu"
+                    >
+                    <label for="regPassword">Mật khẩu</label>
+                    <button
+                        type="button"
+                        class="input-icon-btn"
+                        id="toggleRegPassword"
+                        aria-label="Hiện/ẩn mật khẩu"
+                        onclick="togglePasswordVisibility('regPassword', this)"
+                    >
+                        <i class="ti-eye"></i>
+                    </button>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group has-icon">
+                    <input
+                        type="password"
+                        id="regPasswordConfirm"
+                        placeholder=" "
+                        autocomplete="new-password"
+                        required
+                        aria-label="Xác nhận mật khẩu"
+                    >
+                    <label for="regPasswordConfirm">Xác nhận mật khẩu</label>
+                    <button
+                        type="button"
+                        class="input-icon-btn"
+                        id="toggleRegPasswordConfirm"
+                        aria-label="Hiện/ẩn mật khẩu"
+                        onclick="togglePasswordVisibility('regPasswordConfirm', this)"
+                    >
+                        <i class="ti-eye"></i>
+                    </button>
+                </div>
+
+                <!-- Terms & Conditions -->
+                <div class="form-check">
+                    <input type="checkbox" id="agree" aria-required="true">
+                    <label for="agree">
+                        Tôi đồng ý với
+                        <a href="#">Điều khoản dịch vụ</a>
+                        và
+                        <a href="#">Chính sách bảo mật</a>
+                        của AyaBook
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <button
+                    type="button"
+                    class="btn-auth"
+                    id="regBtn"
+                    onclick="registerEnhanced()"
+                >
+                    <i class="ti-user"></i>
+                    Tạo tài khoản
+                </button>
             </div>
 
-            <div class="input-box">
-                <input type="text" id="regName" required placeholder=" ">
-                <label>Tên</label>
+            <!-- Footer -->
+            <div class="auth-footer">
+                <p>Đã có tài khoản?
+                    <a href="./dangNhap.html" class="auth-link">Đăng nhập ngay</a>
+                </p>
+                <a href="../index.html" class="back-home">
+                    <i class="ti-arrow-left"></i>
+                    Về trang chủ
+                </a>
             </div>
-
-            <div class="checkbox">
-                <input type="checkbox" id="agree">
-                <label>Tôi đồng ý điều khoản</label>
-            </div>
-
-            <button onclick="register()">Đăng ký</button>
-
-            <p>Đã có tài khoản?
-                <a href="./dangNhap.html">Đăng nhập ngay</a>
-            </p>
-            <a href="../index.html" class="back-home">&larr; Về trang chủ</a>
         </div>
-    </div>
+    </main>
 
     <script src="../assets/src/js/main.js"></script>
+    <script>
+        // Enhanced registration with UI feedback
+        function registerEnhanced() {
+            var errorBox = document.getElementById('regError');
+            var errorMsg = document.getElementById('regErrorMsg');
+            var btn = document.getElementById('regBtn');
+
+            errorBox.classList.remove('show');
+
+            var name = document.getElementById('regName').value.trim();
+            var email = document.getElementById('regEmail').value.trim();
+            var pass = document.getElementById('regPassword').value;
+            var passConfirm = document.getElementById('regPasswordConfirm').value;
+            var agree = document.getElementById('agree').checked;
+
+            if (!name || !email || !pass || !passConfirm) {
+                errorMsg.textContent = 'Vui lòng nhập đầy đủ thông tin!';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMsg.textContent = 'Vui lòng nhập địa chỉ email hợp lệ!';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            if (pass.length < 6) {
+                errorMsg.textContent = 'Mật khẩu phải có ít nhất 6 ký tự!';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            if (pass !== passConfirm) {
+                errorMsg.textContent = 'Mật khẩu xác nhận không khớp!';
+                errorBox.classList.add('show');
+                document.getElementById('regPasswordConfirm').style.borderColor = '#EF4444';
+                return;
+            }
+
+            if (!agree) {
+                errorMsg.textContent = 'Bạn phải đồng ý với điều khoản dịch vụ!';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            // Save & redirect
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', pass);
+            localStorage.setItem('name', name);
+
+            // Success state
+            btn.innerHTML = '<i class="ti-check"></i> Đăng ký thành công!';
+            btn.style.background = 'linear-gradient(135deg, #16A34A, #22c55e)';
+            btn.style.boxShadow = '0 4px 16px rgba(22,163,74,0.35)';
+            btn.disabled = true;
+
+            setTimeout(function () {
+                window.location.href = './dangNhap.html';
+            }, 900);
+        }
+
+        // Toggle password visibility
+        function togglePasswordVisibility(inputId, btn) {
+            var input = document.getElementById(inputId);
+            var icon = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.style.opacity = '0.5';
+                btn.setAttribute('aria-label', 'Ẩn mật khẩu');
+            } else {
+                input.type = 'password';
+                icon.style.opacity = '';
+                btn.setAttribute('aria-label', 'Hiện mật khẩu');
+            }
+        }
+
+        // Clear confirm password error on input
+        document.addEventListener('DOMContentLoaded', function () {
+            var confirmInput = document.getElementById('regPasswordConfirm');
+            if (confirmInput) {
+                confirmInput.addEventListener('input', function () {
+                    this.style.borderColor = '';
+                });
+            }
+        });
+
+        // Allow Enter key to submit
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') registerEnhanced();
+        });
+    </script>
 </body>
 
 </html>

@@ -1,40 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+    <meta name="description" content="Đăng nhập vào AyaBook để khám phá hàng ngàn đầu sách hấp dẫn.">
+    <title>Đăng nhập – AyaBook</title>
     <link rel="stylesheet" href="../assets/src/css/dangnhap.css">
-    <script src="../assets/src/js/main.js"></script>
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="form-box">
-            <h2>Đăng nhập</h2>
+    <main class="auth-page">
+        <div class="auth-card" role="main">
 
-            <div class="input-box">
-                <input type="email" id="email" required placeholder=" ">
-                <label>Email</label>
+            <!-- Header Banner -->
+            <div class="auth-header">
+                <a href="../index.html" class="auth-logo">AyaBook</a>
+                <h1>Chào mừng trở lại!</h1>
+                <p>Đăng nhập để khám phá thế giới sách của bạn</p>
             </div>
 
-            <div class="input-box">
-                <input type="password" id="password" required placeholder=" ">
-                <label>Mật khẩu</label>
+            <!-- Form Body -->
+            <div class="auth-body">
+
+                <!-- Error / Success messages -->
+                <div class="auth-error" id="loginError" role="alert" aria-live="polite">
+                    <i class="ti-alert"></i>
+                    <span id="loginErrorMsg">Sai tài khoản hoặc mật khẩu!</span>
+                </div>
+                <div class="auth-success" id="loginSuccess" role="status" aria-live="polite">
+                    <i class="ti-check"></i>
+                    <span>Đăng nhập thành công! Đang chuyển hướng…</span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder=" "
+                        autocomplete="email"
+                        required
+                        aria-label="Địa chỉ email"
+                    >
+                    <label for="email">Địa chỉ email</label>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group has-icon">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder=" "
+                        autocomplete="current-password"
+                        required
+                        aria-label="Mật khẩu"
+                    >
+                    <label for="password">Mật khẩu</label>
+                    <button
+                        type="button"
+                        class="input-icon-btn"
+                        id="togglePassword"
+                        aria-label="Hiện/ẩn mật khẩu"
+                        title="Hiện/ẩn mật khẩu"
+                        onclick="togglePasswordVisibility('password', this)"
+                    >
+                        <i class="ti-eye" id="togglePasswordIcon"></i>
+                    </button>
+                </div>
+
+                <!-- Forgot Password -->
+                <a href="#" class="forgot-link">Quên mật khẩu?</a>
+
+                <!-- Submit -->
+                <button
+                    type="button"
+                    class="btn-auth"
+                    id="loginBtn"
+                    onclick="loginEnhanced()"
+                >
+                    <i class="ti-unlock"></i>
+                    Đăng nhập
+                </button>
             </div>
 
-            <a href="#">Quên mật khẩu?</a>
-
-            <button onclick="login()">Đăng nhập</button>
-
-            <p>Không có tài khoản?
-                <a href="./dangKi.html">Đăng ký ngay</a>
-            </p>
-            <a href="../index.html" class="back-home">&larr; Về trang chủ</a>
+            <!-- Footer -->
+            <div class="auth-footer">
+                <p>Chưa có tài khoản?
+                    <a href="./dangKi.html" class="auth-link">Đăng ký ngay</a>
+                </p>
+                <a href="../index.html" class="back-home">
+                    <i class="ti-arrow-left"></i>
+                    Về trang chủ
+                </a>
+            </div>
         </div>
-    </div>
+    </main>
 
+    <script src="../assets/src/js/main.js"></script>
+    <script>
+        // Enhanced login with UI feedback
+        function loginEnhanced() {
+            var errorBox = document.getElementById('loginError');
+            var successBox = document.getElementById('loginSuccess');
+            var loginErrorMsg = document.getElementById('loginErrorMsg');
+            var btn = document.getElementById('loginBtn');
+
+            // Hide previous messages
+            errorBox.classList.remove('show');
+            successBox.classList.remove('show');
+
+            var email = document.getElementById('email').value.trim();
+            var pass = document.getElementById('password').value;
+
+            if (!email || !pass) {
+                loginErrorMsg.textContent = 'Vui lòng nhập đầy đủ thông tin!';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                loginErrorMsg.textContent = 'Vui lòng nhập địa chỉ email hợp lệ!';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            var savedEmail = localStorage.getItem('email');
+            var savedPass = localStorage.getItem('password');
+
+            if (email === savedEmail && pass === savedPass) {
+                localStorage.setItem('loggedIn', 'true');
+                successBox.classList.add('show');
+                btn.textContent = 'Thành công!';
+                btn.style.background = 'linear-gradient(135deg, #16A34A, #22c55e)';
+                btn.style.boxShadow = '0 4px 16px rgba(22,163,74,0.35)';
+                setTimeout(function () {
+                    var prefix = window.ayaIndexHref || '../index.html';
+                    window.location.href = prefix;
+                }, 900);
+            } else {
+                loginErrorMsg.textContent = 'Sai tài khoản hoặc mật khẩu!';
+                errorBox.classList.add('show');
+                // Shake animation
+                var card = document.querySelector('.auth-card');
+                card.style.animation = 'none';
+                card.style.transform = 'translateX(0)';
+                setTimeout(function () { card.style.transition = 'transform 0.07s'; card.style.transform = 'translateX(-6px)'; }, 0);
+                setTimeout(function () { card.style.transform = 'translateX(6px)'; }, 70);
+                setTimeout(function () { card.style.transform = 'translateX(-4px)'; }, 140);
+                setTimeout(function () { card.style.transform = 'translateX(0)'; card.style.transition = ''; }, 210);
+            }
+        }
+
+        // Toggle password visibility
+        function togglePasswordVisibility(inputId, btn) {
+            var input = document.getElementById(inputId);
+            var icon = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'ti-eye-slash'; // fallback: use ti-eye
+                icon.style.opacity = '0.5';
+                btn.setAttribute('aria-label', 'Ẩn mật khẩu');
+            } else {
+                input.type = 'password';
+                icon.className = 'ti-eye';
+                icon.style.opacity = '';
+                btn.setAttribute('aria-label', 'Hiện mật khẩu');
+            }
+        }
+
+        // Allow Enter key to submit
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') loginEnhanced();
+        });
+    </script>
 </body>
 
 </html>
