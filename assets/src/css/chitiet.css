@@ -1,38 +1,66 @@
-/* ─── Chi tiết sách — Modern redesign ───────────────────── */
+/* ─── Chi tiết sách — Redesign with sidebar ──────────────── */
 
 #container {
     min-width: unset;
     width: 100%;
-    background-color: #F8F9FA;
+    background-color: #F0F4F0;
 }
 
 .breadcrumb {
-    padding: 12px 40px;
+    padding: 12px 5%;
     font-size: 13px;
     color: #6B7280;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: #fff;
 }
 
-.breadcrumb a { color: #6B7280; text-decoration: none; }
-.breadcrumb a:hover { color: #FF6B6B; }
-.breadcrumb span { margin: 0 6px; }
+.breadcrumb a {
+    color: #6B7280;
+    text-decoration: none;
+}
 
-/* ─── Main layout ─────────────────────────────────────────── */
-#chitiet-main {
-    background-color: #F8F9FA;
-    padding: 36px 5%;
+.breadcrumb a:hover {
+    color: #3d8b5e;
+}
+
+.breadcrumb span {
+    margin: 0 6px;
+}
+
+/* ─── Outer layout: main card + sidebar ──────────────────── */
+#chitiet-outer {
     display: flex;
-    gap: 48px;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 28px 5%;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ─── Main card (left block) ─────────────────────────────── */
+#chitiet-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    padding: 28px 32px;
+    min-width: 0;
+}
+
+/* Top area: cover + info side by side */
+#chitiet-main {
+    display: flex;
+    gap: 36px;
     align-items: flex-start;
 }
 
 /* ─── Book cover ──────────────────────────────────────────── */
 .chitiet-cover {
     flex-shrink: 0;
-    width: 260px;
+    width: 200px;
 }
 
-/* Ảnh bìa: vuông vức, height = width */
 .chitiet-cover img {
     width: 100%;
     aspect-ratio: 3 / 4;
@@ -41,57 +69,86 @@
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
 }
 
-/* ─── Info ────────────────────────────────────────────────── */
-.chitiet-info { flex: 1; }
+/* ─── Info (right of cover) ───────────────────────────────── */
+.chitiet-info {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Category badge */
+.chitiet-category-badge {
+    display: inline-block;
+    background: #3d8b5e;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
 
 .chitiet-title {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 700;
     color: #111827;
     line-height: 1.35;
+    margin-bottom: 10px;
+}
+
+/* Tags row */
+.chitiet-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-bottom: 12px;
 }
 
-.chitiet-stars {
+.chitiet-tag {
+    background: #E8F5EE;
+    color: #3d8b5e;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #b2d8c2;
+}
+
+/* Meta items */
+.chitiet-meta-row {
     display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 6px;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #374151;
 }
 
-.stars-display {
-    color: #F59E0B;
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-
-.chitiet-rating-count {
-    font-size: 13px;
-    color: #6B7280;
-}
-
-.chitiet-sold {
-    font-size: 13px;
-    color: #6B7280;
-    margin-bottom: 18px;
+.chitiet-meta-row .meta-line strong {
+    color: #111827;
+    margin-right: 6px;
 }
 
 /* Price block */
 .chitiet-price-block {
     display: flex;
     align-items: baseline;
-    gap: 14px;
-    margin-bottom: 18px;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: #E8F5EE;
+    border-radius: 8px;
 }
 
 .chitiet-price {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
     color: #e53935;
 }
 
 .chitiet-original-price {
-    font-size: 17px;
+    font-size: 16px;
     color: #9CA3AF;
     text-decoration: line-through;
 }
@@ -105,53 +162,78 @@
     border-radius: 20px;
 }
 
-/* Meta list */
-.chitiet-meta {
-    list-style: none;
-    margin-bottom: 28px;
+/* ─── Stats row (Số trang | Lượt xem | Đánh giá) ─────────── */
+.chitiet-stats {
     display: flex;
-    flex-direction: column;
-    gap: 7px;
-    padding: 16px;
-    background: #fff;
+    align-items: center;
+    border: 1px solid #E5E7EB;
     border-radius: 10px;
-    border: 1px solid #F3F4F6;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background: #FAFAFA;
 }
 
-.chitiet-meta li {
-    font-size: 14px;
-    color: #374151;
+.chitiet-stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+    position: relative;
 }
 
-.chitiet-meta li span {
-    font-weight: 600;
+.chitiet-stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: #E5E7EB;
+}
+
+.chitiet-stat-label {
+    font-size: 11px;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.chitiet-stat-value {
+    font-size: 18px;
+    font-weight: 700;
     color: #111827;
-    margin-right: 6px;
 }
 
 /* Action buttons */
+.chitiet-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .btn-buy {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
+    background: linear-gradient(135deg, #3d8b5e, #2e6e48);
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 13px 32px;
-    border-radius: 10px;
+    padding: 12px 28px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 14px rgba(255,107,107,0.35);
+    box-shadow: 0 4px 14px rgba(61, 139, 94, 0.35);
     letter-spacing: 0.5px;
 }
 
 .btn-buy:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(255,107,107,0.45);
+    box-shadow: 0 8px 22px rgba(61, 139, 94, 0.45);
+    background: linear-gradient(135deg, #2e6e48, #1f5233);
 }
 
 .btn-addcart {
@@ -160,20 +242,19 @@
     justify-content: center;
     gap: 8px;
     background: #fff;
-    color: #FF6B6B;
-    font-size: 16px;
+    color: #3d8b5e;
+    font-size: 15px;
     font-weight: 700;
-    padding: 12px 28px;
-    border-radius: 10px;
-    border: 2px solid #FF6B6B;
+    padding: 11px 22px;
+    border-radius: 8px;
+    border: 2px solid #3d8b5e;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.25s ease;
-    margin-left: 12px;
 }
 
 .btn-addcart:hover {
-    background: #FFF1F1;
+    background: #E8F5EE;
     transform: translateY(-2px);
 }
 
@@ -181,219 +262,496 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     background: #fff;
     color: #6B7280;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
-    padding: 12px 18px;
-    border-radius: 10px;
+    padding: 11px 16px;
+    border-radius: 8px;
     border: 2px solid #E5E7EB;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.25s ease;
-    margin-left: 12px;
 }
 
 .btn-fav:hover {
-    border-color: #FF6B6B;
-    color: #FF6B6B;
+    border-color: #3d8b5e;
+    color: #3d8b5e;
     transform: translateY(-2px);
 }
 
 .btn-fav.active-fav {
-    background: #FF6B6B;
+    background: #3d8b5e;
     color: #fff;
-    border-color: #FF6B6B;
+    border-color: #3d8b5e;
 }
 
-.btn-fav.active-fav:hover { background: #e85d5d; }
+.btn-fav.active-fav:hover {
+    background: #2e6e48;
+}
 
-/* ─── Description ─────────────────────────────────────────── */
+/* ─── Description section (inside card) ─────────────────── */
 #chitiet-desc {
-    background: #fff;
-    margin: 0 5% 24px 5%;
-    border-radius: 12px;
-    padding: 28px 36px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #F3F4F6;
 }
 
 #chitiet-desc h2 {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     color: #111827;
-    border-left: 4px solid #FF6B6B;
-    padding-left: 14px;
+}
+
+#chitiet-desc h2 span {
+    display: inline-block;
+    background: #3d8b5e;
+    color: #fff;
+    font-size: 13px;
+    padding: 2px 14px;
+    border-radius: 4px;
+    margin-bottom: 8px;
 }
 
 #chitiet-desc p {
-    font-size: 15px;
+    font-size: 14px;
     color: #4B5563;
     line-height: 1.85;
 }
 
-/* ─── Reviews ─────────────────────────────────────────────── */
+/* ─── Reviews / Comment System ──────────────────────────── */
 #chitiet-reviews {
-    background: #fff;
-    margin: 0 5% 32px 5%;
-    border-radius: 12px;
-    padding: 28px 36px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #F3F4F6;
+}
+
+/* Header bar: title + total badge + toggle */
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.review-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #chitiet-reviews h2 {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
-    margin-bottom: 20px;
     color: #111827;
-    border-left: 4px solid #FF6B6B;
-    padding-left: 14px;
+    margin: 0;
 }
 
+.review-total-badge {
+    display: inline-block;
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    padding: 2px 10px;
+}
+
+.review-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 7px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.review-toggle-btn:hover {
+    border-color: #D1D5DB;
+    background: #F9FAFB;
+    color: #374151;
+}
+
+/* Comment list */
 .review-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
+    margin-bottom: 20px;
 }
 
 .review-item {
     display: flex;
-    gap: 16px;
-    padding-bottom: 20px;
+    gap: 12px;
+    padding: 14px 0;
     border-bottom: 1px solid #F3F4F6;
 }
 
+.review-item:first-child {
+    border-top: 1px solid #F3F4F6;
+}
+
 .review-avatar {
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
+    background: linear-gradient(135deg, #3d8b5e, #5aab7a);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 15px;
     color: #fff;
     flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(61, 139, 94, 0.25);
 }
 
-.review-body { flex: 1; }
+.review-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.review-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
 
 .review-name {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
     color: #111827;
-    margin-bottom: 4px;
+}
+
+.review-date {
+    font-size: 11px;
+    color: #9CA3AF;
 }
 
 .review-stars {
     color: #F59E0B;
-    font-size: 13px;
+    font-size: 12px;
     margin-bottom: 5px;
 }
 
 .review-text {
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.65;
+}
+
+/* ─── Rich Text Editor ───────────────────────────────────── */
+.comment-editor-wrap {
+    border: 1.5px solid #E5E7EB;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.comment-editor-wrap:focus-within {
+    border-color: #3d8b5e;
+    box-shadow: 0 0 0 3px rgba(61, 139, 94, 0.1);
+}
+
+/* Toolbar */
+.comment-editor-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 10px;
+    background: #F9FAFB;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.editor-tool-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    border-radius: 5px;
     font-size: 14px;
     color: #374151;
-    line-height: 1.6;
-}
-
-/* ─── Related books ───────────────────────────────────────── */
-.related-section {
-    background: #F8F9FA;
-    padding: 0 5% 48px 5%;
-}
-
-.related-section h2 {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-align: center;
-    margin-bottom: 28px;
-    color: #111827;
-    text-transform: uppercase;
-}
-
-.book-grid {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.book-item {
-    width: 180px;
-    text-align: left;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
 }
 
-.book-item:hover { transform: translateY(-4px); }
-
-/* Ảnh bìa trong related: height cố định */
-.book-item img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.editor-tool-btn:hover {
+    background: #E5E7EB;
+    color: #111827;
 }
 
-.book-name {
-    font-size: 13px;
-    margin: 8px 0 4px 0;
+.editor-tool-italic i { font-style: italic; }
+.editor-tool-underline u { text-decoration: underline; }
+
+.editor-tool-divider {
+    width: 1px;
+    height: 18px;
+    background: #E5E7EB;
+    margin: 0 4px;
+    flex-shrink: 0;
+}
+
+/* Contenteditable body */
+.comment-editor-body {
+    min-height: 90px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #1F2937;
+    line-height: 1.6;
+    outline: none;
+}
+
+.comment-editor-body:empty::before {
+    content: attr(data-placeholder);
+    color: #9CA3AF;
+    pointer-events: none;
+}
+
+/* Footer row (2 rows: stars + actions) */
+.comment-editor-footer {
+    border-top: 1px solid #F3F4F6;
+    background: #FAFAFA;
+}
+
+.comment-star-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px 6px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.comment-star-label {
+    font-size: 12px;
+    color: #6B7280;
+    flex-shrink: 0;
+}
+
+.comment-stars-input {
+    display: flex;
+    gap: 3px;
+}
+
+.comment-star {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.1s, color 0.1s;
+}
+
+.comment-star.star-selected { color: #F59E0B; }
+.comment-star.star-hover    { color: #FBBF24; transform: scale(1.2); }
+.comment-star.star-dim      { color: #D1D5DB; }
+
+.comment-editor-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 12px;
+}
+
+.comment-editor-hint {
+    font-size: 11px;
+    color: #9CA3AF;
+}
+
+.comment-editor-hint kbd {
+    background: #F3F4F6;
+    border: 1px solid #D1D5DB;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: monospace;
+    font-size: 10px;
     color: #374151;
-    line-height: 1.4;
-    height: 38px;
+}
+
+.btn-comment-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #3d8b5e;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-comment-submit:hover {
+    background: #2e6e48;
+    transform: translateY(-1px);
+}
+
+/* Delete button on user comments */
+.review-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #D1D5DB;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-left: auto;
+    transition: color 0.2s, background 0.2s;
+}
+
+.review-delete-btn:hover {
+    color: #EF4444;
+    background: #FEE2E2;
+}
+
+/* Rendered star icons in review list */
+.rev-star { font-size: 13px; }
+.rev-star--filled { color: #F59E0B; }
+.rev-star--empty  { color: #D1D5DB; }
+
+
+
+/* ─── Sidebar (right column) ─────────────────────────────── */
+#chitiet-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sidebar-block {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
     overflow: hidden;
 }
 
-.book-price {
+.sidebar-block-header {
+    background: #3d8b5e;
+    color: #fff;
+    font-size: 13px;
     font-weight: 700;
-    color: #e53935;
-    font-size: 14px;
+    padding: 10px 16px;
+    letter-spacing: 0.5px;
 }
 
-.book-item a { text-decoration: none; color: inherit; }
+.sidebar-block-body {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.7;
+}
+
+.sidebar-publisher-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: #111827;
+    margin: 4px 0;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-publisher-label {
+    font-size: 11px;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background: #F3F4F6;
+    margin: 8px 0;
+}
+
+.sidebar-note-text {
+    font-size: 13px;
+    color: #4B5563;
+    line-height: 1.7;
+}
 
 /* ─── Responsive ──────────────────────────────────────────── */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
+    #chitiet-outer {
+        flex-direction: column;
+    }
+
+    #chitiet-sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-block {
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #chitiet-outer {
+        padding: 16px 4%;
+    }
+
+    #chitiet-card {
+        padding: 20px 18px;
+    }
+
     #chitiet-main {
         flex-direction: column;
-        padding: 28px 4%;
+        gap: 20px;
         align-items: center;
-        gap: 28px;
     }
 
     .chitiet-cover {
+        width: 180px;
+    }
+
+    .chitiet-actions {
+        flex-direction: column;
+    }
+
+    .btn-buy,
+    .btn-addcart,
+    .btn-fav {
         width: 100%;
-        max-width: 300px;
+        margin: 0;
+        justify-content: center;
     }
 
-    .chitiet-info { width: 100%; }
-
-    #chitiet-desc, #chitiet-reviews, .related-section {
-        margin: 0 4% 20px 4%;
-        padding: 20px;
+    #chitiet-sidebar {
+        flex-direction: column;
     }
-
-    .breadcrumb { padding: 12px 20px; }
-
-    .btn-buy, .btn-addcart, .btn-fav {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 10px;
-        text-align: center;
-        display: flex;
-    }
-
-    .book-grid { justify-content: center; gap: 12px; }
-    .book-item { width: calc(50% - 12px); }
-    .book-item img { height: 180px; }
 }
 
-@media screen and (max-width: 500px) {
-    .chitiet-price-block { flex-direction: column; gap: 6px; }
-    .chitiet-title { font-size: 20px; }
+@media screen and (max-width: 480px) {
+    .chitiet-title {
+        font-size: 20px;
+    }
+
+    .chitiet-price {
+        font-size: 24px;
+    }
 }
