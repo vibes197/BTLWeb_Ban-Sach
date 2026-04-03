@@ -1,4 +1,4 @@
-// AyaBook JS loader: tách code theo chức năng trong `src/js/`.
+
 (function () {
     if (window.__ayaModulesLoadingStarted) return;
     window.__ayaModulesLoadingStarted = true;
