@@ -63,8 +63,11 @@
 
     function requireLogin() {
         if (localStorage.getItem("loggedIn") !== "true") {
-            alert("Bạn cần đăng nhập để thực hiện chức năng này!");
-            window.location.href = `${window.ayaPagesPrefix}dangNhap.html`;
+            if (window.showToast) {
+                window.showToast("Bạn cần đăng nhập để thực hiện chức năng này!", "info");
+            } else {
+                alert("Bạn cần đăng nhập để thực hiện chức năng này!");
+            }
             return false;
         }
         return true;
