@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sách Yêu Thích - AyaBook</title>
+    <link rel="stylesheet" href="../assets/src/css/trangchu.css">
+    <link rel="stylesheet" href="../assets/src/css/yeuthich.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <style>
+        html, body { height: 100%; }
+        body { display: flex; flex-direction: column; }
+        #container { display: flex; flex-direction: column; flex: 1; }
+        #yeuthich-main { flex: 1; }
+        #footer { width: 100% !important; margin-left: 0 !important; }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header"></div>
+
+        <div class="breadcrumb" id="breadcrumb">
+            <a href="../index.html">Trang chủ</a>
+            <span>›</span>
+            <span id="bc-title">Danh sách yêu thích</span>
+        </div>
+
+        <div id="yeuthich-main">
+            <h2>Danh sách yêu thích của bạn</h2>
+            <div id="favorites-container" class="book-grid">
+            </div>
+            <div id="empty-favorites" style="display: none; text-align: center; padding: 50px;">
+                <p style="font-size: 18px; margin-bottom: 20px;">Bạn chưa có cuốn sách yêu thích nào.</p>
+                <a href="../index.html" class="btn-continue"><i class="ti-home"></i> Tiếp tục mua sắm</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer ngoài container to be full-width -->
+    <div id="footer"></div>
+
+    <script src="../assets/src/js/main.js"></script>
+    <script>
+        function renderFavorites() {
+            const container = document.getElementById('favorites-container');
+            const emptyState = document.getElementById('empty-favorites');
+            let favorites = JSON.parse(localStorage.getItem('ayaFavorites') || '[]');
+
+            function normalizeImgSrc(src) {
+                if (!src || typeof src !== 'string') return src;
+                if (src.startsWith("./assets/")) return src.replace("./assets/", "../assets/");
+                if (src.startsWith(".\\assets\\")) return src.replace(".\\assets\\", "../assets/");
+                return src;
+            }
+
+            if (favorites.length === 0) {
+                container.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            container.style.display = 'flex';
+            emptyState.style.display = 'none';
+
+            container.innerHTML = favorites.map(book => `
+                <div class="book-item">
+                    <a href="chitiet.html?id=${book.id}" class="book-link">
+                        <img src="${normalizeImgSrc(book.img)}" alt="${book.title}">
+                    </a>
+                    <p class="book-name">${book.title}</p>
+                    <p class="book-price">${book.price}</p>
+                    <button class="btn-remove-fav" onclick="removeFavorite('${book.id}')"><i class="ti-trash"></i> Bỏ yêu thích</button>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFavorites();
+        });
+    </script>
+</body>
+
+</html>

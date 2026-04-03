@@ -1,0 +1,399 @@
+/* ─── Chi tiết sách — Modern redesign ───────────────────── */
+
+#container {
+    min-width: unset;
+    width: 100%;
+    background-color: #F8F9FA;
+}
+
+.breadcrumb {
+    padding: 12px 40px;
+    font-size: 13px;
+    color: #6B7280;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.breadcrumb a { color: #6B7280; text-decoration: none; }
+.breadcrumb a:hover { color: #FF6B6B; }
+.breadcrumb span { margin: 0 6px; }
+
+/* ─── Main layout ─────────────────────────────────────────── */
+#chitiet-main {
+    background-color: #F8F9FA;
+    padding: 36px 5%;
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+/* ─── Book cover ──────────────────────────────────────────── */
+.chitiet-cover {
+    flex-shrink: 0;
+    width: 260px;
+}
+
+/* Ảnh bìa: vuông vức, height = width */
+.chitiet-cover img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Info ────────────────────────────────────────────────── */
+.chitiet-info { flex: 1; }
+
+.chitiet-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.35;
+    margin-bottom: 12px;
+}
+
+.chitiet-stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.stars-display {
+    color: #F59E0B;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.chitiet-rating-count {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.chitiet-sold {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 18px;
+}
+
+/* Price block */
+.chitiet-price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.chitiet-price {
+    font-size: 32px;
+    font-weight: 800;
+    color: #e53935;
+}
+
+.chitiet-original-price {
+    font-size: 17px;
+    color: #9CA3AF;
+    text-decoration: line-through;
+}
+
+.chitiet-discount-badge {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* Meta list */
+.chitiet-meta {
+    list-style: none;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #F3F4F6;
+}
+
+.chitiet-meta li {
+    font-size: 14px;
+    color: #374151;
+}
+
+.chitiet-meta li span {
+    font-weight: 600;
+    color: #111827;
+    margin-right: 6px;
+}
+
+/* Action buttons */
+.btn-buy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 13px 32px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(255,107,107,0.35);
+    letter-spacing: 0.5px;
+}
+
+.btn-buy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(255,107,107,0.45);
+}
+
+.btn-addcart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fff;
+    color: #FF6B6B;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: 2px solid #FF6B6B;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    margin-left: 12px;
+}
+
+.btn-addcart:hover {
+    background: #FFF1F1;
+    transform: translateY(-2px);
+}
+
+.btn-fav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fff;
+    color: #6B7280;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 2px solid #E5E7EB;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    margin-left: 12px;
+}
+
+.btn-fav:hover {
+    border-color: #FF6B6B;
+    color: #FF6B6B;
+    transform: translateY(-2px);
+}
+
+.btn-fav.active-fav {
+    background: #FF6B6B;
+    color: #fff;
+    border-color: #FF6B6B;
+}
+
+.btn-fav.active-fav:hover { background: #e85d5d; }
+
+/* ─── Description ─────────────────────────────────────────── */
+#chitiet-desc {
+    background: #fff;
+    margin: 0 5% 24px 5%;
+    border-radius: 12px;
+    padding: 28px 36px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+#chitiet-desc h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #111827;
+    border-left: 4px solid #FF6B6B;
+    padding-left: 14px;
+}
+
+#chitiet-desc p {
+    font-size: 15px;
+    color: #4B5563;
+    line-height: 1.85;
+}
+
+/* ─── Reviews ─────────────────────────────────────────────── */
+#chitiet-reviews {
+    background: #fff;
+    margin: 0 5% 32px 5%;
+    border-radius: 12px;
+    padding: 28px 36px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+#chitiet-reviews h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111827;
+    border-left: 4px solid #FF6B6B;
+    padding-left: 14px;
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-item {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.review-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 17px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.review-body { flex: 1; }
+
+.review-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.review-stars {
+    color: #F59E0B;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.review-text {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+/* ─── Related books ───────────────────────────────────────── */
+.related-section {
+    background: #F8F9FA;
+    padding: 0 5% 48px 5%;
+}
+
+.related-section h2 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 28px;
+    color: #111827;
+    text-transform: uppercase;
+}
+
+.book-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.book-item {
+    width: 180px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.book-item:hover { transform: translateY(-4px); }
+
+/* Ảnh bìa trong related: height cố định */
+.book-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.book-name {
+    font-size: 13px;
+    margin: 8px 0 4px 0;
+    color: #374151;
+    line-height: 1.4;
+    height: 38px;
+    overflow: hidden;
+}
+
+.book-price {
+    font-weight: 700;
+    color: #e53935;
+    font-size: 14px;
+}
+
+.book-item a { text-decoration: none; color: inherit; }
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media screen and (max-width: 900px) {
+    #chitiet-main {
+        flex-direction: column;
+        padding: 28px 4%;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .chitiet-cover {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .chitiet-info { width: 100%; }
+
+    #chitiet-desc, #chitiet-reviews, .related-section {
+        margin: 0 4% 20px 4%;
+        padding: 20px;
+    }
+
+    .breadcrumb { padding: 12px 20px; }
+
+    .btn-buy, .btn-addcart, .btn-fav {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
+        display: flex;
+    }
+
+    .book-grid { justify-content: center; gap: 12px; }
+    .book-item { width: calc(50% - 12px); }
+    .book-item img { height: 180px; }
+}
+
+@media screen and (max-width: 500px) {
+    .chitiet-price-block { flex-direction: column; gap: 6px; }
+    .chitiet-title { font-size: 20px; }
+}

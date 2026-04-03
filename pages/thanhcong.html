@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Hàng Thành Công - AyaBook</title>
+    <link rel="stylesheet" href="../assets/src/css/trangchu.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <style>
+        #success-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 140px);
+            padding: 40px 20px;
+            background: #F8F9FA;
+        }
+
+        .success-box {
+            background: #fff;
+            padding: 48px 52px;
+            width: 100%;
+            max-width: 520px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid #F3F4F6;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+        }
+
+        .success-icon i {
+            font-size: 32px;
+            color: #fff;
+        }
+
+        .success-box h2 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #111827;
+        }
+
+        .success-sub {
+            color: #6B7280;
+            font-size: 15px;
+            margin-bottom: 28px;
+        }
+
+        .success-info-box {
+            background: #F9FAFB;
+            border: 1px solid #F3F4F6;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .success-row-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            color: #374151;
+            padding: 8px 0;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .success-row-flex:last-child { border-bottom: none; }
+
+        .total-price {
+            color: #e53935;
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        .order-code {
+            font-weight: 700;
+            color: #111827;
+            font-family: monospace;
+            font-size: 16px;
+        }
+
+        .success-divider {
+            height: 1px;
+            background-color: #F3F4F6;
+            margin: 20px 0;
+        }
+
+        .hotline {
+            color: #FF6B6B;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hotline:hover { text-decoration: underline; }
+
+        .success-note {
+            font-size: 13px;
+            color: #6B7280;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8B);
+            color: #fff;
+            padding: 13px 32px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(255,107,107,0.35);
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(255,107,107,0.45);
+        }
+
+        @media (max-width: 500px) {
+            .success-box { padding: 32px 24px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header"></div>
+
+        <div id="success-main">
+            <div class="success-box">
+                <div class="success-icon">
+                    <i class="ti-check"></i>
+                </div>
+                <h2>Đặt hàng thành công!</h2>
+                <p class="success-sub">Cảm ơn bạn đã mua sách tại <strong>AyaBook</strong> 🎉</p>
+
+                <div class="success-info-box">
+                    <div class="success-row-flex">
+                        <span>Mã đơn hàng:</span>
+                        <span class="order-code" id="success-code"></span>
+                    </div>
+                    <div class="success-row-flex">
+                        <span>Tổng thanh toán:</span>
+                        <span class="total-price" id="success-total">0đ</span>
+                    </div>
+                </div>
+
+                <p class="success-note">
+                    Đơn hàng của bạn đang được xử lý. Để được hỗ trợ, vui lòng gọi
+                    <a href="tel:19001348" class="hotline">1900 1348</a>
+                </p>
+
+                <a href="../index.html" class="btn-home">
+                    <i class="ti-home"></i> Về trang chủ
+                </a>
+            </div>
+        </div>
+
+        <div id="footer"></div>
+    </div>
+
+    <script src="../assets/src/js/main.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const total = urlParams.get('total') || '0đ';
+        document.getElementById('success-total').textContent = total;
+        const randomCode = '#AYA' + Math.floor(1000000 + Math.random() * 9000000);
+        document.getElementById('success-code').textContent = randomCode;
+    </script>
+</body>
+
+</html>

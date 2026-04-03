@@ -4,57 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/trangchu.css">
+    <link rel="stylesheet" href="./assets/src/css/trangchu.css?v=3">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
-    <script src="./js/main.js"></script>
-    <title>Document</title>
+    <title>AyaBook</title>
 </head>
 
 <body>
     <div id="container">
-        <div id="header">
-            <ul id="nav">
-                <img class="logo" src="./assets/img/trangchu/AyaBook.png" alt="">
-                <li><a href="">Trang chủ</a></li>
-                <li>
-                    <a href="">
-                        FAQ & Hỏi đáp
-                        <i class="ti-angle-down"></i>
-                    </a>
-                </li>
-                <li><a href="">Về chúng tôi</a></li>
-                <li><a href="#footer">Liên hệ với chúng tôi</a></li>
-                <li class="push-right"><a href=""><img class="shop" src="./assets/img/trangchu/Fav.png" alt=""></a></li>
-                <li><a href=""><img class="fav" src="./assets/img/trangchu/VectorShop .png" alt=""></a></li>
-                <button><a href="#footer">Liên hệ</a></button>
-                <li><a id="loginBtn" href="pages/dangNhap.html">Đăng Nhập</a></li>
-            </ul>
-        </div>
-        <hr>
+        <div id="header"></div>
         <div id="sidebar">
             <div class="sidebar1">
                 <img class="user-avatar" src="./assets/img/trangchu/avt.png" alt="">
                 <div class="user-text">
-                    <span class="user-name" id="userName">Chào Bạn!</span>
-                    <span class="user-email" id="userEmail">ayabook@gmail.com</span>
+                    <span id="userName" class="user-name">Chào Bạn!</span>
+                    <span id="userEmail" class="user-email">ayabook@gmail.com</span>
                 </div>
             </div>
             <div class="sidebar2">
                 <ul class="subnav">
-                    <li>
-                        <button>
-                            <a href="">
+                    <li id="category-item">
+                        <button id="category-btn">
+                            <a href="#">
                                 Chủ đề
                                 <i class="ti-angle-down"></i>
                             </a>
                         </button>
                         <ul>
-                            <li><a href="">Tiểu thuyết</a></li>
-                            <li><a href="">Manga</a></li>
-                            <li><a href="">Sách kỹ năng</a></li>
-                            <li><a href="">Sách học tập</a></li>
-                            <li><a href="">Sách thiếu nhi</a></li>
-                            <li><a href="">Trinh thám</a></li>
+                            <li><a href="pages/chude.html?c=tieuthuyet">Tiểu thuyết</a></li>
+                            <li><a href="pages/chude.html?c=manga">Manga</a></li>
+                            <li><a href="pages/chude.html?c=kynang">Sách kỹ năng</a></li>
+                            <li><a href="pages/chude.html?c=hoctap">Sách học tập</a></li>
+                            <li><a href="pages/chude.html?c=thieunhi">Sách thiếu nhi</a></li>
+                            <li><a href="pages/chude.html?c=trinhtham">Trinh thám</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -74,7 +55,7 @@
                 <h2 class="shelf-title">SÁCH MỚI</h2>
                 <div class="book-grid">
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=nina">
                             <img src="./assets/img/trangchu/nina.png" alt="Nina ở thị trấn cao nguyên">
                         </a>
                         <p class="book-name">Nina ở thị trấn cao nguyên - Tập 2</p>
@@ -82,7 +63,7 @@
                     </div>
 
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=tet">
                             <img src="./assets/img/trangchu/tet.png" alt="Những ngày tết ta">
                         </a>
                         <p class="book-name">Những ngày tết ta</p>
@@ -90,7 +71,7 @@
                     </div>
 
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=worldtrigger">
                             <img src="./assets/img/trangchu/worldtrigger.png" alt="World Trigger">
                         </a>
                         <p class="book-name">World Trigger - Tập 4</p>
@@ -98,7 +79,7 @@
                     </div>
 
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=bantusach">
                             <img src="./assets/img/trangchu/bantusach.png" alt="Những người bạn từ trang sách">
                         </a>
                         <p class="book-name">Những người bạn từ trang sách</p>
@@ -111,7 +92,7 @@
                 <h2 class="shelf-title">BÁN CHẠY NHẤT</h2>
                 <div class="book-grid">
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=shin">
                             <div class="image-container">
                                 <img src="./assets/img/trangchu/shin.png" alt="Shin - Cậu bé bút chì - Tập 1">
                             </div>
@@ -121,7 +102,7 @@
                     </div>
 
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=naruto">
                             <div class="image-container">
                                 <img src="./assets/img/trangchu/naruto.png" alt="Naruto - Quyển 20">
                             </div>
@@ -131,7 +112,7 @@
                     </div>
 
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=onepi">
                             <div class="image-container">
                                 <img src="./assets/img/trangchu/onepi.png" alt="One Piece - Tập 101">
                             </div>
@@ -141,7 +122,7 @@
                     </div>
 
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=akutami">
                             <div class="image-container">
                                 <img src="./assets/img/trangchu/akutami.png" alt="Chú thuật hồi chiến - Tập 1">
                             </div>
@@ -159,28 +140,28 @@
                 </div>
                 <div class="book-grid">
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=xebuyt">
                             <img src="./assets/img/trangchu/xebuyt.png" alt="XE BUÝT ĐƯA EM ĐI">
                         </a>
                         <p class="book-name">XE BUÝT ĐƯA EM ĐI</p>
                         <p class="book-price">36,000đ</p>
                     </div>
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=rantaro">
                             <img src="./assets/img/trangchu/rantaro.png" alt="Ninja Rontaro - Tập 19">
                         </a>
                         <p class="book-name">Ninja Rontaro - Tập 19</p>
                         <p class="book-price">36,000đ</p>
                     </div>
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=drstone">
                             <img src="./assets/img/trangchu/drstone.png" alt="Doctor Stone - Tập 21">
                         </a>
                         <p class="book-name">Doctor Stone - Tập 21</p>
                         <p class="book-price">22,500đ</p>
                     </div>
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=doraemondoiquan">
                             <img src="./assets/img/trangchu/doraemondoiquan.png" alt="Đội quân Doraemon - Tập 4">
                         </a>
                         <p class="book-name">Đội quân Doraemon - Tập 4</p>
@@ -193,28 +174,28 @@
                 <div class="skills-header"></div>
                 <div class="book-grid">
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=thiendinh">
                             <img src="./assets/img/trangchu/thiendinh.png" alt="THIỀN ĐỊNH MỖI NGÀY">
                         </a>
                         <p class="book-name">THIỀN ĐỊNH MỖI NGÀY</p>
                         <p class="book-price">118,000đ</p>
                     </div>
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=tute">
                             <img src="./assets/img/trangchu/tute.png" alt="MỘT NĂM SỐNG TỬ TẾ">
                         </a>
                         <p class="book-name">MỘT NĂM SỐNG TỬ TẾ</p>
                         <p class="book-price">168,000đ</p>
                     </div>
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=sohoc">
                             <img src="./assets/img/trangchu/sohoc.png" alt="THAY ĐỔI CUỘC SỐNG VỚI NHÂN SỐ HỌC">
                         </a>
                         <p class="book-name">THAY ĐỔI CUỘC SỐNG VỚI NHÂN SỐ HỌC</p>
                         <p class="book-price">181,040đ</p>
                     </div>
                     <div class="book-item">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="pages/chitiet.html?id=damnghi">
                             <img src="./assets/img/trangchu/damnghi.png" alt="DÁM NGHĨ LẠI">
                         </a>
                         <p class="book-name">DÁM NGHĨ LẠI</p>
@@ -223,41 +204,9 @@
                 </div>
             </div>
         </div>
-        <div id="footer">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>DỊCH VỤ</h3>
-                    <ul>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">Hệ thống nhà sách</a></li>
-                        <li><a href="#">Tra cứu đơn hàng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>HỖ TRỢ</h3>
-                    <ul>
-                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
-                        <li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
-                        <li><a href="#">Chính sách vận chuyển</a></li>
-                        <li><a href="#">Phương thức thanh toán</a></li>
-                        <li><a href="#">Chính sách khách hàng</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>KẾT NỐI MẠNG XÃ HỘI</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"><i class="ti-youtube"></i></a>
-                        <a href="#"><i class="ti-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="footer"></div>
     </div>
+    <script src="./assets/src/js/main.js"></script>
 </body>
 
 </html>

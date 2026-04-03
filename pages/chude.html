@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/src/css/trangchu.css">
+    <link rel="stylesheet" href="../assets/src/css/yeuthich.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <title>Chủ đề sách - AyaBook</title>
+    <style>
+        html, body { height: 100%; }
+        body { display: flex; flex-direction: column; }
+        #container { display: flex; flex-direction: column; flex: 1; }
+        #yeuthich-main { flex: 1; }
+        #footer { width: 100% !important; margin-left: 0 !important; }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header"></div>
+        <div class="breadcrumb" id="breadcrumb">
+            <a href="../index.html">Trang chủ</a>
+            <span>›</span>
+            <span id="bc-title">Chủ đề</span>
+        </div>
+
+        <div id="yeuthich-main">
+            <h2 id="category-title">Chủ đề sách</h2>
+            <div id="category-results-grid" class="book-grid">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer ngoài container -->
+    <div id="footer"></div>
+
+    <script src="../assets/src/js/main.js"></script>
+</body>
+
+</html>

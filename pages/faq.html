@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ & Hỏi đáp - Tư vấn khách hàng - AyaBook</title>
+    <link rel="stylesheet" href="../assets/src/css/trangchu.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../assets/src/css/faq.css">
+    <style>
+        html, body { height: 100%; }
+        body { display: flex; flex-direction: column; }
+        #container { display: flex; flex-direction: column; flex: 1; }
+        #faq-main { flex: 1; }
+        #footer { width: 100% !important; margin-left: 0 !important; }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header"></div>
+
+        <div id="faq-main">
+            <div class="faq-header">
+                <h2>Câu Hỏi Thường Gặp (FAQ) & Hỗ Trợ</h2>
+                <p>Tìm câu trả lời hoặc gửi thắc mắc của bạn cho chúng tôi</p>
+            </div>
+            
+            <div class="faq-container">
+                <!-- Cột trái: Danh sách Câu hỏi -->
+                <div class="faq-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-btn">Làm thế nào để đặt hàng? <i class="ti-angle-down"></i></button>
+                        <div class="accordion-content">
+                            <p>Bạn chỉ cần chọn sách vào giỏ hàng, chọn "Thanh toán", điền thông tin địa chỉ và xác nhận đơn hàng.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-btn">Thời gian giao hàng là bao lâu? <i class="ti-angle-down"></i></button>
+                        <div class="accordion-content">
+                            <p>Đơn hàng nội thành Hà Nội sẽ được giao trong 1-2 ngày. Các tỉnh thành khác giao động từ 3-5 ngày làm việc.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-btn">Tôi có được kiểm tra hàng trước khi nhận không? <i class="ti-angle-down"></i></button>
+                        <div class="accordion-content">
+                            <p>AyaBook hỗ trợ khách hàng đồng kiểm trước khi thanh toán. Nếu sách bị lỗi, bạn hoàn toàn có thể từ chối nhận hàng.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-btn">Phương thức thanh toán nào được chấp nhận? <i class="ti-angle-down"></i></button>
+                        <div class="accordion-content">
+                            <p>Chúng tôi chấp nhận thanh toán COD (nhận hàng trả tiền) và chuyển khoản trước qua ngân hàng/Momo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột phải: Form Liên hệ -->
+                <div class="faq-box">
+                    <h3>Vẫn chưa tìm thấy câu trả lời?</h3>
+                    <p class="subtitle">Gửi câu hỏi trực tiếp cho đội ngũ tư vấn</p>
+                    <form class="faq-form" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="faq-name">Họ và tên:</label>
+                            <input type="text" id="faq-name" placeholder="Ví dụ: Nguyễn Văn A" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="faq-phone">Số điện thoại:</label>
+                            <input type="tel" id="faq-phone" placeholder="Ví dụ: 091234..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="faq-content">Nội dung tư vấn:</label>
+                            <textarea id="faq-content" placeholder="Chi tiết bạn cần tư vấn..." required></textarea>
+                        </div>
+
+                        <div class="faq-buttons">
+                            <button type="submit" class="btn-submit">Gửi Hỗ Trợ</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer ngoài container -->
+    <div id="footer"></div>
+
+    <script src="../assets/src/js/main.js"></script>
+    <script>
+        // Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const accBtns = document.querySelectorAll('.accordion-btn');
+            accBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('faq-name').value;
+            // Use toast instead of alert
+            if (window.showToast) {
+                window.showToast('✅ Gửi thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.', 'cart');
+            }
+            // Clear form
+            event.target.reset();
+        }
+    </script>
+</body>
+
+</html>

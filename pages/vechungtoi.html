@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về Chúng Tôi - AyaBook</title>
+    <link rel="stylesheet" href="../assets/src/css/trangchu.css">
+    <link rel="stylesheet" href="../assets/src/css/vechungtoi.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <style>
+        html, body { height: 100%; }
+        body { display: flex; flex-direction: column; margin: 0; }
+        #container { flex: 1; display: flex; flex-direction: column; }
+        #about-main { flex: 1; }
+        /* Reset footer về đúng vị trí — nằm NGOÀI container nên không cần margin âm */
+        #footer {
+            width: 100% !important;
+            margin-left: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header"></div>
+
+        <div class="breadcrumb">
+            <a href="../index.html">Trang chủ</a>
+            <span>›</span>
+            <span id="bc-title">Về chúng tôi</span>
+        </div>
+
+        <div id="about-main">
+            <div class="about-content">
+                <h2>Câu Chuyện Về AyaBook</h2>
+                <div class="about-text">
+                    <p>Chào mừng bạn đến với <strong>AyaBook</strong> – điểm đến lý tưởng cho những tâm hồn đam mê khám
+                        phá tri thức. Được thành lập với một niềm khao khát lan tỏa văn hóa đọc, AyaBook hiện đang cung
+                        cấp hàng ngàn tựa sách hấp dẫn từ Manga, Tiểu thuyết, Truyện tranh cho đến Sách kỹ năng, Sách
+                        giáo khoa.</p>
+                    <p>Chúng tôi luôn nỗ lực không ngừng để không chỉ cung cấp những sản phẩm sách chất lượng, in ấn
+                        đẹp, giấy tốt mà còn mang tới trải nghiệm mua sắm trực tuyến tuyệt vời nhất. Với hệ thống giao
+                        hàng tốc độ, dịch vụ bọc sách tỉ mỉ và hỗ trợ khách hàng tận tâm, AyaBook mong muốn người đọc
+                        luôn tìm được niềm vui mỗi khi mở từng trang sách.</p>
+                    <p>Hãy để chúng tôi trở thành người bạn đồng hành cùng bạn trên con đường chinh phục và nuôi dưỡng
+                        ước mơ!</p>
+                </div>
+            </div>
+
+            <div class="about-map">
+                <h2>Hệ Thống Nhà Sách</h2>
+                <p style="text-align: center; color: #6B7280; margin-bottom: 24px; font-size: 15px;">AyaBook hiện nay đang
+                    có chi nhánh trụ sở chính tại địa chỉ dưới đây. Rất hân hạnh được đón tiếp bạn đến mua sắm trực
+                    tiếp!</p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096384214227!2d105.77972681493262!3d21.02882859315053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b32b842a37%3A0xe91a56573e7e9a11!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBUaMawxqFuZyBN4bqhaQ!5e0!3m2!1svi!2s!4v1682348567123!5m2!1svi!2s"
+                        width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer đặt NGOÀI container để tránh bị giới hạn bởi width 90% của #container -->
+    <div id="footer"></div>
+
+    <script src="../assets/src/js/main.js"></script>
+</body>
+
+</html>
