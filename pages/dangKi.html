@@ -14,23 +14,23 @@
     <main class="auth-page">
         <div class="auth-card" role="main">
 
-            <!-- Header Banner -->
+            
             <div class="auth-header">
                 <a href="../index.html" class="auth-logo">AyaBook</a>
                 <h1>Tạo tài khoản mới</h1>
                 <p>Tham gia cộng đồng yêu sách của chúng tôi</p>
             </div>
 
-            <!-- Form Body -->
+            
             <div class="auth-body">
 
-                <!-- Error / Success messages -->
+                
                 <div class="auth-error" id="regError" role="alert" aria-live="polite">
                     <i class="ti-alert"></i>
                     <span id="regErrorMsg">Vui lòng kiểm tra lại thông tin!</span>
                 </div>
 
-                <!-- Full Name -->
+                
                 <div class="form-group">
                     <input
                         type="text"
@@ -43,7 +43,7 @@
                     <label for="regName">Họ và tên</label>
                 </div>
 
-                <!-- Email -->
+                
                 <div class="form-group">
                     <input
                         type="email"
@@ -56,7 +56,7 @@
                     <label for="regEmail">Địa chỉ email</label>
                 </div>
 
-                <!-- Password -->
+                
                 <div class="form-group has-icon">
                     <input
                         type="password"
@@ -78,7 +78,7 @@
                     </button>
                 </div>
 
-                <!-- Confirm Password -->
+                
                 <div class="form-group has-icon">
                     <input
                         type="password"
@@ -100,7 +100,7 @@
                     </button>
                 </div>
 
-                <!-- Terms & Conditions -->
+                
                 <div class="form-check">
                     <input type="checkbox" id="agree" aria-required="true">
                     <label for="agree">
@@ -112,7 +112,7 @@
                     </label>
                 </div>
 
-                <!-- Submit -->
+                
                 <button
                     type="button"
                     class="btn-auth"
@@ -124,7 +124,7 @@
                 </button>
             </div>
 
-            <!-- Footer -->
+            
             <div class="auth-footer">
                 <p>Đã có tài khoản?
                     <a href="./dangNhap.html" class="auth-link">Đăng nhập ngay</a>
@@ -139,7 +139,7 @@
 
     <script src="../assets/src/js/main.js"></script>
     <script>
-        // Enhanced registration with UI feedback
+        
         function registerEnhanced() {
             var errorBox = document.getElementById('regError');
             var errorMsg = document.getElementById('regErrorMsg');
@@ -185,12 +185,12 @@
                 return;
             }
 
-            // Save & redirect
+            
             localStorage.setItem('email', email);
             localStorage.setItem('password', pass);
             localStorage.setItem('name', name);
 
-            // Success state
+            
             btn.innerHTML = '<i class="ti-check"></i> Đăng ký thành công!';
             btn.style.background = 'linear-gradient(135deg, #16A34A, #22c55e)';
             btn.style.boxShadow = '0 4px 16px rgba(22,163,74,0.35)';
@@ -201,7 +201,7 @@
             }, 900);
         }
 
-        // Toggle password visibility
+        
         function togglePasswordVisibility(inputId, btn) {
             var input = document.getElementById(inputId);
             var icon = btn.querySelector('i');
@@ -216,7 +216,7 @@
             }
         }
 
-        // Clear confirm password error on input
+        
         document.addEventListener('DOMContentLoaded', function () {
             var confirmInput = document.getElementById('regPasswordConfirm');
             if (confirmInput) {
@@ -226,7 +226,7 @@
             }
         });
 
-        // Allow Enter key to submit
+        
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') registerEnhanced();
         });

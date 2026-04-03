@@ -1,13 +1,11 @@
-// Bootstrapping the whole app after modules are loaded.
+
 (function () {
     function fixMovedPageAssetPaths() {
         if (!window.ayaInPagesFolder) return;
 
-        // Fix logic for assets/
         const fromAssets = "./assets/";
         const toAssets = "../assets/";
-        
-        // Fix logic for src/
+
         const fromSrc = "./assets/src/";
         const toSrc = "../assets/src/";
 
@@ -49,7 +47,6 @@
                 if (typeof window.updateFavoriteUI === "function") window.updateFavoriteUI(currentId);
             }
 
-            // Toggle Mobile Menu
             const mobileMenuBtn = document.getElementById("mobile-menu-btn");
             const nav = document.getElementById("nav");
             if (mobileMenuBtn && nav) {
@@ -58,7 +55,6 @@
                 });
             }
 
-            // Toggle Desktop Submenu Category (Chủ đề) - only exists on index sidebar
             const categoryBtn = document.getElementById("category-btn");
             const categoryItem = document.getElementById("category-item");
             if (categoryBtn && categoryItem) {
@@ -73,7 +69,6 @@
             if (typeof window.renderCategoryResults === "function") window.renderCategoryResults();
         };
 
-        // Some pages include the script in <head> (e.g. dangNhap/dangKi).
         if (document.readyState === "loading") {
             document.addEventListener('DOMContentLoaded', run, { once: true });
         } else {

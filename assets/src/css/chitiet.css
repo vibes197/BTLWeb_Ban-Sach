@@ -1,4 +1,4 @@
-/* ─── Chi tiết sách — Redesign with sidebar ──────────────── */
+
 
 #container {
     min-width: unset;
@@ -26,7 +26,7 @@
     margin: 0 6px;
 }
 
-/* ─── Outer layout: main card + sidebar ──────────────────── */
+
 #chitiet-outer {
     display: flex;
     gap: 20px;
@@ -37,7 +37,7 @@
     box-sizing: border-box;
 }
 
-/* ─── Main card (left block) ─────────────────────────────── */
+
 #chitiet-card {
     flex: 1;
     background: #fff;
@@ -47,14 +47,14 @@
     min-width: 0;
 }
 
-/* Top area: cover + info side by side */
+
 #chitiet-main {
     display: flex;
     gap: 36px;
     align-items: flex-start;
 }
 
-/* ─── Book cover ──────────────────────────────────────────── */
+
 .chitiet-cover {
     flex-shrink: 0;
     width: 200px;
@@ -68,13 +68,13 @@
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
 }
 
-/* ─── Info (right of cover) ───────────────────────────────── */
+
 .chitiet-info {
     flex: 1;
     min-width: 0;
 }
 
-/* Category badge */
+
 .chitiet-category-badge {
     display: inline-block;
     background: #FF6B6B;
@@ -96,7 +96,7 @@
     margin-bottom: 10px;
 }
 
-/* Tags row */
+
 .chitiet-tags {
     display: flex;
     flex-wrap: wrap;
@@ -114,7 +114,7 @@
     border: 1px solid #FECACA;
 }
 
-/* Meta items */
+
 .chitiet-meta-row {
     display: flex;
     flex-direction: column;
@@ -129,7 +129,7 @@
     margin-right: 6px;
 }
 
-/* Price block */
+
 .chitiet-price-block {
     display: flex;
     align-items: baseline;
@@ -161,7 +161,7 @@
     border-radius: 20px;
 }
 
-/* ─── Stats row (Số trang | Lượt xem | Đánh giá) ─────────── */
+
 .chitiet-stats {
     display: flex;
     align-items: center;
@@ -203,7 +203,7 @@
     color: #111827;
 }
 
-/* Action buttons */
+
 .chitiet-actions {
     display: flex;
     gap: 10px;
@@ -290,7 +290,7 @@
     background: #e85d5d;
 }
 
-/* ─── Description section (inside card) ─────────────────── */
+
 #chitiet-desc {
     margin-top: 24px;
     padding-top: 20px;
@@ -320,14 +320,14 @@
     line-height: 1.85;
 }
 
-/* ─── Reviews / Comment System ──────────────────────────── */
+
 #chitiet-reviews {
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid #F3F4F6;
 }
 
-/* Header bar: title + total badge + toggle */
+
 .review-header {
     display: flex;
     align-items: center;
@@ -383,7 +383,7 @@
     color: #374151;
 }
 
-/* Comment list */
+
 .review-list {
     display: flex;
     flex-direction: column;
@@ -452,7 +452,7 @@
     line-height: 1.65;
 }
 
-/* ─── Rich Text Editor ───────────────────────────────────── */
+
 .comment-editor-wrap {
     border: 1.5px solid #E5E7EB;
     border-radius: 10px;
@@ -466,7 +466,7 @@
     box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
 }
 
-/* Toolbar */
+
 .comment-editor-toolbar {
     display: flex;
     align-items: center;
@@ -508,7 +508,7 @@
     flex-shrink: 0;
 }
 
-/* Contenteditable body */
+
 .comment-editor-body {
     min-height: 90px;
     max-height: 200px;
@@ -526,7 +526,7 @@
     pointer-events: none;
 }
 
-/* Footer row (2 rows: stars + actions) */
+
 .comment-editor-footer {
     border-top: 1px solid #F3F4F6;
     background: #FAFAFA;
@@ -603,7 +603,7 @@
     transform: translateY(-1px);
 }
 
-/* Delete button on user comments */
+
 .review-delete-btn {
     display: inline-flex;
     align-items: center;
@@ -624,14 +624,14 @@
     background: #FEE2E2;
 }
 
-/* Rendered star icons in review list */
+
 .rev-star { font-size: 13px; }
 .rev-star--filled { color: #F59E0B; }
 .rev-star--empty  { color: #D1D5DB; }
 
 
 
-/* ─── Sidebar (right column) ─────────────────────────────── */
+
 #chitiet-sidebar {
     width: 240px;
     flex-shrink: 0;
@@ -691,7 +691,7 @@
     line-height: 1.7;
 }
 
-/* ─── Responsive ──────────────────────────────────────────── */
+
 @media screen and (max-width: 1024px) {
     #chitiet-outer {
         flex-direction: column;

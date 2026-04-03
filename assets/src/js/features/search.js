@@ -1,4 +1,4 @@
-// Search feature
+
 (function () {
     function setupSearchRedirect() {
         let searchInput = document.getElementById("book-search-input");

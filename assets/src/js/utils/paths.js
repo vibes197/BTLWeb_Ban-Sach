@@ -1,5 +1,5 @@
-// Decide relative href/src prefixes depending on whether the current page
-// lives in the root folder or inside `pages/`.
+
+
 (function () {
     const p = window.location.pathname || "";
     window.ayaInPagesFolder = p.includes("/pages/") || p.includes("\\pages\\");

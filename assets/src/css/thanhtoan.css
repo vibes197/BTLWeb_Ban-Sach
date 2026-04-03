@@ -1,4 +1,4 @@
-/* ─── Thanh toán — Modern redesign ──────────────────────── */
+
 
 #thanhtoan-main {
     min-width: unset;
@@ -46,7 +46,7 @@
     margin-bottom: 4px;
 }
 
-/* Payment options */
+
 .payment-option {
     display: flex;
     align-items: center;
@@ -93,7 +93,7 @@
     border-radius: 8px;
 }
 
-/* ─── Form inputs ─────────────────────────────────────────── */
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -177,7 +177,7 @@
 .form-textarea:focus { border-color: #FF6B6B; }
 .form-textarea::placeholder { color: #9CA3AF; }
 
-/* ─── Order summary ───────────────────────────────────────── */
+
 .tt-right {
     width: 320px;
     flex-shrink: 0;
@@ -271,7 +271,7 @@
     box-shadow: 0 8px 22px rgba(255,107,107,0.45);
 }
 
-/* ─── Responsive ──────────────────────────────────────────── */
+
 @media screen and (max-width: 900px) {
     #thanhtoan-main {
         flex-direction: column;

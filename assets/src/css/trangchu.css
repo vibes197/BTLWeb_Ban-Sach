@@ -20,7 +20,7 @@ body {
     background-color: transparent;
 }
 
-/* ─── Header ─────────────────────────────────────────────── */
+
 
 #header {
     width: 100vw;
@@ -54,7 +54,7 @@ body {
     gap: 16px;
 }
 
-/* Left: Account + Logo */
+
 .header-left {
     display: flex;
     align-items: center;
@@ -77,7 +77,7 @@ body {
     opacity: 0.8;
 }
 
-/* Icon buttons (Account, Wishlist, Cart) */
+
 .header-icon-btn {
     display: flex;
     flex-direction: column;
@@ -108,7 +108,7 @@ body {
     color: #FF6B6B;
 }
 
-/* Center: Nav + Search */
+
 .header-center {
     flex: 1;
     display: flex;
@@ -140,7 +140,7 @@ body {
     color: #FF6B6B;
 }
 
-/* Dropdown Chủ đề */
+
 .nav-dropdown {
     position: relative;
 }
@@ -201,7 +201,7 @@ body {
     color: #FF6B6B;
 }
 
-/* Search Bar */
+
 .header-search {
     display: flex;
     align-items: center;
@@ -259,7 +259,7 @@ body {
     background: #e85d5d;
 }
 
-/* Header Right */
+
 .header-right {
     display: flex;
     align-items: center;
@@ -268,7 +268,7 @@ body {
     margin-left: 16px;
 }
 
-/* Mobile Menu Button */
+
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -289,7 +289,7 @@ body {
     border-color: #D1D5DB;
 }
 
-/* Mobile Nav Drawer */
+
 .mobile-nav {
     display: none;
     flex-direction: column;
@@ -354,18 +354,18 @@ body {
     justify-content: center;
 }
 
-/* ─── Account wrapper / User avatar ─────────────────────────── */
+
 .account-wrapper {
     position: relative;
 }
 
-/* user-avatar styled same as header-icon-btn, with dropdown */
+
 .user-avatar {
     position: relative;
     cursor: pointer;
 }
 
-/* Override: icon inside user-avatar should be plain (no red circle) */
+
 .user-avatar>i {
     font-size: 18px;
     background: none;
@@ -427,7 +427,7 @@ body {
     background: #FFF1F1;
 }
 
-/* ─── Mobile nav: Submenu Chủ đề ────────────────────────────── */
+
 .mobile-nav-category {
     display: flex;
     flex-direction: column;
@@ -484,12 +484,12 @@ body {
     color: #FF6B6B;
 }
 
-/* ─── Sidebar (legacy, kept for compat) ──────────────────── */
+
 #sidebar {
     display: none;
 }
 
-/* ─── Slider ─────────────────────────────────────────────── */
+
 #slider {
     min-width: 100%;
     width: 100%;
@@ -527,7 +527,7 @@ body {
     }
 }
 
-/* ─── Content ────────────────────────────────────────────── */
+
 #content {
     width: 100%;
     background-color: transparent;
@@ -572,7 +572,7 @@ body {
     color: inherit;
 }
 
-/* Ảnh sách height cố định */
+
 .book-item img {
     width: 100%;
     height: 280px;
@@ -581,7 +581,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Đảm bảo .image-container cũng cố định height */
+
 .image-container {
     width: 100%;
     height: 280px;
@@ -671,7 +671,7 @@ body {
     padding: 60px 20px;
 }
 
-/* ─── Footer ─────────────────────────────────────────────── */
+
 #footer {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -742,7 +742,7 @@ body {
     color: #FF6B6B;
 }
 
-/* ─── Toast Notification ─────────────────────────────────── */
+
 #aya-toast-container {
     position: fixed;
     bottom: 28px;
@@ -797,7 +797,7 @@ body {
 }
 
 
-/* ─── Breadcrumb Button Component ────────────────────────── */
+
 .breadcrumb-wrap {
     padding: 10px 5%;
     background: transparent;
@@ -845,7 +845,7 @@ body {
     color: #374151;
 }
 
-/* Keep legacy .breadcrumb as simple fallback wrapper */
+
 .breadcrumb {
     padding: 10px 5%;
     background: transparent;
@@ -867,7 +867,7 @@ body {
 }
 
 
-/* ─── Responsive ─────────────────────────────────────────── */
+
 @media screen and (max-width: 1100px) {
     .header-nav .nav-link:not(.nav-dropdown-btn) {
         display: none;

@@ -1,4 +1,4 @@
-// Category (Chủ đề) feature
+
 (function () {
     function renderCategoryResults() {
         let grid = document.getElementById("category-results-grid");

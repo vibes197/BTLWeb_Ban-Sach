@@ -98,9 +98,7 @@ p {
     color: #0072ff;
 }
 
-/* =========================================
-   RESPONSIVE DESIGN CHO TRANG ĐĂNG NHẬP
-   ========================================= */
+
 @media screen and (max-width: 400px) {
     .form-box {
         width: 90%;

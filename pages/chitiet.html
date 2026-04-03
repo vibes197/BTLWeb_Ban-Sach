@@ -46,7 +46,7 @@
                             <span class="chitiet-discount-badge" id="detail-badge" style="display:none"></span>
                         </div>
 
-                        <!-- Stats row: Số trang | Đã bán | Đánh giá -->
+                        
                         <div class="chitiet-stats">
                             <div class="chitiet-stat-item">
                                 <div class="chitiet-stat-label">Số trang</div>
@@ -72,15 +72,15 @@
                     </div>
                 </div>
 
-                <!-- Description -->
+                
                 <div id="chitiet-desc">
                     <h2><span>Tóm tắt</span></h2>
                     <p id="detail-desc">Đang tải mô tả...</p>
                 </div>
 
-                <!-- Reviews / Comment System -->
+                
                 <div id="chitiet-reviews">
-                    <!-- Summary bar -->
+                    
                     <div class="review-header">
                         <div class="review-header-left">
                             <h2>Đánh giá</h2>
@@ -92,7 +92,7 @@
                         </button>
                     </div>
 
-                    <!-- Rich text editor (trên) -->
+                    
                     <div class="comment-editor-wrap">
                         <div class="comment-editor-toolbar">
                             <button class="editor-tool-btn" title="Emoji" onclick="insertEmoji()">😊</button>
@@ -131,18 +131,18 @@
                         </div>
                     </div>
 
-                    <!-- Comment list (dưới) -->
+                    
                     <div class="review-list" id="review-list"></div>
                 </div>
 
 
 
-            </div><!-- /#chitiet-card -->
+            </div>
 
-            <!-- RIGHT: Sidebar -->
+            
             <div id="chitiet-sidebar">
 
-                <!-- Publisher/NXB block -->
+                
                 <div class="sidebar-block">
                     <div class="sidebar-block-header">Thông tin xuất bản</div>
                     <div class="sidebar-block-body">
@@ -157,7 +157,7 @@
                     </div>
                 </div>
 
-                <!-- Notes block -->
+                
                 <div class="sidebar-block">
                     <div class="sidebar-block-header">Chú thích thêm</div>
                     <div class="sidebar-block-body">
@@ -169,20 +169,20 @@
                     </div>
                 </div>
 
-            </div><!-- /#chitiet-sidebar -->
+            </div>
 
-        </div><!-- /#chitiet-outer -->
+        </div>
 
         <div id="footer"></div>
     </div>
 
 
     <script>
-        // ===================================================
-        //  BOOK DATABASE – all books from index.html
-        // ===================================================
+        
+        
+        
         const books = [
-            // --- SÁCH MỚI ---
+            
             {
                 id: "nina",
                 title: "Nina ở thị trấn cao nguyên - Tập 2",
@@ -263,7 +263,7 @@
                 daXem: ["tet", "sohoc"],
                 cungBo: ["bantusach"]
             },
-            // --- BÁN CHẠY ---
+            
             {
                 id: "shin",
                 title: "Shin - Cậu bé bút chì - Tập 1",
@@ -344,7 +344,7 @@
                 daXem: ["onepi", "naruto", "shin"],
                 cungBo: ["akutami"]
             },
-            // --- MANGA COLLECTION ---
+            
             {
                 id: "xebuyt",
                 title: "XE BUÝT ĐƯA EM ĐI",
@@ -425,7 +425,7 @@
                 daXem: ["shin", "rantaro"],
                 cungBo: ["doraemondoiquan"]
             },
-            // --- KỸ NĂNG ---
+            
             {
                 id: "thiendinh",
                 title: "THIỀN ĐỊNH MỖI NGÀY",
@@ -508,7 +508,7 @@
             }
         ];
 
-        // Fix asset paths when page is moved into /pages/
+        
         if (window.location.pathname.includes("/pages/") || window.location.pathname.includes("\\pages\\")) {
             const from = "./assets/";
             const to = "../assets/";
@@ -519,7 +519,7 @@
             });
         }
 
-        // Reviews mẫu
+        
         const sampleReviews = [
             { name: "Trần Văn A", stars: 5, date: "01/04/2026", text: "Sách rất hay, in ấn đẹp, giao hàng nhanh. Rất hài lòng với sản phẩm!" },
             { name: "Nguyễn Thị B", stars: 4, date: "28/03/2026", text: "Nội dung tốt, bìa cứng chắc chắn. Sẽ ủng hộ thêm ở lần sau." },
@@ -565,11 +565,11 @@
         </div>`;
         }
 
-        // ===================================================
-        //  RECENTLY VIEWED - LƯU RECORD LỊCH SỬ VÀO LOCAL STORAGE
-        // ===================================================
+        
+        
+        
 
-        // 6. Hàm saveViewed(id): Ghi nhớ ID cuốn sách người dùng Vừa Click Xem vào bộ Cookie nhớ 
+        
         function saveViewed(id) {
             let viewed = JSON.parse(localStorage.getItem('ayaViewed') || '[]');
             viewed = [id, ...viewed.filter(v => v !== id)].slice(0, 8);
@@ -595,15 +595,15 @@
             document.getElementById('detail-img').alt = book.title;
             document.getElementById('detail-title').textContent = book.title;
 
-            // Category badge
+            
             document.getElementById('detail-category-badge').textContent = book.category;
 
-            // Tags (category + author as tags)
+            
             const tagsEl = document.getElementById('detail-tags');
             const tagItems = [book.category, book.author, 'Bìa mềm'];
             tagsEl.innerHTML = tagItems.map(t => `<span class="chitiet-tag">${t}</span>`).join('');
 
-            // Meta row
+            
             const metaRowEl = document.getElementById('detail-meta-row');
             metaRowEl.innerHTML = [
                 { label: 'Tác giả:', value: book.author },
@@ -611,7 +611,7 @@
                 { label: 'Năm:', value: book.publishDate }
             ].map(m => `<div class="meta-line"><strong>${m.label}</strong>${m.value}</div>`).join('');
 
-            // Price
+            
             document.getElementById('detail-price').textContent = book.price;
             const origEl = document.getElementById('detail-original');
             const badgeEl = document.getElementById('detail-badge');
@@ -621,15 +621,15 @@
                 badgeEl.style.display = 'inline';
             }
 
-            // Stats row
+            
             document.getElementById('stat-pages').textContent = book.pages;
             document.getElementById('stat-sold').textContent = book.sold.toLocaleString('vi-VN');
             document.getElementById('stat-rating').textContent = renderStars(book.rating) + ' ' + book.rating;
 
-            // Description
+            
             document.getElementById('detail-desc').textContent = book.desc;
 
-            // Sidebar
+            
             document.getElementById('sidebar-publisher').textContent = book.publisher;
             document.getElementById('sidebar-author').textContent = book.author;
             document.getElementById('sidebar-year').textContent = book.publishDate;
@@ -687,30 +687,30 @@
 
         renderPage();
 
-        // ═══════════════════════════════════════════════════
-        //  COMMENT SYSTEM (Global scope)
-        // ═══════════════════════════════════════════════════
+        
+        
+        
 
         let reviewsVisible = true;
         let selectedStars = 5;
         let currentBookId = getParam('id') || 'akutami';
 
-        // ─── Load saved comments from localStorage ─────────
+        
         function loadSavedComments() {
             const key = 'ayaComments_' + currentBookId;
             return JSON.parse(localStorage.getItem(key) || '[]');
         }
 
-        // ─── Save comments to localStorage ─────────────────
+        
         function saveComments(comments) {
             const key = 'ayaComments_' + currentBookId;
             localStorage.setItem(key, JSON.stringify(comments));
         }
 
-        // ─── allReviews: merge sampleReviews + saved ───────
+        
         let allReviews = [...loadSavedComments(), ...sampleReviews];
 
-        // ─── Render review list ─────────────────────────────
+        
         function renderReviewList() {
             const list = document.getElementById('review-list');
             if (!list) return;
@@ -736,15 +736,15 @@
             if (badge) badge.textContent = allReviews.length + ' bình luận';
         }
 
-        // Initial render (also called by renderPage above if scope fixed)
+        
         renderReviewList();
 
-        // ─── Helper: escape HTML ────────────────────────────
+        
         function escapeHtml(str) {
             return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
 
-        // ─── Helper: avatar gradient by name ───────────────
+        
         function avatarColor(name) {
             const colors = [
                 'linear-gradient(135deg,#3d8b5e,#5aab7a)',
@@ -756,7 +756,7 @@
             return colors[(name.charCodeAt(0) || 0) % colors.length];
         }
 
-        // ─── Helper: render full star icons ──────────────────
+        
         function renderStarsFull(n) {
             let html = '';
             for (let i = 1; i <= 5; i++) {
@@ -765,7 +765,7 @@
             return html;
         }
 
-        // ─── Toggle show/hide comments ──────────────────────
+        
         function toggleReviews() {
             const list = document.getElementById('review-list');
             const icon = document.getElementById('review-toggle-icon');
@@ -776,27 +776,27 @@
             text.textContent = reviewsVisible ? 'Ẩn bình luận' : 'Hiện bình luận';
         }
 
-        // ─── Delete user comment ────────────────────────────
+        
         function deleteComment(idx) {
             if (!confirm('Xóa bình luận này?')) return;
-            // idx in allReviews — only delete user ones
+            
             const item = allReviews[idx];
             if (!item || !item.isUser) return;
             allReviews.splice(idx, 1);
-            // rebuild saved list
+            
             const saved = allReviews.filter(r => r.isUser);
             saveComments(saved);
             renderReviewList();
             window.showToast && window.showToast('Đã xóa bình luận!', 'success');
         }
 
-        // ─── Toolbar: format text ───────────────────────────
+        
         function formatText(cmd) {
             document.getElementById('comment-editor').focus();
             document.execCommand(cmd, false, null);
         }
 
-        // ─── Toolbar: insert random emoji ───────────────────
+        
         function insertEmoji() {
             const emojis = ['😊', '😄', '❤️', '👍', '🎉', '📚', '✨', '😍', '🤩', '👏', '🥰', '😂'];
             const editor = document.getElementById('comment-editor');
@@ -813,7 +813,7 @@
             }
         }
 
-        // ─── Toolbar: insert link ───────────────────────────
+        
         function insertLink() {
             const url = prompt('Nhập URL:', 'https://');
             if (url && url !== 'https://') {
@@ -822,7 +822,7 @@
             }
         }
 
-        // ─── Toolbar: insert image ──────────────────────────
+        
         function insertImage() {
             const url = prompt('Nhập URL ảnh:');
             if (url) {
@@ -831,7 +831,7 @@
             }
         }
 
-        // ─── Star rating input ──────────────────────────────
+        
         (function initStarInput() {
             const stars = document.querySelectorAll('.comment-star');
             if (!stars.length) return;
@@ -859,7 +859,7 @@
             });
         }
 
-        // ─── Submit comment ─────────────────────────────────
+        
         function submitComment() {
             if (localStorage.getItem('loggedIn') !== 'true') {
                 window.showToast && window.showToast('Vui lòng đăng nhập để bình luận!', 'success');
@@ -885,19 +885,19 @@
                 htmlText: editor.innerHTML,
                 isUser: true
             };
-            // Prepend to array and save
+            
             allReviews.unshift(newComment);
             const saved = allReviews.filter(r => r.isUser);
             saveComments(saved);
             renderReviewList();
-            // Reset editor and stars
+            
             editor.innerHTML = '';
             selectedStars = 5;
             updateStarDisplay(5);
             window.showToast && window.showToast('Đã đăng bình luận! 🎉', 'success');
         }
 
-        // ─── Ctrl+Enter shortcut ─────────────────────────────
+        
         const editorEl = document.getElementById('comment-editor');
         editorEl && editorEl.addEventListener('keydown', function (e) {
             if (e.ctrlKey && e.key === 'Enter') { e.preventDefault(); submitComment(); }

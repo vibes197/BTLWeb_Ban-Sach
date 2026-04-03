@@ -1,4 +1,4 @@
-// Favorites (Yêu thích) feature
+
 (function () {
     function toggleFavorite(book) {
         if (!window.requireLogin()) return;
@@ -26,7 +26,6 @@
         favorites = favorites.filter(f => f.id !== bookId);
         localStorage.setItem('ayaFavorites', JSON.stringify(favorites));
 
-        // Favorites page defines `renderFavorites()` inline.
         if (typeof window.renderFavorites === 'function') {
             window.renderFavorites();
         }

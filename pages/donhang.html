@@ -62,7 +62,7 @@
 
     </div>
 
-    <!-- Footer ngoài container to be full-width -->
+    
     <div id="footer"></div>
 
     <script>
@@ -88,8 +88,8 @@
             function normalizeImgSrc(src) {
                 if (!src || typeof src !== 'string') return src;
 
-                // Items may be stored from earlier pages at root, e.g. "./assets/..."
-                // When this page is under /pages/, those become broken.
+                
+                
                 if (src.startsWith("./assets/")) return src.replace("./assets/", "../assets/");
                 if (src.startsWith(".\\assets\\")) return src.replace(".\\assets\\", "../assets/");
                 return src;

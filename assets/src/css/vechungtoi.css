@@ -1,6 +1,6 @@
-/* ─── Về Chúng Tôi — Modern redesign ────────────────────── */
 
-/* Dùng flexbox để footer luôn xuống cuối */
+
+
 html, body { height: 100%; }
 
 body {
@@ -23,7 +23,7 @@ body {
     gap: 36px;
 }
 
-/* ─── Breadcrumb ─────────────────────────────────────────── */
+
 .breadcrumb {
     padding: 12px 5%;
     font-size: 13px;
@@ -35,7 +35,7 @@ body {
 .breadcrumb a:hover { color: #FF6B6B; }
 .breadcrumb span { margin: 0 6px; }
 
-/* ─── Content cards ──────────────────────────────────────── */
+
 .about-content,
 .about-map {
     background: #fff;
@@ -84,7 +84,7 @@ body {
     font-size: 16px;
 }
 
-/* ─── Map ────────────────────────────────────────────────── */
+
 .map-container {
     width: 100%;
     overflow: hidden;
@@ -98,9 +98,9 @@ body {
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-/* Footer: dùng style toàn cục từ trangchu.css */
 
-/* ─── Responsive ──────────────────────────────────────────── */
+
+
 @media screen and (max-width: 768px) {
     #about-main { padding: 24px 4% 40px 4%; }
 

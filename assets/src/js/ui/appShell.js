@@ -1,4 +1,4 @@
-// App Header/Footer injected into pages
+
 (function () {
     window.appHeaderHTML = `
         <div class="header-inner">
@@ -122,7 +122,6 @@
         if (headerEl) {
             headerEl.innerHTML = window.appHeaderHTML;
 
-            // Mobile menu toggle
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileNav = document.getElementById('mobile-nav');
             if (mobileBtn && mobileNav) {
@@ -131,7 +130,6 @@
                 });
             }
 
-            // Mobile Chủ đề submenu toggle
             const mobileCatBtn = document.getElementById('mobile-cat-btn');
             const mobileCatSub = document.getElementById('mobile-cat-sub');
             if (mobileCatBtn && mobileCatSub) {
@@ -141,7 +139,6 @@
                 });
             }
 
-            // Mobile search
             const mobileSearchBtn = document.getElementById('mobile-search-btn');
             const mobileSearchInput = document.getElementById('mobile-search-input');
             if (mobileSearchBtn && mobileSearchInput) {
@@ -157,7 +154,6 @@
                 });
             }
 
-            // User avatar dropdown toggle
             const userAvatarBtn = document.getElementById('user-avatar-btn');
             const userDropdownMenu = document.getElementById('user-dropdown-menu');
             if (userAvatarBtn && userDropdownMenu) {
@@ -170,7 +166,6 @@
                 });
             }
 
-            // Sign out from dropdown
             const signOutBtn = document.getElementById('user-dropdown-signout');
             if (signOutBtn) {
                 signOutBtn.addEventListener('click', function (e) {
@@ -200,7 +195,6 @@
         });
     };
 
-    // ─── Toast/Popup Notification ────────────────────────────────────────
     window.showToast = function (message, type) {
         type = type || 'success';
         let container = document.getElementById('aya-toast-container');

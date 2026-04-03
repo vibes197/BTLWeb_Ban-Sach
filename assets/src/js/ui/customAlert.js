@@ -1,5 +1,5 @@
 (function () {
-    // Thêm CSS cho custom modal
+
     const styleId = "aya-custom-alert-styles";
     if (!document.getElementById(styleId)) {
         const style = document.createElement("style");
@@ -35,7 +35,7 @@
             .aya-custom-toast.aya-hide {
                 transform: translateX(0);
                 opacity: 0;
-                transition: opacity 0.4s ease; /* Fade-out effect */
+                transition: opacity 0.4s ease; 
             }
             .aya-custom-toast-header {
                 display: flex;
@@ -98,10 +98,8 @@
 
     const errorIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
 
-    // Container for toasts
     let toastContainer = null;
 
-    // Overriding the default window.alert
     window.alert = function (message) {
         return new Promise((resolve) => {
             if (!toastContainer) {
@@ -113,7 +111,6 @@
             const toast = document.createElement("div");
             toast.className = "aya-custom-toast";
 
-            // If empty message, fallback to default text from image
             const displayMessage = message || "Invalid credentials";
 
             toast.innerHTML = `
@@ -134,7 +131,6 @@
 
             toastContainer.appendChild(toast);
 
-            // trigger slide-in animation
             requestAnimationFrame(() => {
                 toast.classList.add("aya-show");
             });
@@ -144,7 +140,7 @@
             function closeToast() {
                 clearTimeout(autoHideTimeout);
                 toast.classList.remove("aya-show");
-                toast.classList.add("aya-hide"); // trigger fade-out
+                toast.classList.add("aya-hide"); 
 
                 setTimeout(() => {
                     if (toastContainer.contains(toast)) {
@@ -157,10 +153,9 @@
                         toastContainer = null;
                     }
                     resolve();
-                }, 400); // 400ms corresponds to transition duration
+                }, 400); 
             }
 
-            // Auto hide after 5 seconds
             autoHideTimeout = setTimeout(() => {
                 closeToast();
             }, 5000);

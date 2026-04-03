@@ -35,7 +35,7 @@
             </div>
             
             <div class="faq-container">
-                <!-- Cột trái: Danh sách Câu hỏi -->
+                
                 <div class="faq-accordion">
                     <div class="accordion-item">
                         <button class="accordion-btn">Làm thế nào để đặt hàng? <i class="ti-angle-down"></i></button>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <!-- Cột phải: Form Liên hệ -->
+                
                 <div class="faq-box">
                     <h3>Vẫn chưa tìm thấy câu trả lời?</h3>
                     <p class="subtitle">Gửi câu hỏi trực tiếp cho đội ngũ tư vấn</p>
@@ -92,12 +92,12 @@
         </div>
     </div>
 
-    <!-- Footer ngoài container -->
+    
     <div id="footer"></div>
 
     <script src="../assets/src/js/main.js"></script>
     <script>
-        // Accordion Logic
+        
         document.addEventListener('DOMContentLoaded', function() {
             const accBtns = document.querySelectorAll('.accordion-btn');
             accBtns.forEach(btn => {
@@ -116,11 +116,11 @@
         function handleSubmit(event) {
             event.preventDefault();
             const name = document.getElementById('faq-name').value;
-            // Use toast instead of alert
+            
             if (window.showToast) {
                 window.showToast('✅ Gửi thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.', 'cart');
             }
-            // Clear form
+            
             event.target.reset();
         }
     </script>

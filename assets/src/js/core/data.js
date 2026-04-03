@@ -1,5 +1,5 @@
-// Shared small catalog used by Search/Category pages
-// (not the big `books` array inside chitiet.html).
+
+
 (function () {
     const assetsPrefix = window.ayaAssetsPrefix || "./assets/";
     window.booksData = [

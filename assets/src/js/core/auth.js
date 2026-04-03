@@ -1,4 +1,4 @@
-// Authentication helpers
+
 (function () {
     function register() {
         let email = document.getElementById("regEmail")?.value;
@@ -115,7 +115,6 @@
         }
     }
 
-    // Expose to window for inline onclick calls.
     window.register = register;
     window.login = login;
     window.logout = logout;
