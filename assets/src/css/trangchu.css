@@ -203,17 +203,19 @@ body {
 
 /* Search Bar */
 .header-search {
-    flex: 1;
     display: flex;
     align-items: center;
     height: 38px;
+    width: 320px;
     max-width: 380px;
+    min-width: 180px;
+    margin-left: auto;
     border: 1.5px solid #E5E7EB;
     border-radius: 8px;
     background: #F9FAFB;
     transition: border-color 0.2s, box-shadow 0.2s;
     overflow: hidden;
-    min-width: 0;
+    flex-shrink: 0;
 }
 
 .header-search:focus-within {
@@ -263,6 +265,7 @@ body {
     align-items: center;
     gap: 6px;
     flex-shrink: 0;
+    margin-left: 16px;
 }
 
 /* Mobile Menu Button */
@@ -784,6 +787,17 @@ body {
 .aya-toast--cart i {
     color: #34D399;
 }
+<<<<<<< HEAD
+
+.aya-toast--cart {
+    border-left-color: #34D399;
+}
+
+.aya-toast--success i {
+    color: #FF6B6B;
+}
+=======
+>>>>>>> 6753702fb4a188059e648cbde498e33f56e58a01
 
 .aya-toast--cart {
     border-left-color: #34D399;
@@ -793,11 +807,63 @@ body {
     color: #FF6B6B;
 }
 
-/* ─── Breadcrumb ─────────────────────────────────────────── */
+/* ─── Breadcrumb Button Component ────────────────────────── */
+.breadcrumb-wrap {
+    padding: 10px 5%;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.breadcrumb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #fff;
+    border: 1.5px solid #D1D5DB;
+    border-radius: 8px;
+    padding: 6px 14px 6px 11px;
+    font-size: 13px;
+    color: #374151;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.breadcrumb-btn:hover {
+    background: #F3F4F6;
+    border-color: #9CA3AF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    color: #111827;
+}
+
+.breadcrumb-btn .bc-home-icon {
+    font-size: 14px;
+    color: #111827;
+    flex-shrink: 0;
+}
+
+.breadcrumb-btn .bc-sep {
+    color: #9CA3AF;
+    font-size: 13px;
+    font-weight: 400;
+    flex-shrink: 0;
+}
+
+.breadcrumb-btn .bc-label {
+    font-weight: 500;
+    color: #374151;
+}
+
+/* Keep legacy .breadcrumb as simple fallback wrapper */
 .breadcrumb {
-    padding: 12px 40px;
+    padding: 10px 5%;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     font-size: 13px;
     color: #6B7280;
+<<<<<<< HEAD
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     background: transparent;
 }
@@ -814,6 +880,14 @@ body {
 .breadcrumb span {
     margin: 0 6px;
 }
+=======
+}
+
+.breadcrumb a { color: #6B7280; text-decoration: none; }
+.breadcrumb a:hover { color: #3d8b5e; }
+.breadcrumb span { margin: 0 4px; }
+
+>>>>>>> 6753702fb4a188059e648cbde498e33f56e58a01
 
 /* ─── Responsive ─────────────────────────────────────────── */
 @media screen and (max-width: 1100px) {
