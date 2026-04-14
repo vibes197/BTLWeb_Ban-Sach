@@ -21,22 +21,28 @@ AyaBook là một dự án website bán sách trực tuyến với giao diện h
 BTLWeb_Ban-Sach/
 │
 ├── assets/                 # Các tài nguyên và tệp tĩnh
-│   ├── css/                # Các file định dạng giao diện (StyleSheets)
 │   ├── fonts/              # Các font chữ và bộ icon (Themify Icons)
-│   └── img/                # Hình ảnh sử dụng cho đồ hoạ của dự án
+│   ├── img/                # Hình ảnh sử dụng cho đồ hoạ của dự án
+│   └── src/                # Tài nguyên mã nguồn tĩnh
+│       ├── css/            # Các file định dạng giao diện (StyleSheets)
+│       └── js/             # Các file JavaScript được tổ chức dạng module (core, features, ui, utils)
 │
-├── js/
-│   └── script.js           # Xử lý logic chung, quản lý localStorage, cập nhật giỏ hàng v.v.
+├── components/             # Các thành phần giao diện được tái sử dụng (Header, Footer,...)
 │
-├── index.html              # Trang chủ hiển thị sách theo các kệ sách, chuyên mục
-├── chitiet.html            # Trang hiển thị thông tin cụ thể (mô tả, giá) của một quyển sách
-├── dangNhap.html           # Trang nhập thông tin Đăng nhập
-├── dangKi.html             # Trang Đăng ký người dùng mới
-├── donhang.html            # Trang xem và quản lý những món đồ có trong giỏ hàng
-├── thanhtoan.html          # Trang điền thông tin và thao tác quá trình thanh toán
-├── thanhcong.html          # Trang hiển thị trạng thái Đặt hàng thành công
-├── yeuthich.html           # Trang chứa danh sách các quyển sách yêu thích
-└── faq.html                # Trang câu hỏi thường gặp và hướng dẫn (FAQ)
+├── pages/                  # Thư mục chứa các trang HTML phụ
+│   ├── chitiet.html        # Trang hiển thị thông tin cụ thể (mô tả, giá) của một quyển sách
+│   ├── chude.html          # Trang hiển thị danh sách sách theo các chủ đề
+│   ├── dangNhap.html       # Trang nhập thông tin Đăng nhập
+│   ├── dangKi.html         # Trang Đăng ký người dùng mới
+│   ├── donhang.html        # Trang xem và quản lý những món đồ có trong giỏ hàng
+│   ├── thanhtoan.html      # Trang điền thông tin và thao tác quá trình thanh toán
+│   ├── thanhcong.html      # Trang hiển thị trạng thái Đặt hàng thành công
+│   ├── timkiem.html        # Trang danh sách kết quả tìm kiếm
+│   ├── vechungtoi.html     # Trang giới thiệu về cửa hàng
+│   ├── yeuthich.html       # Trang chứa danh sách các quyển sách yêu thích
+│   └── faq.html            # Trang câu hỏi thường gặp và hướng dẫn (FAQ)
+│
+└── index.html              # Trang chủ hiển thị sách theo các kệ sách, chuyên mục
 ```
 
 ## 🛠️ Công nghệ sử dụng (Technologies)
