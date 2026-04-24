@@ -124,6 +124,26 @@
     transform: translateY(-2px);
 }
 
+.btn-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff1f1;
+    color: #000000;
+    padding: 11px 24px;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.25s ease;
+    border: 1px solid black;
+}
+
+.btn-home:hover {
+    background: #fcc2c2;
+    transform: translateY(-2px);
+}
 
 @media screen and (max-width: 768px) {
     #yeuthich-main {

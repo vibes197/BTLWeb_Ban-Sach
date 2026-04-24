@@ -52,8 +52,15 @@
             grid.innerHTML = `
                 <div id="empty-favorites" style="text-align: center; padding: 50px; width: 100%;">
                     <p style="font-size: 18px; margin-bottom: 20px;">Không tìm thấy sách nào cho "${query}".</p>
-                    <a href="${window.ayaIndexHref}" class="btn-continue">Tiếp tục tìm kiếm</a>
+                    <a class="btn-continue" id="continue-btn">Tiếp tục tìm kiếm</a><br>
+                    <a href="${window.ayaIndexHref}" class="btn-home" style=><i class="ti-home bc-home-icon"></i>Trở về trang chủ</a>
+
                 </div>`;
+            const continueBtn = document.getElementById("continue-btn");
+            continueBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                document.getElementById("book-search-input").focus();
+            });
             return;
         }
 

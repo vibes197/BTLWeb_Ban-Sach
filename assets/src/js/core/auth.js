@@ -52,7 +52,7 @@
             alert("Đăng nhập thành công!");
             window.location.href = window.ayaIndexHref;
         } else {
-            alert("Sai tài khoản hoặc mật khẩu!");
+            alert("Sai tài khoản email hoặc mật khẩu!");
         }
     }
 
